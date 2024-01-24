@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang = "en">
+
+<head>
+
+<link rel="icon"          href="https://introcs.cs.princeton.edu/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="https://introcs.cs.princeton.edu/favicon.ico" type="image/x-icon">
+<link rel="stylesheet"    href="https://introcs.cs.princeton.edu/java.css" type="text/css">
+
+<title>alberssquares.py</title>
+
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta NAME="AUTHOR" CONTENT="Robert Sedgewick, Kevin Wayne, and Robert Dondero">
+<meta NAME="DESCRIPTION" CONTENT="alberssquares code in Python">
+<meta NAME="TITLE" CONTENT="alberssquares code in Python">
+<meta NAME="KEYWORDS" CONTENT="alberssquares,python,programming,computer science,algorithm,program,code">
+<meta NAME="ROBOTS" CONTENT="INDEX,FOLLOW">
+
+</head>
+
+
+<body>
+<center><h1>alberssquares.py</h1></center><p><br>
+
+Below is the syntax highlighted version of <a href = "alberssquares.py">alberssquares.py</a>
+from <a href = "https://introcs.cs.princeton.edu/python/31datatype">&#167;3.1 Using Data Types</a>.
+<p><br>
+
+<!-- Generator: GNU source-highlight 3.1.8
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span class="comment">#-----------------------------------------------------------------------</span>
+<span class="comment"># alberssquares.py</span>
+<span class="comment">#-----------------------------------------------------------------------</span>
+
+<span class="preproc">import</span><span class="normal"> sys</span>
+<span class="preproc">import</span><span class="normal"> stddraw</span>
+<span class="preproc">from</span><span class="normal"> color </span><span class="preproc">import</span><span class="normal"> Color</span>
+
+<span class="comment">#-----------------------------------------------------------------------</span>
+
+<span class="comment"># Accept integers r1, g1, b1, r2, g2, and b2 as command-line arguments.</span>
+<span class="comment"># Draw to standard draw Albers squares using colors (r1, g1, b1) and</span>
+<span class="comment"># (r2, g2, b2).</span>
+
+<span class="normal">r1 </span><span class="symbol">=</span><span class="normal"> </span><span class="function">int</span><span class="symbol">(</span><span class="normal">sys</span><span class="symbol">.</span><span class="normal">argv</span><span class="symbol">[</span><span class="number">1</span><span class="symbol">])</span>
+<span class="normal">g1 </span><span class="symbol">=</span><span class="normal"> </span><span class="function">int</span><span class="symbol">(</span><span class="normal">sys</span><span class="symbol">.</span><span class="normal">argv</span><span class="symbol">[</span><span class="number">2</span><span class="symbol">])</span>
+<span class="normal">b1 </span><span class="symbol">=</span><span class="normal"> </span><span class="function">int</span><span class="symbol">(</span><span class="normal">sys</span><span class="symbol">.</span><span class="normal">argv</span><span class="symbol">[</span><span class="number">3</span><span class="symbol">])</span>
+<span class="normal">c1 </span><span class="symbol">=</span><span class="normal"> </span><span class="function">Color</span><span class="symbol">(</span><span class="normal">r1</span><span class="symbol">,</span><span class="normal"> g1</span><span class="symbol">,</span><span class="normal"> b1</span><span class="symbol">)</span>
+
+<span class="normal">r2 </span><span class="symbol">=</span><span class="normal"> </span><span class="function">int</span><span class="symbol">(</span><span class="normal">sys</span><span class="symbol">.</span><span class="normal">argv</span><span class="symbol">[</span><span class="number">4</span><span class="symbol">])</span>
+<span class="normal">g2 </span><span class="symbol">=</span><span class="normal"> </span><span class="function">int</span><span class="symbol">(</span><span class="normal">sys</span><span class="symbol">.</span><span class="normal">argv</span><span class="symbol">[</span><span class="number">5</span><span class="symbol">])</span>
+<span class="normal">b2 </span><span class="symbol">=</span><span class="normal"> </span><span class="function">int</span><span class="symbol">(</span><span class="normal">sys</span><span class="symbol">.</span><span class="normal">argv</span><span class="symbol">[</span><span class="number">6</span><span class="symbol">])</span>
+<span class="normal">c2 </span><span class="symbol">=</span><span class="normal"> </span><span class="function">Color</span><span class="symbol">(</span><span class="normal">r2</span><span class="symbol">,</span><span class="normal"> g2</span><span class="symbol">,</span><span class="normal"> b2</span><span class="symbol">)</span>
+
+<span class="normal">stddraw</span><span class="symbol">.</span><span class="function">setCanvasSize</span><span class="symbol">(</span><span class="number">512</span><span class="symbol">,</span><span class="normal"> </span><span class="number">256</span><span class="symbol">)</span>
+<span class="normal">stddraw</span><span class="symbol">.</span><span class="function">setYscale</span><span class="symbol">(.</span><span class="number">25</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">.</span><span class="number">75</span><span class="symbol">)</span>
+
+<span class="normal">stddraw</span><span class="symbol">.</span><span class="function">setPenColor</span><span class="symbol">(</span><span class="normal">c1</span><span class="symbol">)</span>
+<span class="normal">stddraw</span><span class="symbol">.</span><span class="function">filledSquare</span><span class="symbol">(.</span><span class="number">25</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">.</span><span class="number">5</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">.</span><span class="number">2</span><span class="symbol">)</span>
+
+<span class="normal">stddraw</span><span class="symbol">.</span><span class="function">setPenColor</span><span class="symbol">(</span><span class="normal">c2</span><span class="symbol">)</span>
+<span class="normal">stddraw</span><span class="symbol">.</span><span class="function">filledSquare</span><span class="symbol">(.</span><span class="number">25</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">.</span><span class="number">5</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">.</span><span class="number">1</span><span class="symbol">)</span>
+
+<span class="normal">stddraw</span><span class="symbol">.</span><span class="function">setPenColor</span><span class="symbol">(</span><span class="normal">c2</span><span class="symbol">)</span>
+<span class="normal">stddraw</span><span class="symbol">.</span><span class="function">filledSquare</span><span class="symbol">(.</span><span class="number">75</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">.</span><span class="number">5</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">.</span><span class="number">2</span><span class="symbol">)</span>
+
+<span class="normal">stddraw</span><span class="symbol">.</span><span class="function">setPenColor</span><span class="symbol">(</span><span class="normal">c1</span><span class="symbol">)</span>
+<span class="normal">stddraw</span><span class="symbol">.</span><span class="function">filledSquare</span><span class="symbol">(.</span><span class="number">75</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">.</span><span class="number">5</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">.</span><span class="number">1</span><span class="symbol">)</span>
+
+<span class="normal">stddraw</span><span class="symbol">.</span><span class="function">show</span><span class="symbol">()</span>
+
+<span class="comment">#-----------------------------------------------------------------------</span>
+
+<span class="comment"># python alberssquares.py 9 90 166 100 100 100</span>
+<span class="normal">    </span>
+<span class="comment"># python alberssquares.py 0 174 239 147 149 252</span>
+
+</tt></pre>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-10811519-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+
+<p><br><address><small>
+Copyright &copy; 2000&ndash;2015, Robert Sedgewick, Kevin Wayne, and Robert Dondero.
+<br>Last updated: Fri Oct 20 20:45:16 EDT 2017.
+</small></address>
+
+</html>

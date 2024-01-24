@@ -1,0 +1,424 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="en">
+
+<head>
+
+<link rel="icon"          href="https://introcs.cs.princeton.edu/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="https://introcs.cs.princeton.edu/favicon.ico" type="image/x-icon">
+<link rel="stylesheet"    href="https://introcs.cs.princeton.edu/introcs.css" type="text/css">
+<meta name="google-site-verification" content="nYspbl5bNBQrNZKguiAAFTMVM7sq2P1WQYc8Oi6Okl0" />
+<meta name="msvalidate.01" content="D4B7F6DF793EFF34DE96F611C2A367A5" />
+<!-- IE HACKS -->
+<!--[if IE]>
+<style type="text/css" media="screen">
+ #menu ul li {float: left; width: 100%;}
+</style>
+<![endif]-->
+<!--[if lt IE 7]>
+<style type="text/css" media="screen">
+body {
+behavior: url(/csshover.htc);
+} 
+#menu ul li {float: left; width: 100%;}
+#menu ul li a {height: 1%;} 
+
+#menu a, #menu h2 {
+font: bold 0.9em/1.5em arial, helvetica, sans-serif;
+} 
+
+</style>
+<![endif]-->
+
+
+<title>
+Case Study: N-Body Simulation</title>
+<script type='text/javascript' src='https://algs4.cs.princeton.edu/media/swfobject.js'></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10811519-6', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<META HTTP-EQUIV="Content-Type" content="text/html; charset=iso-8859-1">
+<META NAME="AUTHOR" CONTENT="Robert Sedgewick, Kevin Wayne, and Robert Dondero">
+<META NAME="KEYWORDS" CONTENT="Case Study: N-Body Simulation,Python,Programming,interdisciplinary,Computer science,cs,intro,introduction,sedgewick,dondero,wayne">
+<META NAME="DESCRIPTION" CONTENT="This textbook provides an interdisciplinary approach to the CS 1 curriculum. We teach the classic elements of programming, using an "objects-in-the-middle" approach that emphasizes data abstraction. A key feature of the book is the manner in which we motivate each programming concept by examining its impact on specific applications, taken from science, engineering, and commerce.">
+<META NAME="TITLE" CONTENT="Case Study: N-Body Simulation. Introduction to Programming in Python by Sedgewick, Wayne, and Dondero">
+<META NAME="ROBOTS" CONTENT="INDEX,FOLLOW">
+<META name="verify-v1" content="D4o9ikkHbNKapHncCP8ZmiD9Z2DBbrJyaSV0lyce+3w=">
+
+
+<link rel="stylesheet" href="https://localhost:49822/stylesheet?id=V8jFvJmHsr9SARYM"></head>
+
+
+
+
+
+<body>
+
+<div id = "menu">
+   <div align="center">
+<a class = picture href = "https://introcs.cs.princeton.edu/python">
+<img src="../cover.png" width=190 border=0 alt = "Introduction to Programming in Python">
+</a>
+</div>
+
+
+
+
+
+<ul>
+  <li><a class = title href = "/python/home">Intro to Programming</a>
+    <ul>
+
+      <li> <a href = "https://introcs.cs.princeton.edu/python/10elements">1.&nbsp;&nbsp;Elements of Programming</a>
+        <ul>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/11hello">1.1&nbsp;&nbsp;Your First Program</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/12types">1.2&nbsp;&nbsp;Built-in Types of Data</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/13flow">1.3&nbsp;&nbsp;Conditionals and Loops</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/14array">1.4&nbsp;&nbsp;Arrays</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/15inout">1.5&nbsp;&nbsp;Input and Output</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/16pagerank">1.6&nbsp;&nbsp;Case Study: PageRank</a>
+        </ul>
+
+      <li> <a href = "https://introcs.cs.princeton.edu/python/20functions">2.&nbsp;&nbsp;Functions</a>
+        <ul>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/21function">2.1&nbsp;&nbsp;Defining Functions</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/22module">2.2&nbsp;&nbsp;Modules and Clients</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/23recursion">2.3&nbsp;&nbsp;Recursion</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/24percolation">2.4&nbsp;&nbsp;Case Study: Percolation</a>
+        </ul>
+
+      <li> <a href = "https://introcs.cs.princeton.edu/python/30oop">3.&nbsp;&nbsp;OOP</a>
+        <ul>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/31datatype">3.1&nbsp;&nbsp;Using Data Types</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/32class">3.2&nbsp;&nbsp;Creating Data Types</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/33design">3.3&nbsp;&nbsp;Designing Data Types</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/34nbody">3.4&nbsp;&nbsp;Case Study: N-Body</a>
+        </ul>
+
+      <li> <a href = "https://introcs.cs.princeton.edu/python/40algorithms">4.&nbsp;&nbsp;Data Structures</a>
+        <ul>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/41analysis">4.1&nbsp;&nbsp;Performance</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/42sort">4.2&nbsp;&nbsp;Sorting and Searching</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/43stack">4.3&nbsp;&nbsp;Stacks and Queues</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/44st">4.4&nbsp;&nbsp;Symbol Tables</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/45graph">4.5&nbsp;&nbsp;Case Study: Small World</a>
+        </ul>
+    </ul>
+</ul>
+
+
+
+
+<!--
+<ul>
+  <li><a class = title href = "/python/cs">Intro to CS</a>
+    <ul>
+        </ul>
+    </ul>
+</ul>
+
+-->
+
+
+
+
+
+<ul>
+
+<li><a class = title> Related Booksites</a>
+<table width = 100% border = 0 cellspacing = 0 cellpadding = 0>
+<tr>
+<td align = center>
+<a class = booksite href = "https://introcs.cs.princeton.edu">
+   <img src = "https://introcs.cs.princeton.edu/java/cover.png"
+        width = 73 height = 91 border=0
+        alt = "Introduction to Programming in Java
+               by Robert Sedgewick and Kevin Wayne">
+</a>
+<td align = center>
+<a class = booksite href = "https://algs4.cs.princeton.edu">
+   <img src = "https://algs4.cs.princeton.edu/cover.png"
+        width = 73 height = 91 border=0
+        alt = "Algorihtms, 4th Edition by Robert Sedgewick and Kevin Wayne">
+</a>
+</tr>
+</table>
+
+
+
+  <li><a class = title href = "/home">Web Resources</a>
+    <ul>
+
+      <li> <a href = "/python/faq">FAQ</a>
+      <!-- <li> <a href = "/python/data">Data</a> -->
+      <li> <a href = "/python/code">Code</a>
+      <li> <a href = "/python/errata">Errata</a>
+      <li> <a href = "/python/appendix">Appendices</a>
+        <ul>
+          <li> <a href = "/python/appendix_precedence">A. &nbsp; Python Operator Precedence</a>
+          <li> <a href = "/python/appendix_style">B. &nbsp; Writing Clear Code</a>
+          <li> <a href = "/python/appendix_gaussian">C. &nbsp; Gaussian Distribution</a>
+          <li> <a href = "/python/appendix_cheatsheet">D. &nbsp; Python Cheatsheet</a>
+          <li> <a href = "/python/appendix_numpy">E. &nbsp; NumPy</a>
+        </ul>
+      <!-- <li> <a href="/python/lectures">Lecture Slides</a> -->
+      <!-- <li> <a href="/python/assignments">Programming Assignments</a> -->
+   </ul>
+
+
+</ul>
+
+<p><br>
+<script>
+  (function() {
+    var cx = '005649317310637734940:_d158dlngnk';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:searchbox-only></gcse:searchbox-only>
+
+<p><br>
+</div>
+
+<div id = "content">
+   <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>
+</title>
+</head>
+<body>
+<h1>3.4 Case Study: N-body Simulation</h1>
+
+<br>
+
+<p>In this section, we consider a new program that exemplifies object-oriented programming. Our task is to compose a program that dynamically simulates the motion of <em>n</em> bodies under the influence of mutual gravitational attraction. This <em>n-body simulation</em> problem was first formulated by Isaac Newton over 350 years ago, and scientists still study it intensely today.</p>
+
+<p>One reason that this problem is a compelling example of object-oriented programming is that it presents a direct and natural correspondence between physical objects in the real world and the abstract objects that we use in programming.</p>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+
+<h2>N-Body Simulation</h2>
+
+<p>The bouncing-ball simulation of Section 1.5 is based on <em>Newton's first law of motion</em>: a body in motion remains in motion at the same velocity unless acted on by an outside force. Embellishing that example to include <em>Newton's second law of motion</em> (which explains how outside forces affect velocity) leads us to a basic problem that has fascinated scientists for ages. Given a system of <em>n</em> bodies, mutually affected by gravitational forces, the problem is to describe their motion.</p>
+
+<p><h3>Body data type.</h3> In <a href="../15inout/bouncingball.py.html">bouncingball.py</a> (from Section 1.5), we keep the displacement from the origin in the floats <code>rx</code> and <code>ry</code> and the velocity in the floats <code>vx</code> and <code>vy</code>, and displace the ball the amount it moves in one time unit with the statements:</p>
+
+<blockquote><table><tr><td><pre>
+rx = rx + vx
+ry = ry + vy
+</pre></td></tr></table></blockquote>
+
+<img src="images/VectorAdd.png" align="right" hspace="25" alt="Adding vectors to move a ball">
+
+<p>With <code>Vector</code>, as defined in <a href="../33design/vector.py.html">vector.py</a> (from Section 3.3), we can keep the position in the Vector <code>r</code> and the velocity in the <code>Vector</code> <code>v</code>, and then displace the body the amount it moves in <code>dt</code> time units with a single statement:</p>
+
+<blockquote><table><tr><td><pre>
+r = r + v.scale(dt)
+</pre></td></tr></table></blockquote>
+
+<p>The program <a href="body.py.html">body.py</a> implements <code>Body</code>, a Python class for a data type for moving bodies. <code>Body</code> is a <code>Vector</code> client &mdash; the values of the data type are <code>Vector</code> objects that carry the body's position and velocity, as well as a float that carries the mass. The data-type operations allow clients to move and to draw the body (and to compute the force vector due to gravitational attraction from another body), as defined by this  API:</p>
+
+<blockquote>
+<img src="images/BodyApi.png" alt="Body API">
+</blockquote>
+
+<p>Technically, the body's position (displacement from the origin) is not a vector (it is a point in space, not a direction and a magnitude), but it is convenient to represent it as a <code>Vector</code> because <code>Vector</code> operations lead to compact code for the transformation that we need to move the body. When we move a <code>Body</code>, we need to change not just its position, but also its velocity.</p>
+
+<p><h3>Force and motion.</h3> Newton's second law of motion says that the force on a body (a vector) is equal to the scalar product of its mass and its acceleration (also a vector): <strong>F</strong> = <em>m</em> <strong>a</strong>. In other words, to compute the acceleration of a body, we compute the force, then divide by its mass. In <code>Body</code>, the force is a <code>Vector</code> argument <code>f</code> to <code>move()</code>, so that we can first compute the acceleration vector just by dividing by the mass (a scalar value that is kept as a float in an instance variable) and then compute the change in velocity by adding to it the amount this vector changes over the time interval (in the same way that we used the velocity to change the position). This law immediately translates to the following code for updating the position and velocity of a body due to a given force vector <code>f</code> and amount of time <code>dt</code>:</p>
+
+<blockquote><table><tr><td><pre>
+a = f.scale(1.0 / mass)
+v = v + a.scale(dt)
+r = r + v.scale(dt)
+</pre></td></tr></table></blockquote>
+
+<p>This code appears in the <code>move()</code> method in <code>Body</code>, to adjust its values to reflect the consequences of that force being applied for that amount of time: the body moves and its velocity changes. This calculation assumes that the acceleration is constant during the time interval.</p>
+
+<blockquote>
+<img src="images/VectorAddAcc.png" alt="Motion near a stationary body">
+</blockquote>
+
+<p><h3>Forces among bodies. </h3>
+
+<img src="images/VectorForce.png" align="right" hspace="25" alt="Force from one body to another">
+
+The computation of the force imposed by one body on another is encapsulated in the method <code>forceFrom()</code> in <code>Body</code>, which takes a <code>Body</code> object as argument and returns a <code>Vector</code>. Newton's law of universal gravitation is the basis for the calculation: the magnitude of the gravitational force between two bodies is given by the product of their masses divided by the square of the distance between them (scaled by the gravitational constant <em>G</em>, which is 6.67 &times; 10<sup>-11</sup> N m<sup>2</sup> / kg<sup>2</sup>) and the direction of the force is the line between the two particles. This law translates to the following code for computing <code>a.forceFrom(b)</code>:</p>
+
+<blockquote><table><tr><td><pre>
+G = 6.67e-11
+delta = b._r - a._r
+dist = abs(delta)
+magnitude = G * a.mass * b.mass / (dist * dist)
+f = delta.direction().scale(magnitude)
+</pre></td></tr></table></blockquote>
+   
+<p>The <em>magnitude</em> of the force vector is the float magnitude, and the <em>direction</em> of the force vector is the same as the direction of the difference vector between the two body's positions. The force vector <code>f</code> is the product of magnitude and direction.</p>
+
+<p><h3>Universe data type.</h3> <code>Universe</code>, as defined in <a href="universe.py.html">universe.py</a>, is a data type that implements the following API:</p>
+
+<blockquote>
+<img src="images/UniverseApi.png" alt="Universe API">
+</blockquote>
+
+<p>Its data-type values define a universe (its size, the number of bodies, and an array of bodies) and two data-type operations: <code>increaseTime()</code>, which adjusts the positions (and velocities) of all of the bodies, and <code>draw()</code>, which draws all of the bodies. The key to the <em>n</em>-body simulation is the implementation of <code>increaseTime()</code> in <code>Universe</code>. The first part of the computation is a doubly nested loop that computes the force vector describing the gravitational force of each body on each other body. It applies the principle of superposition, which says that we can add together the force vectors affecting a body to get a single vector representing the aggregate force. After it has computed all of the forces, it calls the <code>move()</code> method for each body to apply the computed force for a fixed time quantum.</p>
+
+<p><h3>File format.</h3> The constructor reads the universe parameters and body descriptions from a file that contains the following information:</p>
+
+<ul>
+<li>The number of bodies</li>
+<li>The radius of the universe</li>
+<li>The position, velocity, and mass of each body</li>
+</ul>
+
+<p>The files <a href="2bodytiny.txt">2bodytiny.txt</a>, <a href="2body.txt">2body.txt</a>, <a href="3body.txt">3body.txt</a>, and <a href="4body.txt">4body.txt</a>, contain data of that form. As usual, for consistency, all measurements are in standard SI units (recall that the gravitational constant <em>G</em> also appears in our code). With this defined file format, the code for our <code>Universe</code> constructor is straightforward. Each <code>Body</code> is characterized by five floats: the <em>x</em>- and <em>y</em>-coordinates of its position, the <em>x</em>- and <em>y</em>-components of its initial velocity, and its mass.</p> 
+
+<p>The static images shown below were made by modifying <code>Universe</code> and <code>Body</code> to draw the bodies in white, and then black on a gray background. By comparison, the dynamic images that you get when you run <a href="universe.py.html">universe.py</a> as it stands give a realistic feeling of the bodies orbiting one another, which is difficult to discern in the fixed pictures.</p>
+
+<blockquote>
+<img src="images/UniverseOutput.png" alt="Universe output">
+</blockquote>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+<!-- =============================================================== -->
+
+<h4>Q &amp; A</h4>
+
+<p><strong>Q.</strong>	The <code>Universe</code> API is certainly small. Why not just implement that code in a main() test client for <code>Body</code>?</p> 
+
+<p><strong>A.</strong>	Our design is an expression of what many people believe about the universe: it was created, and then time moves on. It clarifies the code and allows for maximum flexibility in simulating what goes on in the universe.</p>
+
+<p><strong>Q.</strong>	Why is <code>forceFrom()</code> a method? Wouldn't it be better for it to be a function that takes two <code>Body</code> objects as arguments?</p>
+
+<p><strong>A.</strong>	Implementing <code>forceFrom()</code> as a method is one of several possible alternatives, and having a function that takes two <code>Body</code> objects as arguments is certainly a reasonable choice. Some programmers prefer to completely avoid functions in data-type implementations; another option is to maintain the force acting on each <code>Body</code> as an instance variable. Our choice is a compromise between these two options.</p>
+
+<p><strong>Q.</strong>	Shouldn't the <code>move()</code> method in <a href="body.py.html">body.py</a> update the position using the old velocity instead of the updated velocity?</p>
+
+<p><strong>A.</strong>	It turns out that using the updated velocity (known as the <em>leapfrog method</em>) produces more accurate results than using the old velocity (known as the <em>Euler method</em>). If you take a course in numerical analysis, you will learn why.</p>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+<!-- =============================================================== -->
+
+<h4>Exercises</h4>
+
+<ol>
+
+<li>
+<p>Develop an object-oriented version of <a href="../15inout/bouncingball.py.html">bouncingball.py</a> (from Section 1.5). Include a constructor that starts each ball moving a random direction at a random velocity (within reasonable limits) and a test client that takes an integer <code>n</code> from the command line and simulates the motion of <code>n</code> bouncing balls.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Add to <a href="body.py.html">body.py</a> a <code>main()</code> function that unit tests the Body data type.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Modify <a href="body.py.html">body.py</a> so that the radius of the circle it draws for a body is proportional to its mass.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>What happens in a universe with no gravitational force? This situation would correspond to <code>forceFrom()</code> in <code>Body</code> always returning the zero vector.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Create a data type <code>Universe3D</code> to model three-dimensional universes. Develop a data file to simulate the motion of the planets in our solar system around the sun.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Compose a test client that simulates the motion of two different universes (defined by two different files and appearing in two distinct parts of the standard drawing window). You also need to modify the <code>draw()</code> method in <code>Body</code>.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Compose a class <code>RandomBody</code> that initializes its instance variables with (carefully chosen) random values instead of taking them as arguments. Then compose a client that takes a single argument <code>n</code> from the command line and simulates motion in a random universe with <code>n</code> bodies.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Modify <code>Vector</code> (as defined in <a href="../33design/vector.py.html">vector.py</a> from Section 3.3) to include a method <code>__iadd__(self, other)</code> to support the in-place addition operator <code>+=</code>, which enables the client to compose code like 
+<code>r += v.scale(dt)</code>. Using this method, revise <a href="body.py.html">body.py</a> and <a href="universe.py.html">universe.py</a>.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Modify the <code>Vector</code> constructor (as defined in <a href="../33design/vector.py.html">vector.py</a> from Section 3.3) so that if passed a positive integer <code>d</code> as argument, it creates and returns the all-zero vector of dimension <code>d</code>. Using this modified constructor, revise universe.py so that it works with three- (or higher-) dimensional universes. For simplicity, don't worry about changing the <code>draw()</code> method in <a href="body.py.html">body.py</a> &mdash; it projects the position onto the plane defined by the first <em>x</em>- and <em>y</em>-coordinates.</p>
+</li>
+
+</ol>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+<!-- =============================================================== -->
+
+<h4>Creative Exercise</h4>
+
+<ol>
+
+<li>
+<p><strong>New universe</strong>. Design a new universe with interesting properties and simulate its motion with <code>Universe</code>, as defined in <a href="universe.py.html">universe.py</a>. This exercise is truly an opportunity to be creative!</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p><strong>Percolation</strong>. Compose an object-oriented version of <a href="../24percolation/percolation.py.html">percolation.py</a> (from Section 2.4). Think carefully about the design before you begin, and be prepared to defend your design decisions.</p>
+</li>
+
+</ol>
+
+</body>
+</html>
+
+   <br><br>
+   <p class = footer>
+   Copyright &copy; 2000&ndash;2015 by Robert Sedgewick, Kevin Wayne, and Robert Dondero.
+   All rights reserved.
+</div>
+
+
+
+
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+ 

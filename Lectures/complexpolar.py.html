@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang = "en">
+
+<head>
+
+<link rel="icon"          href="https://introcs.cs.princeton.edu/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="https://introcs.cs.princeton.edu/favicon.ico" type="image/x-icon">
+<link rel="stylesheet"    href="https://introcs.cs.princeton.edu/java.css" type="text/css">
+
+<title>complexpolar.py</title>
+
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta NAME="AUTHOR" CONTENT="Robert Sedgewick, Kevin Wayne, and Robert Dondero">
+<meta NAME="DESCRIPTION" CONTENT="complexpolar code in Python">
+<meta NAME="TITLE" CONTENT="complexpolar code in Python">
+<meta NAME="KEYWORDS" CONTENT="complexpolar,python,programming,computer science,algorithm,program,code">
+<meta NAME="ROBOTS" CONTENT="INDEX,FOLLOW">
+
+</head>
+
+
+<body>
+<center><h1>complexpolar.py</h1></center><p><br>
+
+Below is the syntax highlighted version of <a href = "complexpolar.py">complexpolar.py</a>
+from <a href = "https://introcs.cs.princeton.edu/python/33design">&#167;3.3 Designing Data Types</a>.
+<p><br>
+
+<!-- Generator: GNU source-highlight 3.1.8
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span class="comment">#-----------------------------------------------------------------------</span>
+<span class="comment"># complex.py</span>
+<span class="comment">#-----------------------------------------------------------------------</span>
+
+<span class="preproc">import</span><span class="normal"> stdio</span>
+<span class="preproc">import</span><span class="normal"> math</span>
+
+<span class="comment"># A Complex object is a complex number.</span>
+
+<span class="comment"># A Complex object is immutable.  So once you create and initialize</span>
+<span class="comment"># a Complex object, you cannot change it.</span>
+
+<span class="keyword">class</span><span class="normal"> Complex</span><span class="symbol">:</span>
+
+<span class="normal">    </span><span class="comment"># Construct a new Complex object with real part real and imaginary</span>
+<span class="normal">    </span><span class="comment"># part imag. real defaults to 0.0. imag also defaults to 0.0.</span>
+<span class="normal">    </span><span class="keyword">def</span><span class="normal"> </span><span class="function">__init__</span><span class="symbol">(</span><span class="normal">self</span><span class="symbol">,</span><span class="normal"> re</span><span class="symbol">=</span><span class="number">0.0</span><span class="symbol">,</span><span class="normal"> im</span><span class="symbol">=</span><span class="number">0.0</span><span class="symbol">):</span>
+<span class="normal">        self</span><span class="symbol">.</span><span class="normal">_r </span><span class="symbol">=</span><span class="normal"> math</span><span class="symbol">.</span><span class="function">sqrt</span><span class="symbol">(</span><span class="normal">re</span><span class="symbol">*</span><span class="normal">re </span><span class="symbol">+</span><span class="normal"> im</span><span class="symbol">*</span><span class="normal">im</span><span class="symbol">)</span>
+<span class="normal">        self</span><span class="symbol">.</span><span class="normal">_theta </span><span class="symbol">=</span><span class="normal"> math</span><span class="symbol">.</span><span class="function">atan2</span><span class="symbol">(</span><span class="normal">im</span><span class="symbol">,</span><span class="normal"> re</span><span class="symbol">)</span>
+
+<span class="normal">    </span><span class="comment"># Return the real part of Complex object self.</span>
+<span class="normal">    </span><span class="keyword">def</span><span class="normal"> </span><span class="function">re</span><span class="symbol">(</span><span class="normal">self</span><span class="symbol">):</span>
+<span class="normal">        </span><span class="keyword">return</span><span class="normal"> self</span><span class="symbol">.</span><span class="normal">_r </span><span class="symbol">*</span><span class="normal"> math</span><span class="symbol">.</span><span class="function">cos</span><span class="symbol">(</span><span class="normal">self</span><span class="symbol">.</span><span class="normal">_theta</span><span class="symbol">)</span>
+
+<span class="normal">    </span><span class="comment"># Return the imaginary part of Complex object self.</span>
+<span class="normal">    </span><span class="keyword">def</span><span class="normal"> </span><span class="function">im</span><span class="symbol">(</span><span class="normal">self</span><span class="symbol">):</span>
+<span class="normal">        </span><span class="keyword">return</span><span class="normal"> self</span><span class="symbol">.</span><span class="normal">_r </span><span class="symbol">*</span><span class="normal"> math</span><span class="symbol">.</span><span class="function">sin</span><span class="symbol">(</span><span class="normal">self</span><span class="symbol">.</span><span class="normal">_theta</span><span class="symbol">)</span>
+
+<span class="normal">    </span><span class="comment"># Return the conjugate of Complex object self.</span>
+<span class="normal">    </span><span class="keyword">def</span><span class="normal"> </span><span class="function">conjugate</span><span class="symbol">(</span><span class="normal">self</span><span class="symbol">):</span>
+<span class="normal">        </span><span class="keyword">return</span><span class="normal"> </span><span class="function">Complex</span><span class="symbol">(</span><span class="normal">self</span><span class="symbol">.</span><span class="function">re</span><span class="symbol">(),</span><span class="normal"> </span><span class="symbol">-</span><span class="normal">self</span><span class="symbol">.</span><span class="function">im</span><span class="symbol">())</span>
+
+<span class="normal">    </span><span class="comment"># Return a new Complex object which is the sum of Complex objects</span>
+<span class="normal">    </span><span class="comment"># self and other.</span>
+<span class="normal">    </span><span class="keyword">def</span><span class="normal"> </span><span class="function">__add__</span><span class="symbol">(</span><span class="normal">self</span><span class="symbol">,</span><span class="normal"> other</span><span class="symbol">):</span>
+<span class="normal">        re </span><span class="symbol">=</span><span class="normal"> self</span><span class="symbol">.</span><span class="function">re</span><span class="symbol">()</span><span class="normal"> </span><span class="symbol">+</span><span class="normal"> other</span><span class="symbol">.</span><span class="function">re</span><span class="symbol">()</span>
+<span class="normal">        im </span><span class="symbol">=</span><span class="normal"> self</span><span class="symbol">.</span><span class="function">im</span><span class="symbol">()</span><span class="normal"> </span><span class="symbol">+</span><span class="normal"> other</span><span class="symbol">.</span><span class="function">im</span><span class="symbol">()</span>
+<span class="normal">        </span><span class="keyword">return</span><span class="normal"> </span><span class="function">Complex</span><span class="symbol">(</span><span class="normal">re</span><span class="symbol">,</span><span class="normal"> im</span><span class="symbol">)</span>
+
+<span class="normal">    </span><span class="comment"># Return a new Complex object which is the product of Complex</span>
+<span class="normal">    </span><span class="comment"># objects self and other.</span>
+<span class="normal">    </span><span class="keyword">def</span><span class="normal"> </span><span class="function">__mul__</span><span class="symbol">(</span><span class="normal">self</span><span class="symbol">,</span><span class="normal"> other</span><span class="symbol">):</span>
+<span class="normal">        c </span><span class="symbol">=</span><span class="normal"> </span><span class="function">Complex</span><span class="symbol">(</span><span class="number">0</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">)</span>
+<span class="normal">        c</span><span class="symbol">.</span><span class="normal">_r </span><span class="symbol">=</span><span class="normal"> self</span><span class="symbol">.</span><span class="normal">_r </span><span class="symbol">*</span><span class="normal"> other</span><span class="symbol">.</span><span class="normal">_r</span>
+<span class="normal">        c</span><span class="symbol">.</span><span class="normal">_theta </span><span class="symbol">=</span><span class="normal"> self</span><span class="symbol">.</span><span class="normal">_theta </span><span class="symbol">+</span><span class="normal"> other</span><span class="symbol">.</span><span class="normal">_theta</span>
+<span class="normal">        </span><span class="keyword">return</span><span class="normal"> c</span>
+
+<span class="normal">    </span><span class="comment"># Return True if Complex objects self and other are equal, and</span>
+<span class="normal">    </span><span class="comment"># False otherwise.</span>
+<span class="normal">    </span><span class="comment"># def __eq__(self, other):</span>
+<span class="normal">    </span><span class="comment">#     return (self._r == other._r) and \</span>
+<span class="normal">    </span><span class="comment">#            (self._theta == other._theta)</span>
+
+<span class="normal">    </span><span class="comment"># Return True if Complex objects self and other are unequal, and</span>
+<span class="normal">    </span><span class="comment"># False otherwise.</span>
+<span class="normal">    </span><span class="comment"># def __ne__(self, other):</span>
+<span class="normal">    </span><span class="comment">#     return not self.__eq__(other)</span>
+
+<span class="normal">    </span><span class="comment"># Return the absolute value of Complex object self.</span>
+<span class="normal">    </span><span class="keyword">def</span><span class="normal"> </span><span class="function">__abs__</span><span class="symbol">(</span><span class="normal">self</span><span class="symbol">):</span>
+<span class="normal">        </span><span class="keyword">return</span><span class="normal"> self</span><span class="symbol">.</span><span class="normal">_r</span>
+
+<span class="normal">    </span><span class="comment"># Return a string representation of Complex object self.</span>
+<span class="normal">    </span><span class="keyword">def</span><span class="normal"> </span><span class="function">__str__</span><span class="symbol">(</span><span class="normal">self</span><span class="symbol">):</span>
+<span class="normal">        </span><span class="keyword">return</span><span class="normal"> </span><span class="function">str</span><span class="symbol">(</span><span class="normal">self</span><span class="symbol">.</span><span class="function">re</span><span class="symbol">())</span><span class="normal"> </span><span class="symbol">+</span><span class="normal"> </span><span class="string">' + '</span><span class="normal"> </span><span class="symbol">+</span><span class="normal"> </span><span class="function">str</span><span class="symbol">(</span><span class="normal">self</span><span class="symbol">.</span><span class="function">im</span><span class="symbol">())</span><span class="normal"> </span><span class="symbol">+</span><span class="normal"> </span><span class="string">'i'</span>
+
+<span class="comment">#-----------------------------------------------------------------------</span>
+
+<span class="comment"># For testing.</span>
+<span class="comment"># Create and use some Complex objects.</span>
+
+<span class="keyword">def</span><span class="normal"> </span><span class="function">main</span><span class="symbol">():</span>
+
+<span class="normal">    z0 </span><span class="symbol">=</span><span class="normal"> </span><span class="function">Complex</span><span class="symbol">(</span><span class="number">1.0</span><span class="symbol">,</span><span class="normal"> </span><span class="number">1.0</span><span class="symbol">)</span>
+<span class="normal">    z </span><span class="symbol">=</span><span class="normal"> z0</span>
+<span class="normal">    z </span><span class="symbol">=</span><span class="normal"> z </span><span class="symbol">*</span><span class="normal"> z </span><span class="symbol">+</span><span class="normal"> z0</span>
+<span class="normal">    z </span><span class="symbol">=</span><span class="normal"> z </span><span class="symbol">*</span><span class="normal"> z </span><span class="symbol">+</span><span class="normal"> z0</span>
+<span class="normal">    stdio</span><span class="symbol">.</span><span class="function">writeln</span><span class="symbol">(</span><span class="normal">z</span><span class="symbol">)</span>
+
+<span class="keyword">if</span><span class="normal"> __name__ </span><span class="symbol">==</span><span class="normal"> </span><span class="string">'__main__'</span><span class="symbol">:</span>
+<span class="normal">    </span><span class="function">main</span><span class="symbol">()</span>
+<span class="normal">    </span>
+<span class="comment">#-----------------------------------------------------------------------</span>
+
+<span class="comment"># python complexpolar.py</span>
+<span class="comment"># -7.000000000000002 + 7.000000000000003i</span>
+
+</tt></pre>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-10811519-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+
+<p><br><address><small>
+Copyright &copy; 2000&ndash;2015, Robert Sedgewick, Kevin Wayne, and Robert Dondero.
+<br>Last updated: Fri Oct 20 20:45:16 EDT 2017.
+</small></address>
+
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang = "en">
+
+<head>
+
+<link rel="icon"          href="https://introcs.cs.princeton.edu/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="https://introcs.cs.princeton.edu/favicon.ico" type="image/x-icon">
+<link rel="stylesheet"    href="https://introcs.cs.princeton.edu/java.css" type="text/css">
+
+<title>comparedocuments.py</title>
+
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta NAME="AUTHOR" CONTENT="Robert Sedgewick, Kevin Wayne, and Robert Dondero">
+<meta NAME="DESCRIPTION" CONTENT="comparedocuments code in Python">
+<meta NAME="TITLE" CONTENT="comparedocuments code in Python">
+<meta NAME="KEYWORDS" CONTENT="comparedocuments,python,programming,computer science,algorithm,program,code">
+<meta NAME="ROBOTS" CONTENT="INDEX,FOLLOW">
+
+</head>
+
+
+<body>
+<center><h1>comparedocuments.py</h1></center><p><br>
+
+Below is the syntax highlighted version of <a href = "comparedocuments.py">comparedocuments.py</a>
+from <a href = "https://introcs.cs.princeton.edu/python/33design">&#167;3.3 Designing Data Types</a>.
+<p><br>
+
+<!-- Generator: GNU source-highlight 3.1.8
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span class="comment">#-----------------------------------------------------------------------</span>
+<span class="comment"># compareadocuments.py</span>
+<span class="comment">#-----------------------------------------------------------------------</span>
+
+<span class="preproc">import</span><span class="normal"> sys</span>
+<span class="preproc">import</span><span class="normal"> stdarray</span>
+<span class="preproc">import</span><span class="normal"> stdio</span>
+<span class="preproc">from</span><span class="normal"> instream </span><span class="preproc">import</span><span class="normal"> InStream</span>
+<span class="preproc">from</span><span class="normal"> sketch </span><span class="preproc">import</span><span class="normal"> Sketch</span>
+
+<span class="comment">#-----------------------------------------------------------------------</span>
+
+<span class="comment"># Accept integers k and d as command-line arguments. Read a document</span>
+<span class="comment"># list from standard input, compute profiles based on k-gram</span>
+<span class="comment"># frequencies for all the documents, and write a matrix of similarity</span>
+<span class="comment"># measures between all pairs of documents. d is the dimension of the</span>
+<span class="comment"># profiles.</span>
+
+<span class="normal">k </span><span class="symbol">=</span><span class="normal"> </span><span class="function">int</span><span class="symbol">(</span><span class="normal">sys</span><span class="symbol">.</span><span class="normal">argv</span><span class="symbol">[</span><span class="number">1</span><span class="symbol">])</span>
+<span class="normal">d </span><span class="symbol">=</span><span class="normal"> </span><span class="function">int</span><span class="symbol">(</span><span class="normal">sys</span><span class="symbol">.</span><span class="normal">argv</span><span class="symbol">[</span><span class="number">2</span><span class="symbol">])</span>
+
+<span class="normal">filenames </span><span class="symbol">=</span><span class="normal"> stdio</span><span class="symbol">.</span><span class="function">readAllStrings</span><span class="symbol">()</span>
+<span class="normal">sketches </span><span class="symbol">=</span><span class="normal"> stdarray</span><span class="symbol">.</span><span class="function">create1D</span><span class="symbol">(</span><span class="function">len</span><span class="symbol">(</span><span class="normal">filenames</span><span class="symbol">))</span>
+
+<span class="keyword">for</span><span class="normal"> i </span><span class="keyword">in</span><span class="normal"> </span><span class="function">range</span><span class="symbol">(</span><span class="function">len</span><span class="symbol">(</span><span class="normal">filenames</span><span class="symbol">)):</span>
+<span class="normal">    text </span><span class="symbol">=</span><span class="normal"> </span><span class="function">InStream</span><span class="symbol">(</span><span class="normal">filenames</span><span class="symbol">[</span><span class="normal">i</span><span class="symbol">]).</span><span class="function">readAll</span><span class="symbol">()</span>
+<span class="normal">    sketches</span><span class="symbol">[</span><span class="normal">i</span><span class="symbol">]</span><span class="normal"> </span><span class="symbol">=</span><span class="normal"> </span><span class="function">Sketch</span><span class="symbol">(</span><span class="normal">text</span><span class="symbol">,</span><span class="normal"> k</span><span class="symbol">,</span><span class="normal"> d</span><span class="symbol">)</span>
+<span class="normal">    </span>
+<span class="normal">stdio</span><span class="symbol">.</span><span class="function">write</span><span class="symbol">(</span><span class="string">'    '</span><span class="symbol">)</span>
+<span class="keyword">for</span><span class="normal"> i </span><span class="keyword">in</span><span class="normal"> </span><span class="function">range</span><span class="symbol">(</span><span class="function">len</span><span class="symbol">(</span><span class="normal">filenames</span><span class="symbol">)):</span>
+<span class="normal">    stdio</span><span class="symbol">.</span><span class="function">writef</span><span class="symbol">(</span><span class="string">'%8.4s'</span><span class="symbol">,</span><span class="normal"> filenames</span><span class="symbol">[</span><span class="normal">i</span><span class="symbol">])</span>
+<span class="normal">stdio</span><span class="symbol">.</span><span class="function">writeln</span><span class="symbol">()</span>
+
+<span class="keyword">for</span><span class="normal"> i </span><span class="keyword">in</span><span class="normal"> </span><span class="function">range</span><span class="symbol">(</span><span class="function">len</span><span class="symbol">(</span><span class="normal">filenames</span><span class="symbol">)):</span>
+<span class="normal">    stdio</span><span class="symbol">.</span><span class="function">writef</span><span class="symbol">(</span><span class="string">'%.4s'</span><span class="symbol">,</span><span class="normal"> filenames</span><span class="symbol">[</span><span class="normal">i</span><span class="symbol">])</span>
+<span class="normal">    </span><span class="keyword">for</span><span class="normal"> j </span><span class="keyword">in</span><span class="normal"> </span><span class="function">range</span><span class="symbol">(</span><span class="function">len</span><span class="symbol">(</span><span class="normal">filenames</span><span class="symbol">)):</span>
+<span class="normal">        stdio</span><span class="symbol">.</span><span class="function">writef</span><span class="symbol">(</span><span class="string">'%8.2f'</span><span class="symbol">,</span><span class="normal"> sketches</span><span class="symbol">[</span><span class="normal">i</span><span class="symbol">].</span><span class="function">similarTo</span><span class="symbol">(</span><span class="normal">sketches</span><span class="symbol">[</span><span class="normal">j</span><span class="symbol">]))</span>
+<span class="normal">    stdio</span><span class="symbol">.</span><span class="function">writeln</span><span class="symbol">()</span>
+<span class="normal">    </span>
+<span class="comment">#-----------------------------------------------------------------------</span>
+
+<span class="comment"># more documents.txt </span>
+<span class="comment"># constitution.txt</span>
+<span class="comment"># tomsawyer.txt</span>
+<span class="comment"># huckfinn.txt</span>
+<span class="comment"># prejudice.txt</span>
+<span class="comment"># vector.py</span>
+<span class="comment"># djia.csv</span>
+<span class="comment"># amazon.html</span>
+<span class="comment"># actg.txt</span>
+
+<span class="comment"># $ python comparedocuments.py 5 10000 &lt; documents.txt </span>
+<span class="comment">#         cons    toms    huck    prej    vect    djia    amaz    actg</span>
+<span class="comment"># cons    1.00    0.69    0.63    0.67    0.09    0.15    0.19    0.12</span>
+<span class="comment"># toms    0.69    1.00    0.93    0.89    0.07    0.18    0.19    0.14</span>
+<span class="comment"># huck    0.63    0.93    1.00    0.83    0.05    0.16    0.16    0.13</span>
+<span class="comment"># prej    0.67    0.89    0.83    1.00    0.06    0.20    0.20    0.14</span>
+<span class="comment"># vect    0.09    0.07    0.05    0.06    1.00    0.02    0.19    0.02</span>
+<span class="comment"># djia    0.15    0.18    0.16    0.20    0.02    1.00    0.11    0.07</span>
+<span class="comment"># amaz    0.19    0.19    0.16    0.20    0.19    0.11    1.00    0.06</span>
+<span class="comment"># actg    0.12    0.14    0.13    0.14    0.02    0.07    0.06    1.00</span>
+</tt></pre>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-10811519-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+
+<p><br><address><small>
+Copyright &copy; 2000&ndash;2015, Robert Sedgewick, Kevin Wayne, and Robert Dondero.
+<br>Last updated: Fri Oct 20 20:45:16 EDT 2017.
+</small></address>
+
+</html>

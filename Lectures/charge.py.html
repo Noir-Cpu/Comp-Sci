@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang = "en">
+
+<head>
+
+<link rel="icon"          href="https://introcs.cs.princeton.edu/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="https://introcs.cs.princeton.edu/favicon.ico" type="image/x-icon">
+<link rel="stylesheet"    href="https://introcs.cs.princeton.edu/java.css" type="text/css">
+
+<title>charge.py</title>
+
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta NAME="AUTHOR" CONTENT="Robert Sedgewick, Kevin Wayne, and Robert Dondero">
+<meta NAME="DESCRIPTION" CONTENT="charge code in Python">
+<meta NAME="TITLE" CONTENT="charge code in Python">
+<meta NAME="KEYWORDS" CONTENT="charge,python,programming,computer science,algorithm,program,code">
+<meta NAME="ROBOTS" CONTENT="INDEX,FOLLOW">
+
+</head>
+
+
+<body>
+<center><h1>charge.py</h1></center><p><br>
+
+Below is the syntax highlighted version of <a href = "charge.py">charge.py</a>
+from <a href = "https://introcs.cs.princeton.edu/python/32class">&#167;3.2 Creating Data Types</a>.
+<p><br>
+
+<!-- Generator: GNU source-highlight 3.1.8
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span class="comment">#-----------------------------------------------------------------------</span>
+<span class="comment"># charge.py</span>
+<span class="comment">#-----------------------------------------------------------------------</span>
+
+<span class="preproc">import</span><span class="normal"> sys</span>
+<span class="preproc">import</span><span class="normal"> math</span>
+<span class="preproc">import</span><span class="normal"> stdio</span>
+
+<span class="comment">#-----------------------------------------------------------------------</span>
+
+<span class="keyword">class</span><span class="normal"> Charge</span><span class="symbol">:</span>
+
+<span class="normal">    </span><span class="comment"># Construct self centered at (x, y) with charge q.</span>
+<span class="normal">    </span><span class="keyword">def</span><span class="normal"> </span><span class="function">__init__</span><span class="symbol">(</span><span class="normal">self</span><span class="symbol">,</span><span class="normal"> x0</span><span class="symbol">,</span><span class="normal"> y0</span><span class="symbol">,</span><span class="normal"> q0</span><span class="symbol">):</span>
+<span class="normal">        self</span><span class="symbol">.</span><span class="normal">_rx </span><span class="symbol">=</span><span class="normal"> x0  </span><span class="comment"># x value of the query point</span>
+<span class="normal">        self</span><span class="symbol">.</span><span class="normal">_ry </span><span class="symbol">=</span><span class="normal"> y0  </span><span class="comment"># y value of the query point</span>
+<span class="normal">        self</span><span class="symbol">.</span><span class="normal">_q </span><span class="symbol">=</span><span class="normal"> q0   </span><span class="comment"># Charge</span>
+
+<span class="normal">    </span><span class="comment"># Return the potential of self at (x, y).</span>
+<span class="normal">    </span><span class="keyword">def</span><span class="normal"> </span><span class="function">potentialAt</span><span class="symbol">(</span><span class="normal">self</span><span class="symbol">,</span><span class="normal"> x</span><span class="symbol">,</span><span class="normal"> y</span><span class="symbol">):</span>
+<span class="normal">        COULOMB </span><span class="symbol">=</span><span class="normal"> </span><span class="number">8.99e09</span>
+<span class="normal">        dx </span><span class="symbol">=</span><span class="normal"> x </span><span class="symbol">-</span><span class="normal"> self</span><span class="symbol">.</span><span class="normal">_rx</span>
+<span class="normal">        dy </span><span class="symbol">=</span><span class="normal"> y </span><span class="symbol">-</span><span class="normal"> self</span><span class="symbol">.</span><span class="normal">_ry</span>
+<span class="normal">        r </span><span class="symbol">=</span><span class="normal"> math</span><span class="symbol">.</span><span class="function">sqrt</span><span class="symbol">(</span><span class="normal">dx</span><span class="symbol">*</span><span class="normal">dx </span><span class="symbol">+</span><span class="normal"> dy</span><span class="symbol">*</span><span class="normal">dy</span><span class="symbol">)</span>
+<span class="normal">        </span><span class="keyword">if</span><span class="normal"> r </span><span class="symbol">==</span><span class="normal"> </span><span class="number">0.0</span><span class="symbol">:</span><span class="normal"> </span><span class="comment"># Avoid division by 0</span>
+<span class="normal">            </span><span class="keyword">if</span><span class="normal"> self</span><span class="symbol">.</span><span class="normal">_q </span><span class="symbol">&gt;=</span><span class="normal"> </span><span class="number">0.0</span><span class="symbol">:</span>
+<span class="normal">                </span><span class="keyword">return</span><span class="normal"> </span><span class="function">float</span><span class="symbol">(</span><span class="string">'inf'</span><span class="symbol">)</span>
+<span class="normal">            </span><span class="keyword">else</span><span class="symbol">:</span>
+<span class="normal">                </span><span class="keyword">return</span><span class="normal"> </span><span class="function">float</span><span class="symbol">(</span><span class="string">'-inf'</span><span class="symbol">)</span>
+<span class="normal">        </span><span class="keyword">return</span><span class="normal"> COULOMB </span><span class="symbol">*</span><span class="normal"> self</span><span class="symbol">.</span><span class="normal">_q </span><span class="symbol">/</span><span class="normal"> r</span>
+
+<span class="normal">    </span><span class="comment"># Return a string representation of self.</span>
+<span class="normal">    </span><span class="keyword">def</span><span class="normal"> </span><span class="function">__str__</span><span class="symbol">(</span><span class="normal">self</span><span class="symbol">):</span>
+<span class="normal">        result </span><span class="symbol">=</span><span class="normal"> </span><span class="function">str</span><span class="symbol">(</span><span class="normal">self</span><span class="symbol">.</span><span class="normal">_q</span><span class="symbol">)</span><span class="normal"> </span><span class="symbol">+</span><span class="normal"> </span><span class="string">' at ('</span>
+<span class="normal">        result </span><span class="symbol">+=</span><span class="normal"> </span><span class="function">str</span><span class="symbol">(</span><span class="normal">self</span><span class="symbol">.</span><span class="normal">_rx</span><span class="symbol">)</span><span class="normal"> </span><span class="symbol">+</span><span class="normal"> </span><span class="string">', '</span><span class="normal"> </span><span class="symbol">+</span><span class="normal"> </span><span class="function">str</span><span class="symbol">(</span><span class="normal">self</span><span class="symbol">.</span><span class="normal">_ry</span><span class="symbol">)</span><span class="normal"> </span><span class="symbol">+</span><span class="normal"> </span><span class="string">')'</span>
+<span class="normal">        </span><span class="keyword">return</span><span class="normal"> result</span>
+
+<span class="comment">#-----------------------------------------------------------------------</span>
+
+<span class="comment"># For testing.</span>
+<span class="comment"># Accept floats x and y as command-line arguments. Create a Charge</span>
+<span class="comment"># objects with fixed position and electrical charge, and write to</span>
+<span class="comment"># standard output the potential at (x, y) due to the charge.</span>
+
+<span class="keyword">def</span><span class="normal"> </span><span class="function">main</span><span class="symbol">():</span>
+<span class="normal">    x </span><span class="symbol">=</span><span class="normal"> </span><span class="function">float</span><span class="symbol">(</span><span class="normal">sys</span><span class="symbol">.</span><span class="normal">argv</span><span class="symbol">[</span><span class="number">1</span><span class="symbol">])</span>
+<span class="normal">    y </span><span class="symbol">=</span><span class="normal"> </span><span class="function">float</span><span class="symbol">(</span><span class="normal">sys</span><span class="symbol">.</span><span class="normal">argv</span><span class="symbol">[</span><span class="number">2</span><span class="symbol">])</span>
+<span class="normal">    c </span><span class="symbol">=</span><span class="normal"> </span><span class="function">Charge</span><span class="symbol">(.</span><span class="number">51</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">.</span><span class="number">63</span><span class="symbol">,</span><span class="normal"> </span><span class="number">21.3</span><span class="symbol">)</span>
+<span class="normal">    stdio</span><span class="symbol">.</span><span class="function">writeln</span><span class="symbol">(</span><span class="normal">c</span><span class="symbol">)</span>
+<span class="normal">    stdio</span><span class="symbol">.</span><span class="function">writeln</span><span class="symbol">(</span><span class="normal">c</span><span class="symbol">.</span><span class="function">potentialAt</span><span class="symbol">(</span><span class="normal">x</span><span class="symbol">,</span><span class="normal"> y</span><span class="symbol">))</span>
+
+<span class="keyword">if</span><span class="normal"> __name__ </span><span class="symbol">==</span><span class="normal"> </span><span class="string">'__main__'</span><span class="symbol">:</span>
+<span class="normal">    </span><span class="function">main</span><span class="symbol">()</span>
+
+<span class="comment">#-----------------------------------------------------------------------</span>
+
+<span class="comment"># python charge.py .5 .5</span>
+<span class="comment"># 21.3 at (0.51, 0.63)</span>
+<span class="comment"># 1468638248194.164</span>
+
+</tt></pre>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-10811519-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+
+<p><br><address><small>
+Copyright &copy; 2000&ndash;2015, Robert Sedgewick, Kevin Wayne, and Robert Dondero.
+<br>Last updated: Fri Oct 20 20:45:16 EDT 2017.
+</small></address>
+
+</html>

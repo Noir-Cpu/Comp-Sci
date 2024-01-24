@@ -1,0 +1,1025 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="en">
+
+<head>
+
+<link rel="icon"          href="https://introcs.cs.princeton.edu/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="https://introcs.cs.princeton.edu/favicon.ico" type="image/x-icon">
+<link rel="stylesheet"    href="https://introcs.cs.princeton.edu/introcs.css" type="text/css">
+<meta name="google-site-verification" content="nYspbl5bNBQrNZKguiAAFTMVM7sq2P1WQYc8Oi6Okl0" />
+<meta name="msvalidate.01" content="D4B7F6DF793EFF34DE96F611C2A367A5" />
+<!-- IE HACKS -->
+<!--[if IE]>
+<style type="text/css" media="screen">
+ #menu ul li {float: left; width: 100%;}
+</style>
+<![endif]-->
+<!--[if lt IE 7]>
+<style type="text/css" media="screen">
+body {
+behavior: url(/csshover.htc);
+} 
+#menu ul li {float: left; width: 100%;}
+#menu ul li a {height: 1%;} 
+
+#menu a, #menu h2 {
+font: bold 0.9em/1.5em arial, helvetica, sans-serif;
+} 
+
+</style>
+<![endif]-->
+
+
+<title>
+Designing Data Types</title>
+<script type='text/javascript' src='https://algs4.cs.princeton.edu/media/swfobject.js'></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10811519-6', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<META HTTP-EQUIV="Content-Type" content="text/html; charset=iso-8859-1">
+<META NAME="AUTHOR" CONTENT="Robert Sedgewick, Kevin Wayne, and Robert Dondero">
+<META NAME="KEYWORDS" CONTENT="Designing Data Types,Python,Programming,interdisciplinary,Computer science,cs,intro,introduction,sedgewick,dondero,wayne">
+<META NAME="DESCRIPTION" CONTENT="This textbook provides an interdisciplinary approach to the CS 1 curriculum. We teach the classic elements of programming, using an "objects-in-the-middle" approach that emphasizes data abstraction. A key feature of the book is the manner in which we motivate each programming concept by examining its impact on specific applications, taken from science, engineering, and commerce.">
+<META NAME="TITLE" CONTENT="Designing Data Types. Introduction to Programming in Python by Sedgewick, Wayne, and Dondero">
+<META NAME="ROBOTS" CONTENT="INDEX,FOLLOW">
+<META name="verify-v1" content="D4o9ikkHbNKapHncCP8ZmiD9Z2DBbrJyaSV0lyce+3w=">
+
+
+<link rel="stylesheet" href="https://localhost:49822/stylesheet?id=xCojYQnjh2W1fJIl"></head>
+
+
+
+
+
+<body>
+
+<div id = "menu">
+   <div align="center">
+<a class = picture href = "https://introcs.cs.princeton.edu/python">
+<img src="../cover.png" width=190 border=0 alt = "Introduction to Programming in Python">
+</a>
+</div>
+
+
+
+
+
+<ul>
+  <li><a class = title href = "/python/home">Intro to Programming</a>
+    <ul>
+
+      <li> <a href = "https://introcs.cs.princeton.edu/python/10elements">1.&nbsp;&nbsp;Elements of Programming</a>
+        <ul>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/11hello">1.1&nbsp;&nbsp;Your First Program</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/12types">1.2&nbsp;&nbsp;Built-in Types of Data</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/13flow">1.3&nbsp;&nbsp;Conditionals and Loops</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/14array">1.4&nbsp;&nbsp;Arrays</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/15inout">1.5&nbsp;&nbsp;Input and Output</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/16pagerank">1.6&nbsp;&nbsp;Case Study: PageRank</a>
+        </ul>
+
+      <li> <a href = "https://introcs.cs.princeton.edu/python/20functions">2.&nbsp;&nbsp;Functions</a>
+        <ul>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/21function">2.1&nbsp;&nbsp;Defining Functions</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/22module">2.2&nbsp;&nbsp;Modules and Clients</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/23recursion">2.3&nbsp;&nbsp;Recursion</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/24percolation">2.4&nbsp;&nbsp;Case Study: Percolation</a>
+        </ul>
+
+      <li> <a href = "https://introcs.cs.princeton.edu/python/30oop">3.&nbsp;&nbsp;OOP</a>
+        <ul>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/31datatype">3.1&nbsp;&nbsp;Using Data Types</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/32class">3.2&nbsp;&nbsp;Creating Data Types</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/33design">3.3&nbsp;&nbsp;Designing Data Types</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/34nbody">3.4&nbsp;&nbsp;Case Study: N-Body</a>
+        </ul>
+
+      <li> <a href = "https://introcs.cs.princeton.edu/python/40algorithms">4.&nbsp;&nbsp;Data Structures</a>
+        <ul>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/41analysis">4.1&nbsp;&nbsp;Performance</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/42sort">4.2&nbsp;&nbsp;Sorting and Searching</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/43stack">4.3&nbsp;&nbsp;Stacks and Queues</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/44st">4.4&nbsp;&nbsp;Symbol Tables</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/45graph">4.5&nbsp;&nbsp;Case Study: Small World</a>
+        </ul>
+    </ul>
+</ul>
+
+
+
+
+<!--
+<ul>
+  <li><a class = title href = "/python/cs">Intro to CS</a>
+    <ul>
+        </ul>
+    </ul>
+</ul>
+
+-->
+
+
+
+
+
+<ul>
+
+<li><a class = title> Related Booksites</a>
+<table width = 100% border = 0 cellspacing = 0 cellpadding = 0>
+<tr>
+<td align = center>
+<a class = booksite href = "https://introcs.cs.princeton.edu">
+   <img src = "https://introcs.cs.princeton.edu/java/cover.png"
+        width = 73 height = 91 border=0
+        alt = "Introduction to Programming in Java
+               by Robert Sedgewick and Kevin Wayne">
+</a>
+<td align = center>
+<a class = booksite href = "https://algs4.cs.princeton.edu">
+   <img src = "https://algs4.cs.princeton.edu/cover.png"
+        width = 73 height = 91 border=0
+        alt = "Algorihtms, 4th Edition by Robert Sedgewick and Kevin Wayne">
+</a>
+</tr>
+</table>
+
+
+
+  <li><a class = title href = "/home">Web Resources</a>
+    <ul>
+
+      <li> <a href = "/python/faq">FAQ</a>
+      <!-- <li> <a href = "/python/data">Data</a> -->
+      <li> <a href = "/python/code">Code</a>
+      <li> <a href = "/python/errata">Errata</a>
+      <li> <a href = "/python/appendix">Appendices</a>
+        <ul>
+          <li> <a href = "/python/appendix_precedence">A. &nbsp; Python Operator Precedence</a>
+          <li> <a href = "/python/appendix_style">B. &nbsp; Writing Clear Code</a>
+          <li> <a href = "/python/appendix_gaussian">C. &nbsp; Gaussian Distribution</a>
+          <li> <a href = "/python/appendix_cheatsheet">D. &nbsp; Python Cheatsheet</a>
+          <li> <a href = "/python/appendix_numpy">E. &nbsp; NumPy</a>
+        </ul>
+      <!-- <li> <a href="/python/lectures">Lecture Slides</a> -->
+      <!-- <li> <a href="/python/assignments">Programming Assignments</a> -->
+   </ul>
+
+
+</ul>
+
+<p><br>
+<script>
+  (function() {
+    var cx = '005649317310637734940:_d158dlngnk';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:searchbox-only></gcse:searchbox-only>
+
+<p><br>
+</div>
+
+<div id = "content">
+   <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>
+</title>
+</head>
+<body>
+<h1>3.3 Designing Data Types</h1>
+
+<br>
+
+
+<p>In this section we focus on developing APIs as a critical step in the development of any program. We need to consider various alternatives, understand their impact on both client programs and implementations, and refine the design to strike an appropriate balance between the needs of clients and the possible implementation strategies.</p>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+
+<h2>Designing APIs</h2>
+
+<p>In Section 3.1, we composed client programs that use APIs; in Section 3.2, we implemented APIs. Now we consider the challenge of designing APIs.</p>
+
+<p><h3>Standards.</h3> It is easy to understand why conforming to an API is so important by considering other domains. From railroad tracks, to threaded nuts and bolts, to MP3s and DVDs, to radio frequencies, to Internet standards, we know that using a common standard interface enables the broadest usage of a technology. By using APIs to separate clients from implementations, we reap the benefits of standard interfaces for every program that we compose.</p>
+
+<p><h3>Specification problem.</h3> Our APIs for data types are sets of methods, along with brief English-language descriptions of what the methods are supposed to do. Ideally, an API would clearly articulate behavior for all possible arguments, including side effects, and then we would have software to check that implementations meet the specification. Unfortunately, a fundamental result from theoretical computer science, known as the <em>specification problem</em>, says that this goal is actually impossible to achieve. Therefore, we resort to informal descriptions with examples, such as those in the text surrounding our APIs.</p>
+
+<p><h3>Wide interfaces.</h3> A <em>wide interface</em> is one that has an excessive number of methods. An important principle to follow in designing an API is to avoid wide interfaces.</p>
+
+<p><h3>Start with client code.</h3> One of the primary purposes of developing a data type is to simplify client code. Therefore, it makes sense to pay attention to client code from the start when designing an API. Composing two clients is even better. Starting with client code is one way of ensuring that developing an implementation will be worth the effort.</p>
+
+<p><h3>Avoid dependence on representation.</h3> Usually when developing an API, we have a representation in mind. After all, a data type is a set of values and a set of operations defined on those values, and it does not make much sense to talk about the operations without knowing the values. But that is different from knowing the representation of the values. One purpose of the data type is to simplify client code by allowing it to avoid details of and dependence on a particular representation.</p>
+
+<p><h3>Pitfalls in API design.</h3> An API may be too hard to implement, implying implementations that are difficult or impossible to develop, or too hard to use, creating client code that is more complicated than without the API. An API might be too narrow, omitting methods that clients need, or too wide, including a large number of methods not needed by any client. An API may be too general, providing no useful abstractions, or too specific, providing abstractions so detailed or so diffuse as to be useless. These considerations are sometimes summarized in the motto: <em>provide to clients the methods they need and no others</em>.</p>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+
+<h2>Encapsulation</h2>
+
+<p>The process of separating clients from implementations by hiding information is known as <em>encapsulation</em>. Details of the implementation are kept hidden from clients, and implementations have no way of knowing details of client code, which may even be created in the future. We use encapsulation to enable modular programming, facilitate debugging, and clarify program code. These reasons are tied together (well-designed modular code is easier to debug and understand than code based entirely on built-in types).</p>
+
+<p><h3>Modular programming.</h3>The key to success in modular programming is to maintain independence among modules. We do so by insisting on the API being the only point of dependence between client and implementation &mdash; data-type implementation code can assume that the client knows nothing but the API.</p>
+
+<p><h3>Changing an API.</h3> We often reap the benefits of encapsulation when we use standard modules. New versions of Python often, for example, may include new implementations of various data types or modules that define functions. There is a strong and constant motivation to improve data-type implementations because all clients can potentially benefit from an improved implementation. However, Python APIs rarely change. When changes do occur, they are costly throughout the Python community &mdash; everyone has to update their clients. <!--This situation calls for another mantra:--> So once a significant number of clients are using a module, try not to change its API.</p>
+
+<p><h3>Changing an implementation.
+
+<img src="images/Polar.png" align="right" hspace="25" alt="Polar representation">
+
+</h3> Consider the class <code>Complex</code>, defined in <a href="complexpolar.py.html">complexpolar.py</a>. It has the same name and API as the class <code>Complex</code> defined in <a href="../32class/complex.py.html">complex.py</a> (from Section 3.2), but uses a different representation for the complex numbers. The <code>Complex</code> class defined in <a href="../32class/complex.py.html">complex.py</a> uses the Cartesian representation, where instance variables <code>_re</code> and <code>_im</code> represent a complex number as <em>x</em> + <em>yi</em>. The <code>Complex</code> class defined in <a href="complexpolar.py.html">complexpolar.py</a> uses the polar representation, where instance variables <code>_r</code> and <code>_theta</code> represent complex numbers as <em>r</em>(cos &theta; + <em>i</em> sin &theta;). In this representation, we refer to <em>r</em> as the <em>magnitude</em> and &theta; as the <em>polar angle</em>. The polar representation is of interest because certain operations on complex numbers are easier to perform in the polar representation. Addition and subtraction are easier in the Cartesian representation; multiplication and division are easier in the polar representation. The idea of encapsulation is that we can substitute one of these programs for the other (for whatever reason) without changing client code, except to change the <code>import</code> statement to use <code>complexpolar</code> instead of <code>complex</code>.</p>
+
+<p><h3>Private.</h3> Many programming languages provide support for enforcing encapsulation. For example, Java provides the <code>private</code> visibility modifier. When you declare an instance variable (or method) to be private, you are making it impossible for any client (code in another module) to directly access the instance variable (or method) that is the subject of the modifier. Python does not offer a <code>private</code> visibility modifier, which means that clients can directly access all instance variables, methods, and functions. However the Python programming community espouses a pertinent convention: if an instance variable, method, or function has a name that begins with an underscore, then clients should consider that instance variable, method, or function to be private. Through this naming convention, clients are informed that they should not directly access the instance variable, method, or function thus named.</p>
+
+
+<p>In this booksite we always make all instance variables private in our classes. We strongly recommend that you do the same &mdash; there is no good reason to access an instance variable directly from a client.</p>
+
+<p><h3>Limiting the potential for error.</h3> Encapsulation also helps programmers ensure that their code operates as intended. For example, in the 2000 presidential election, Al Gore received <em>negative</em> 16,022 votes on an electronic voting machine in Volusia County, Florida. The counter variable was not properly encapsulated in the voting machine software! To understand the problem, consider <a href="counter.py.html">counter.py</a>, which defines a simple <code>Counter</code> class according to this API:</p>
+
+<blockquote>
+<img src="images/CounterApi.png" alt="Counter API">
+</blockquote>
+
+<p>This abstraction is useful in many contexts, including, for example, an electronic voting machine. It encapsulates a single integer and ensures that the only operation that can be performed on the integer is increment by one. Therefore, it can never go negative. Proper encapsulation is far from a complete solution to the voting security problem, but it is a good start.</p>
+
+<p><h3>Code clarity.</h3> Precisely specifying a data type improves design because it leads to client code that can more clearly express its computation. You have seen many examples of such client code in Sections 3.1 and 3.2, from charged particles to pictures to complex numbers. One key to good design is to observe that code composed with the proper abstractions can be nearly self-documenting.</p>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+
+<h2>Immutability</h2>
+
+<p>An object from a data type is <em>immutable</em> if its data-type value cannot change once created. An immutable data type, such as a Python string, is one in which all objects of that type are immutable. By contrast, a <em>mutable</em> data type, such as a Python list/array, is one in which objects of that type have values that are designed to change. Of the data types considered in this chapter, <code>Charge</code>, <code>Color</code>, and <code>Complex</code> are all immutable, and <code>Picture</code>, <code>Histogram</code>, <code>Turtle</code>, <code>StockAccount</code>, and <code>Counter</code> are all mutable. Whether to make a data type immutable is a fundamental design decision and depends on the application at hand.</p>
+
+<p><h3>Immutable data types.</h3> The purpose of many data types is to encapsulate values that do not change. For example, a programmer implementing a <code>Complex</code> client might reasonably expect to compose the code <code>z = z0</code>, thus setting two variables to reference the same <code>Complex</code> object, in the same way as for floats or integers. But if <code>Complex</code> were mutable and the object referenced by <code>z</code> were to change after the assignment <code>z = z0</code>, then the object referenced by <code>z0</code> would also change (they are aliases, or both references to the same object). Conceptually, changing the value of <code>z</code> would change the value of <code>z0</code>! This unexpected result, known as an <em>aliasing bug</em>, comes as a surprise to many newcomers to object-oriented programming.</p>
+
+<p><h3>Mutable data types.</h3> For many other data types, the very purpose of the abstraction is to encapsulate values as they change. The <code>Turtle</code> class defined in <a href="../32class/turtle.py.html">turtle.py</a> (from Section 3.2) is a prime example. Similarly, <code>Picture</code>, <code>Histogram</code>, <code>StockAccount</code>, <code>Counter</code>, and Python lists/arrays are all types where we expect values to change.</p>
+
+<p><h3>Arrays and strings.</h3> You have already encountered this distinction as a client programmer, when using Python lists/arrays (mutable) and Python strings (immutable). When you pass a string to a method/function, you do not need to worry about that method/function changing the sequence of characters in the string. In contrast, when you pass an array to a method/function, the method/function is free to change the elements of the array. Python strings are immutable because we generally do not want <code>str</code> values to change; Python arrays are mutable because we often do want array elements to change.</p>
+
+<p><h3>Advantages of immutability.</h3> Generally, immutable data types are easier to use and harder to misuse because the scope of code that can change object values is far smaller than for mutable types.</p>
+
+<p><h3>Cost of immutability.</h3> The downside of immutability is that you must create a new object for every value. For example, when you are using the <code>Complex</code> data type, the expression <code>z = z*z + z0</code> involves creating a third object (to hold the value <code>z*z</code>), then using that object with the <code>+</code> operator (without saving an explicit reference to it) and creating a fourth object to hold the value <code>z*z + z0</code>, and assigning that object to <code>z</code> (thereby orphaning the original reference to <code>z</code>). A program such as <a href="../32class/mandelbrot.py.html">mandelbrot.py</a> (from Section 3.2) creates a huge number of such intermediate objects. However, this expense is normally manageable because Python's memory management is typically optimized for such situations.</p>
+
+
+<p><h3>Defensive copies.</h3> Suppose that we wish to develop an immutable data type named <code>Vector</code>, whose constructor takes an array of floats as an argument to initialize an instance variable. Consider this attempt:</p>
+
+<blockquote><table><tr><td><pre>
+class Vector:
+    def __init__(self, a):
+        self._coords = a   # array of coordinates
+    ...
+</pre></td></tr></table></blockquote>
+
+<p>This code makes <code>Vector</code> a mutable data type. A client program could create a <code>Vector</code> object by specifying the elements in an array, and then (bypassing the API) change the elements of the Vector after creation:</p>
+
+<blockquote><table><tr><td><pre>
+a = [3.0, 4.0]
+v = Vector(a)
+a[0] = 17.0  # bypasses the public API
+</pre></td></tr></table></blockquote>
+
+<p>To ensure immutability of a data type that includes an instance variable of a mutable type, the implementation needs to make a local copy, known as a <em>defensive copy</em>. Recall from Section 1.4 that the expression <code>a[:]</code> creates a copy of array <code>a[]</code>. As a consequence, this code creates a defensive copy:</p>
+
+<blockquote><table><tr><td><pre>
+class Vector:
+    def __init__(self, a):
+        self._coords = a[:]   # array of coordinates
+    ...
+</pre></td></tr></table></blockquote>
+
+<p>Next, we consider a full implementation of such a data type.</p>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+
+<h2>Example: Spatial vectors</h2>
+
+<img src="images/Vector.png" align="right" hspace="25" alt="A spatial vector">
+
+<p>A <em>spatial vector</em> is an abstract entity that has a magnitude and a direction. Spatial vectors provide a natural way to describe properties of the physical world, such as force, velocity, momentum, or acceleration. One standard way to specify a vector is as an arrow from the origin to a point in a Cartesian coordinate system: the direction is the ray from the origin to the point and the magnitude is the length of the arrow (distance from the origin to the point). To specify the vector, it suffices to specify the point.</p>
+
+This concept extends to any number of dimensions: an ordered list of <em>n</em> real numbers (the coordinates of an <em>n</em>-dimensional point) suffices to specify a vector in <em>n</em>-dimensional space. By convention, we use a boldface letter to refer to a vector and numbers or indexed variable names (the same letter in italics) separated by commas within parentheses to denote its value. For example, we might use <strong>x</strong> to denote the vector (<em>x</em><sub>0</sub>, <em>x</em><sub>1</sub>, ..., <em>x</em><sub><em>n</em>-1</sub>) and <strong>y</strong> to denote the vector (<em>y</em><sub>0</sub>, <em>y</em><sub>1</sub>, ..., <em>y</em><sub><em>n</em>-1</sub>).
+
+<p><h3>API.</h3> The basic operations on vectors are to add two vectors, multiply a vector by a scalar (a real number), compute the dot product of two vectors, and compute the magnitude and direction, as follows:</p>
+
+<ul>
+<li><em>Addition</em>: <strong>x</strong> + <strong>y</strong> = (<em>x</em><sub>0</sub> + <em>y</em><sub>0</sub>, <em>x</em><sub>1</sub> + <em>y</em><sub>1</sub>, ..., <em>x</em><sub><em>n</em>-1</sub> + <em>y</em><sub><em>n</em>-1</sub>)</li>
+
+<li><em>Scalar product</em>: &alpha;<strong>x</strong> = (&alpha;<em>x</em><sub>0</sub>, &alpha;<em>x</em><sub>1</sub>, ..., &alpha;<em>x</em><sub><em>n</em>-1</sub>)</li>
+
+<li><em>Dot product</em>: <strong>x</strong> &middot; <strong>y</strong> = <em>x</em><sub>0</sub><em>y</em><sub>0</sub> + <em>x</em><sub>1</sub><em>y</em><sub>1</sub> + ... +  <em>x</em><sub><em>n</em>-1</sub><em>y</em><sub><em>n</em>-1</sub></li>
+
+<li><em>Magnitude</em>: |<strong>x</strong>| = (<em>x</em><sub>0</sub><sup>2</sup> + <em>x</em><sub>1</sub><sup>2</sup> + ... + <em>x</em><sub><em>n</em>-1</sub><sup>2</sup>)<sup>1/2</sup></li>
+
+<li><em>Direction</em>: <strong>x</strong> / |<strong>x</strong>| = (<em>x</em><sub>0</sub> / |<strong>x</strong>|, <em>x</em><sub>1</sub> / |<strong>x</strong>|, ..., <em>x</em><sub><em>n</em>-1</sub> /  |<strong>x</strong>|)</li>
+</ul>
+
+<p>Those definitions lead to this API:</p>
+
+<blockquote>
+<img src="images/VectorApi.png" alt="Vector API">
+</blockquote>
+
+<p>As with <code>Complex</code>, this API does not explicitly specify that the data type is immutable, but we know that client programmers (who are likely to be thinking in terms of the mathematical abstraction) will certainly expect that convention, and perhaps we would rather not explain to them that we are trying to protect them from aliasing bugs!</p>
+
+<p><h3>Representation.</h3> Our first choice in developing an implementation is to choose a representation for the data. Using an array to hold the Cartesian coordinates provided in the constructor is a clear choice, but not the only reasonable choice. If warranted, the implementation can change the coordinate system without affecting client code.</p>
+
+<p><h3>Implementation.</h3> Given the representation, the code that implements all of these operations is straightforward, as you can see in the <code>Vector</code> class defined in <a href="vector.py.html">vector.py</a>. The constructor makes a defensive copy of the client array and none of the methods assigns a value to the copy, so that <code>Vector</code> objects are immutable.</p>
+
+<p>How can we ensure immutability when it seems that the client is free to compose code like <code>x[i] = 2.0</code>? The answer to this question lies in a special method that we do not implement in an immutable data type: in such a case, Python calls the special method <code>__setitem__()</code> instead of <code>__getitem__()</code>. Since <code>Vector</code> does not implement that method, such client code would raise an <code>AttributeError</code> at run time.</p>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+
+<h2>Tuples</h2>
+
+<p>Python's built-in <code>tuple</code> data type represents an <em>immutable</em> sequence of objects. It is similar to the built-in <code>list</code> data type (which we use for arrays), except that once you create a tuple, you cannot change its items. You can manipulate tuples using familiar array notation, as documented in this API:</p>
+
+<blockquote>
+<img src="images/TupleApi.png" alt="Tuple API (partial)">
+</blockquote>
+
+<p>You can create tuples either using the built-in function tuple() or by listing a sequence of expressions, separated by commas, and (optionally) enclosed in matching parentheses.</p>
+
+<p>Using tuples can improve the design of a program. For example, if we replace the first statement in the constructor of <a href="vector.py.html">vector.py</a> with</p>
+
+<blockquote><table><tr><td><pre>
+self._coords = tuple(a)
+</pre></td></tr></table></blockquote>
+
+<p>then any attempt to change a vector coordinate within the Vector class raises a <code>TypeError</code> at run time, helping to enforce immutability of <code>Vector</code> objects.</p>
+
+<p>Python also provides a powerful tuple assignment feature known as <em>tuple packing</em> and <em>tuple unpacking</em> that lets you assign a tuple of expressions on the right-hand side of an assignment operator to a tuple of variables on the left-hand side (provided the number of variables on the left matches the number of expressions on the right). You can use this feature to assign multiple variables simultaneously. For example, the following statement exchanges the object references in variable <code>x</code> and <code>y</code>:</p>
+
+<blockquote><table><tr><td><pre>
+x, y = y, x
+</pre></td></tr></table></blockquote>
+
+<p>You can also use tuple packing and unpacking to return multiple values from a function (see an exercise at the end of this section).</p>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+
+<h2>Polymorphism</h2>
+
+<p>Often, when we compose methods (or functions), we intend for them to work only with objects of specific types. Sometimes, we want them to work with objects of different types. A method (or function) that can take arguments with different types is said to be <em>polymorphic</em>.</p>
+
+<p>The best kind of polymorphism is the unexpected kind: when you apply an existing method/function to a new data type (for which you never planned) and discover that the method/function has exactly the behavior that you wanted. The worst kind of polymorphism is also the unexpected kind: when you apply an existing method/function to a new data type and it returns the wrong answer! Finding a bug of this sort can be an extraordinary challenge.</p>
+
+<p><h3>Duck typing.</h3> Duck typing is a programming style in which the language does not formally specify the requirements for a function's arguments; instead, it just tries to call the function if a compatible one is defined (and raises a run-time error otherwise). The name comes from an old quote attributed to the poet J. W. Riley:</p>
+
+<center><em>
+When I see a bird that<br>
+walks like a duck and swims like a duck and quacks like a duck<br>
+I call that bird a duck
+</em></center>
+
+<p>In Python, if an object walks like a duck, swims like a duck, and quacks like a duck, you can treat that object as a duck; you don't need to explicitly declare it to be a duck. In many languages (such as Java or C++), you do need to explicitly declare the types of variables, but not in Python &mdash; Python uses duck typing for all operations (function calls, method calls, and operators). It raises a <code>TypeError</code> at run time if an operation cannot be applied to an object because it is of an inappropriate type. This approach leads to simpler and more flexible client code and puts the focus on operations that are actually used rather than the type.</p>
+
+<p><h3>Disadvantages of duck typing.</h3> The primary disadvantage of duck typing is that it is difficult to know precisely what the contract is between the client and the implementation, especially when a required method is needed only indirectly. The API simply does not carry this kind of information. This lack of information can lead to run-time errors. Worse, the end result can be semantically incorrect, with no error raised at all. Next, we consider a simple example of this situation.</p>
+
+<p><h3>A case in point.</h3> We designed our <code>Vector</code> data type under the implicit assumption that the vector components would be floats and that the client would create a new vector by passing an array of <code>float</code> objects to the constructor. If the client creates two vectors <code>x</code> and <code>y</code> in this way, then both <code>x[i]</code> and <code>x.dot(y)</code> return floats and both <code>x + y</code> and <code>x - y</code> return vectors with float components, as expected.</p>
+
+<p>Suppose, instead, that a client creates a <code>Vector</code> with integer components by passing an array of <code>int</code> objects to the constructor. If the client creates two vectors <code>x</code> and <code>y</code> in this manner, then both <code>x[i]</code> and <code>x.dot(y)</code> return integers and both <code>x + y</code> and <code>x - y</code> return vectors with integer components, as desired. Of course, <code>abs(x)</code> returns a <code>float</code> and <code>x.direction()</code> returns a vector with <code>float</code> components. This is the best kind of polymorphism, where duck typing works serendipitously.</p>
+
+<p>Now, suppose that a client creates a <code>Vector</code> with complex components by passing an array of <code>complex</code> objects to the constructor. There is no problem with vector addition or scalar multiplication, but the implementation of the dot product operation (along with the implementations of magnitude and direction, which depend on the dot product) fails spectacularly. Here is an example:</p>
+
+<blockquote><table><tr><td><pre>
+a = [1 + 2j, 2 + 0j, 4 + 0j]
+x = Vector(a)
+b = abs(x)
+</pre></td></tr></table></blockquote>
+
+<p>This code results in a <code>TypeError</code> at run time, with <code>math.sqrt()</code> trying to take the square root of a complex number. The problem is that the dot product of two complex-valued vectors <strong>x</strong> and <strong>y</strong> requires taking the <em>complex conjugate</em> of the elements in the second vector. The textbook describes the problem and its solution in detail.</p>
+
+<p>In this case, duck typing is the worst kind of polymorphism. It is certainly reasonable for a client to expect the implementation of <code>Vector</code> to work properly when vector components are complex numbers. How can an implementation anticipate and prepare for all potential uses of a data type? This situation presents a design challenge that is impossible to meet. All we can do is caution you to check, if possible, that any data type that you use can handle the types of data that you intend to use with it.</p>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+
+<h2>Overloading</h2>
+
+<p>The ability to define a data type that provides its own definitions of operators is a form of polymorphism known as <em>operator overloading</em>. In Python, you can overload almost every operator, including operators for arithmetic, comparisons, indexing, and slicing. You can also overload built-in functions, including absolute value, length, hashing, and type conversion. Overloading operators and built-in functions makes user-defined types behave more like built-in types.</p>
+
+<p>To perform an operation, Python internally converts the expression into a call on the corresponding special method; to call a built-in function, Python internally calls the corresponding special method instead. To overload an operator or built-in function, you include an implementation of the corresponding special method with your own code.</p>
+
+<p><h3>Arithmetic operators.</h3> Python associates a special method with each of its arithmetic operators, so you can overload any arithmetic operation by implementing the corresponding special method, as detailed in this table.</p>
+
+<blockquote>
+<img src="images/SpecialMethodsArithmetic.png" alt="Special methods for arithmetic operations">
+</blockquote>
+
+<p><h3>Equality.</h3>
+
+<img src="images/TraceFormalChargeThree.png" align="right" hspace="25" alt="Three variables refering to two Charge objects">
+
+The <code>==</code> and <code>!=</code> operators for testing equality require special attention. For example, consider the code in the diagram at right, which creates two <code>Charge</code> objects, referenced by three variables <code>c1</code>, <code>c2</code>, and <code>c3</code>. As illustrated in the diagram, <code>c1</code> and <code>c3</code> both reference the same object, which is different from the one referenced by <code>c2</code>. Clearly, <code>c1 == c3</code> is <code>True</code>, but what about <code>c1 == c2</code>? The answer to this question is unclear because there are two ways to think about equality in Python:</p>
+
+<p><em>Reference equality</em> (<em>identity equality</em>). Reference equality holds when two references are equal &mdash; they refer to the same object. The built in function <code>id()</code> gives the identity of an object (its memory address); the <code>is</code> and <code>is not</code> operators test whether two variables refer to the same object. That is, the implementation of <code>c1 is c2</code> tests whether <code>id(c1)</code> and <code>id(c2)</code> are the same. In our example, <code>c1 is c3</code> is <code>True</code> as expected, but <code>c1 is c2</code> is <code>False</code> because <code>c1</code> and  <code>c2</code> reside at different memory addresses.</p>
+
+<p><em>Object equality</em> (<em>value equality</em>). Object equality holds when two objects are equal &mdash; they have the same data-type value. You should use the <code>==</code> and <code>!=</code> operators, defined using the special methods <code>__eq__()</code> and <code>__ne__()</code>, to test for object equality. If you do not define an <code>__eq__()</code> method, then Python substitutes the <code>is</code> operator. That is, by default <code>==</code> implements reference equality. So, in our earlier example, <code>c1 == c2</code> is <code>False</code> even though <code>c1</code> and <code>c2</code> have the same position and charge value. If we want two charges with identical position and charge value to be considered equal, we can ensure this outcome by including the following code in <a href="../32class/charge.py.html">charge.py</a> (from Section 3.2):</p>
+
+<blockquote><table><tr><td><pre>
+    def __eq__(self, other):
+        if self._rx != other._rx: return False
+        if self._ry != other._ry: return False
+        if self._q  != other._q:  return False
+        return True
+    def __ne__(self, other):
+       return not __eq__(self, other)
+</pre></td></tr></table></blockquote>
+
+<p>With this code in place, <code>c1 == c2</code> is now True in our example.</p>
+
+<p><h3>Hashing.</h3> We now consider a fundamental operation related to equality testing, known as <em>hashing</em>, that maps an object to an integer, known as a <em>hash code</em>. This operation is so important that it is handled by Python's special method <code>__hash__()</code> in support of the built-in <code>hash()</code> function.  We refer to an object as <code>hashable</code> if it satisfies the following three properties:</p>
+
+<ul>
+<li>The object can be compared for equality with other objects via the == operator.</li>
+
+<li>Whenever two objects compare as equal, they have the same hash code.</li>
+
+<li>The object's hash code does not change during its lifetime.</li>
+</ul>
+
+<p>In typical applications, we use the hash code to map an object <code>x</code> to an integer in a small range, say between 0 and <code>m</code>-1, using the hash function</p>
+
+<blockquote><table><tr><td><pre>
+hash(x) % m
+</pre></td></tr></table></blockquote>
+
+<p>Then, we can use the hash function value as an integer index into an array of length <code>m</code> (see the <a href="sketch.py.html">sketch.py</a> program described later in this section and the <a href="../44st/hashst.py.html">hashst.py</a> program described in Section 4.4). All of Python's immutable data types (including <code>int</code>, <code>float</code>, <code>str</code>, and <code>tuple</code>) are hashable and engineered to distribute the objects in a reasonable manner.</p>
+
+<p>You can make a user-defined data type hashable by implementing the two special methods <code>__hash__()</code> and <code>__eq__()</code>. Crafting a good hash function requires a deft combination of science and engineering, and is beyond the scope of this booksite. Instead, we describe a simple recipe for doing so in Python that is effective in a wide variety of situations:</p>
+
+<ul>
+<li>Ensure that the data type is immutable.</li>
+
+<li>Implement <code>__eq__()</code> by comparing all significant instance variables.</li>
+
+<li>Implement <code>__hash__()</code> by putting the same instance variables into a tuple and calling the built-in <code>hash()</code> function on the tuple.</li>
+</ul>
+
+<p>For example, following is a <code>__hash__()</code> implementation for the <code>Charge</code> data type (defined in <a href="../32class/charge.py.html">charge.py</a> from Section 3.2) to accompany the <code>__eq__()</code> implementation that we just considered:</p>
+
+<blockquote><table><tr><td><pre>
+def __hash__(self):
+    a = (self._rx, self._ry, self._q)
+    return hash(a)
+</pre></td></tr></table></blockquote>
+
+<p><h3>Comparison operators.</h3> Similarly, comparisons like <code>x &lt; y</code> and <code>x &gt;= y</code> are not just for integers, floats, and strings in Python. Again, Python associates a special method with each of its comparison operators, so you can overload any comparison operator by implementing the corresponding special method, as detailed in this table:</p>
+
+<blockquote>
+<img src="images/SpecialMethodsComparison.png" alt="Special methods for comparison operations">
+</blockquote>
+
+<p>As a matter of style, if you define any one of the comparison methods, then you should define all of them, and in a consistent manner. You can make a user-defined type <em>comparable</em> by implementing the six special methods, as we do here for the <code>Counter</code> class defined in <a href="counter.py.html">counter.py</a>:</p>
+
+<blockquote><table><tr><td><pre>
+def __lt__(self, other): return self._count &lt;  other._count
+def __le__(self, other): return self._count &lt;= other._count
+def __eq__(self, other): return self._count == other._count
+def __ne__(self, other): return self._count != other._count
+def __gt__(self, other): return self._count &gt;  other._count
+def __ge__(self, other): return self._count &gt;= other._count
+</pre></td></tr></table></blockquote>
+
+<p><h3>Other operators.</h3> Almost every operator in Python can be overloaded. If you want to overload an operator, you can track down the corresponding special method in the <a href="https://docs.python.org/3/reference/datamodel.html">official Python documentation</a>.</p>
+
+<p><h3>Built-in functions.</h3> We have been overloading the built-in function <code>str()</code> in every class we develop, and there are several other built-in functions that we can overload in the same way. The ones that we use in this book are summarized in the table below. We have already used all of these functions, except for <code>iter()</code>, which we defer until Section 4.4.</p>
+
+<blockquote>
+<img src="images/SpecialMethodsFunctions.png" alt="Special methods for built-in functions">
+</blockquote>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+
+<h2>Functions are Objects</h2>
+
+<p>In Python, <em>everything</em> is an object, including functions. This means that you can use functions as arguments to functions and return them as results. Defining so-called <em>higher-order functions</em> that manipulate other functions is common both in mathematics and in scientific computing.</p>
+
+<img src="images/PlotIntegrate.png" align="right" hspace="25" alt="Approximating an integral">
+
+<p>As an example, consider the problem of estimating the <em>Riemann integral</em> (that is, the area under the curve) of a positive real-valued function <em>f</em>. Perhaps the simplest approach is known as the <em>rectangle rule</em>, where we approximate the value of the integral by computing the total area of <em>n</em> equal-width rectangles under the curve. The <code>integrate()</code> function defined below evaluates the integral of a real-valued function <em>f</em>() in the interval (<em>a</em>, <em>b</em>), using the rectangle rule with <em>n</em> rectangles:</p>
+
+<blockquote><table><tr><td><pre>
+def square(x):
+    return x*x
+
+def integrate(f, a, b, n=1000):
+    total = 0.0
+    dt = 1.0 * (b - a) / n
+    for i in range(n):
+        total += dt * f(a + (i + 0.5) * dt)
+    return total
+</pre></td></tr></table></blockquote>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+
+<h2>Inheritance</h2>
+
+<p>Python provides language support for defining relationships among classes, known as <em>inheritance</em>. Software developers use inheritance widely, so you will study it in detail if you take a course in software engineering. Effective use of inheritance is beyond the scope of this booksite, but we briefly describe it here because there are a few situations where you may encounter it.</p>
+
+<p>When used properly, inheritance enables a form of code reuse known as <em>subclassing</em>. The idea is to define a new class (<em>subclass</em>, or <em>derived class</em>) that inherits instance variables and methods from another class (<em>superclass</em>, or <em>base class</em>). The subclass contains more methods than the superclass. Systems programmers use subclassing to build so-called <em>extensible</em> modules. The idea is that one programmer (even you) can add methods to a class built by another programmer (or, perhaps, a team of systems programmers), effectively reusing the code in a potentially huge module. This approach is widely used, particularly in the development of user interfaces, so that the large amount of code required to provide all the facilities that users expect (drop-down menus, cut-and-paste, access to files, and so forth) can be reused.</p>
+
+<p>Despite its advantages, the use of subclassing is controversial, even among systems programmers. We do not use it in this booksite because it generally works against encapsulation. Subclassing makes modular programming more difficult for two reasons. First, any change in the superclass affects all subclasses. The subclass cannot be developed independently of the superclass; indeed, it is completely dependent on the superclass. This problem is known as the <em>fragile base class problem</em>. Second, the subclass code, having access to instance variables, can subvert the intention of the superclass code. For example, the designer of a class such as <code>Vector</code> may have taken great care to make the <code>Vector</code> immutable, but a subclass, with full access to the instance variables, can just change them, wreaking havoc for any client assuming the class to be immutable.</p>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+
+<h2>Application: Data Mining</h2>
+
+<p>To illustrate some of the concepts discussed in this section in the context of an application, we next consider a software technology that is proving important in addressing the daunting challenges of <em>data mining</em> &mdash; that is, the process of searching through massive amounts of information.</p>
+
+<p>For simplicity, we will restrict our attention to text documents (though the approach we will consider applies to pictures, music, and all sorts of other files as well). Even with this restriction, there is remarkable diversity in the types of documents. For reference, you can find these documents on the booksite:</p>
+
+<blockquote>
+<img src="images/TextDocuments.png" alt="Some text documents">
+</blockquote>
+
+<p>Our interest is in finding efficient ways to search through the files using their content to characterize documents. One fruitful approach to this problem is to associate with each document a vector known as a <em>sketch</em>, which is an ultra-compact representation of its content. The basic idea is that the sketch should capture salient statistical features of the document, so that documents that are different have sketches that are "different" and documents that are similar have sketches that are "similar." These considerations lead to this API:</p>
+
+<blockquote>
+<img src="images/SketchApi.png" alt="Sketch API">
+</blockquote>
+
+<p>The arguments of the constructor are a string and two integers that control the quality of the sketch. Clients can use <code>similarTo()</code> to determine the extent of similarity between two sketches on a scale of 0 (not similar) to 1 (similar).</p>
+
+<p><h3>Computing sketches.</h3> Computing a sketch of a document is the first challenge. Our first choice is to use a <code>Vector</code> to represent a document's sketch. Our implementation <a href="sketch.py.html">sketch.py</a> uses a simple frequency count approach. In addition to the string, the constructor has two arguments, an integer <em>k</em> and a vector dimension <em>d</em>. It scans the document and examines all of the <em>k</em>-grams in the document &mdash; that is, the substrings of length <em>k</em> starting at each position. In its simplest form, the sketch is a vector that gives the relative frequency of occurrence of the <em>k</em>-grams in the string: an element for each possible <em>k</em>-gram giving the number of <em>k</em>-grams in the document that have that value.</p>
+
+<p><h3>Hashing.</h3> On many systems there are 128 different possible values for each character, so there are 128<em>k</em> possible <em>k</em>-grams, and the dimension <em>d</em> would have to be 128<em>k</em> for the simple scheme just described. This number is prohibitively large even for moderately large <em>k</em>. <!--For Unicode, with more than 65,536 characters, even 2-grams lead to huge vector sketches. -->To ameliorate this problem, we use hashing, a fundamental operation that we considered earlier in this section to map an object to an integer. For any string <code>s</code>, <code>hash(s) % d</code> is an integer between 0 and <code>d</code>-1 that we can use as an index into an array to compute frequencies. The sketch that we use is the direction of the vector defined by frequencies of these values for all <em>k</em>-grams in the document (the unit vector with the same direction). The test client in <a href="sketch.py.html">sketch.py</a> accepts <code>k</code> and <code>d</code> as command-line arguments, and computes and writes a sketch of the document that it reads from standard input. Try running it with standard input redirected to the file <a href="genome20.txt">genome20.txt</a>.</p>
+
+<p><h3>Comparing sketches.</h3> The second challenge is to compute a similarity measure between two sketches. One widely used similarity measure is known as the <em>cosine similarity measure</em>. Since our sketches are unit vectors with nonnegative coordinates, their dot product is a number between 0 and 1. The more similar the documents, the closer we expect this measure to be to 1. The <code>similarTo()</code> method in <a href="sketch.py.html">sketch.py</a> uses that approach.</p>
+
+<p><h3>Comparing all pairs.</h3> The program <a href="comparedocuments.py.html">comparedocuments.py</a> is a simple and useful <code>Sketch</code> client that provides the information needed to solve the following problem: given a set of documents, find the two that are most similar. Since this specification is a bit subjective, the program writes the cosine similarity measure for all pairs of documents. The program accepts command-line arguments <code>k</code> and <code>d</code>, reads from standard input a list of file names, and writes a table showing the similarity measures of the files with those names. Try running it with standard input redirected to <a href="documents.txt">documents.txt</a>, which contains the names of the files
+<a href="constitution.txt">constitution.txt</a>,
+<a href="tomsawyer.txt">tomsawyer.txt</a>,
+<a href="huckfinn.txt">huckfinn.txt</a>,
+<a href="prejudice.txt">prejudice.txt</a>,
+<a href="djia.csv">djia.csv</a>,
+<a href="amazon.html">amazon.html</a>, and
+<a href="actg.txt">actg.txt</a>.</p>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+
+<h2>Design-by-Contract</h2>
+
+<p>To conclude, we briefly discuss Python language mechanisms that enable you to verify assumptions about your program while it is running.</p>
+
+<p><h3>Exceptions.</h3> An <em>exception</em> is a disruptive event that occurs while a program is running, often to signal an error. The action taken is known as <em>raising an exception</em> (or <em>error</em>). We have already encountered exceptions raised by Python's standard modules in the course of learning to program: <code>IndexError</code> and <code>ZeroDivisionError</code> are typical examples. You can also raise your own exceptions. The simplest kind is an <code>Exception</code> that disrupts execution of the program and writes an error message:</p>
+
+<blockquote><table><tr><td><pre>
+raise Exception('Error message here.')
+</pre></td></tr></table></blockquote>
+
+<p>It is good practice to use exceptions when they can be helpful to the client. For example, in <a href="vector.py.html">vector.py</a>, we should raise an exception in <code>__add__()</code> if the two <code>Vector</code>s to be added have different dimensions. To do so, we insert the following statement at the beginning of <code>__add__()</code>:</p>
+
+<blockquote><table><tr><td><pre>
+if len(self) != len(other):
+    raise Exception('vectors have different dimensions')
+</pre></td></tr></table></blockquote>
+
+<p><h3>Assertions.</h3> An <em>assertion</em> is a boolean expression that you are affirming is <code>True</code> at that point in the program. If the expression is <code>False</code>, the program will raise an <code>AssertionError</code> at run time. Programmers uses assertions to detect bugs and gain confidence in the correctness of their programs. Assertions also serve to document the programmer's intent. For example, in <a href="counter.py.html">counter.py</a>, we might check that the counter is never negative by adding the following assertion as the last statement in <code>increment()</code>:</p>
+
+<blockquote><table><tr><td><pre>
+assert self._count >= 0
+</pre></td></tr></table></blockquote>
+
+<p>This statement would call attention to a negative count. You can also add an optional detail message, such as</p>
+
+<blockquote><table><tr><td><pre>
+assert self._count >= 0, 'Negative count detected!'
+</pre></td></tr></table></blockquote>
+
+<p>to help identify the bug.</p>
+
+<p>By default, assertions are enabled, but you can disable them from the command line by using the <code>-O</code> (that's a minus sign followed by an uppercase "oh") flag with the python command. (The <code>O</code> stands for "optimize.") Assertions are for debugging only; your program should not rely on assertions for normal operation since they may be disabled.</p>
+
+<p>When using the <em>design-by-contract</em> model, the designer of a data type expresses a <em>precondition</em> (the condition that the client promises to satisfy when calling a method), a <em>postcondition</em> (the condition that the implementation promises to achieve when returning from a method), <em>invariants</em> (any condition that the implementation promises to satisfy while the method is executing), and <em>side effects</em> (any other change in state that the method could cause). During development, these conditions can be tested with assertions. Many programmers use assertions liberally to aid in debugging.</p>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+<!-- =============================================================== -->
+
+<h4>Q &amp; A</h4>
+
+<p><strong>Q.</strong> Why is the underscore convention not part of (and enforced by) Python?</p>
+
+<p><strong>A.</strong> Good question.</p>
+
+<p><strong>Q.</strong> Why all the leading underscores?</p>
+
+<p><strong>A.</strong> This is just one of many examples where a programming-language designer goes with a personal preference and we live with the result. Fortunately, most Python programs that you compose will be client programs, which do not directly call special methods or refer to private instance variables, so they will not need many leading underscores. The relatively few Python programmers who implement their own data types (that's you, now) need to follow the underscore conventions, but even those programmers are likely to be composing more client code than class implementations, so the underscores may not be so onerous in the long run.</p>
+
+<p><strong>Q.</strong> The <code>__mul__()</code> method in <a href="complexpolar.py.html">complexpolar.py</a> is awkward because it create a <code>Complex</code> object (representing 0 + 0<em>i</em>) and then immediately changes its instance variables to the desired polar coordinates. Wouldn't the design be better if I could add a second constructor that takes the polar coordinates as arguments?</p>
+
+<p><strong>A.</strong> Yes, but we already have a constructor that takes the rectangular coordinates as arguments. A better design might be to have two ordinary functions (not methods) <code>createRect(x, y)</code> and <code>createPolar(r, theta)</code> in the API that create and return new objects. This design is perhaps better because it would provide the client with the capability to switch to polar coordinates. This example demonstrates that it is a good idea to think about more than one implementation when developing a data type. Of course, making such a change necessitates enhancing all existing implementations and clients of the API, so this thinking should happen as early in the design process as possible.</p>
+
+<p><strong>Q.</strong> How do I specify a tuple consisting of zero items or one item?</p>
+
+<p><strong>A.</strong> You can use <code>()</code> and <code>(1,)</code>, respectively. Without the comma in the second expression, Python would treat it as an arithmetic expression enclosed in parentheses.</p>
+
+<p><strong>Q.</strong> Do I really need to overload all six comparison methods if I want to make my data type comparable?</p>
+
+<p><strong>A.</strong> Yes. This is an example where the convention is to provide maximum flexibility to clients at the expense of extra code in implementations. Often, you can use symmetries to cut down on the actual amount of implementation code. Also, Python 3 supplies a few shortcuts. For example, if you define an <code>__eq__()</code> method for a data type but do not define an <code>__ne__()</code> method, then Python automatically provides an implementation that calls <code>__eq__()</code> and negates the result. However, Python 2 does not provide these shortcuts, so it is best not to rely upon them in your code.</p>
+
+<!--
+Q. Is there is any situation where I would not want the six comparison methods to implement a total order?
+
+A. Yes, you might want to implement a partial order, where not every pair of objects can be compared. For example, you might compare people according to genealogical order, where one person is considered less than another if he or she is a descendant (child, grandchild, great-grandchild, and so forth) of the other. Not all people are related in this manner. Also, you might want to be able to compare Counter objects by their counts (when sorting) but you might want to consider two Counter objects to be equal only if they have both the same count and name.
+-->
+
+<p><strong>Q.</strong> What is the range of integer values returned by the built-in <code>hash()</code> function?</p>
+
+<p><strong>A.</strong> Typically, Python uses a 64-bit integer, so the range is between -2<sup>63</sup> and 2<sup>63</sup>-1. For cryptographic applications, you should use Python's <code>hashlib</code> module, which supports "secure" hash functions that support much larger ranges.</p>
+
+<p><strong>Q.</strong> Which Python operators cannot be overloaded?</p>
+
+<p><strong>A.</strong> In Python, you cannot overload</p>
+
+<ul>
+<li>The boolean operators <code>and</code>, <code>or</code>, and <code>not</code>.</li>
+
+<li>The <code>is</code> and <code>is not</code> operators, which test for object identity.</li>
+
+<li>The string format operator <code>%</code>, which can be applied only to strings.</li>
+
+<li>The assignment operator <code>=</code>.</li>
+</ul>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+<!-- =============================================================== -->
+
+<h4>Exercises</h4>
+
+<ol>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Create a data type <code>Location</code> for dealing with locations on Earth using spherical coordinates (latitude/longitude). Include methods to generate a random location on the surface of the Earth, parse a location "25.344 N, 63.5532 W", and compute the great circle distance between two locations.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Create a data type for a three-dimensional particle with position (<em>r</em><sub><em>x</em></sub>, <em>r</em><sub><em>y</em></sub>, <em>r</em><sub><em>z</em></sub>), mass <em>m</em>, and velocity <code>(<em>v</em><sub><em>x</em></sub>, <em>v</em><sub><em>y</em></sub>, <em>v</em><sub><em>z</em></sub>)</code>. Include a method to return its kinetic energy, which equals 1/2 <em>m</em> (<em>v</em><sub><em>x</em></sub><sup>2</sup> + <em>v</em><sub><em>y</em></sub><sup>2</sup> + <em>v</em><sub><em>z</em></sub><sup>2</sup>)</code>. Use the <code>Vector</code> data type, as defined in <a href="vector.py.html">vector.py</a>.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>If you know your physics, develop an alternate implementation of the data type of the previous exercise based on using the <em>momentum</em> (<em>p</em><sub><em>x</em></sub>, <em>p</em><sub><em>y</em></sub>, <em>p</em><sub><em>z</em></sub>) as an instance variable.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Develop an implementation of the <code>Histogram</code> class, as defined in <a href="../32class/histogram.py.html">histogram.py</a> (from Section 3.2), that uses <code>Counter</code>, as defined in <a href="counter.py.html">counter.py</a>.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Compose an implementation of <code>__sub__()</code> for <code>Vector</code> (as defined in <a href="vector.py.html">vector.py</a> that subtracts two vectors.</p>
+
+<p><em>Solution</em>:
+
+<blockquote><table><tr><td><pre>
+def __sub__(self, other):
+    return self + (other * -1.0)
+</pre></td></tr></table></blockquote>
+
+<p>Note that <code>__sub__()</code> calls <code>__add__()</code> and <code>__mul__()</code>. The advantage of such implementations is that they limit the amount of detailed code to check; the disadvantage is that they can be inefficient. In this case, <code>__add__()</code> and <code>__mul__()</code> both create new <code>Vector</code> objects, so copying the code for <code>__add__()</code> and replacing the minus sign with a plus sign is probably a better implementation.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<!--
+<li>
+<p>Implement the method toString() for Vector.</p>
+</li>
+-->
+
+<!-- =============================================================== -->
+
+<!--
+<li>
+<p>Add a method named <code>__cmp__()</code> to the <code>Vector</code> class that implements this API:</p>
+
+<blockquote>
+<p><strong>The <code>vector</code> Module (continued from above)</strong></p>
+<hr>
+
+<table cellspacing="1" cellpadding="5" border="0" bgcolor="#FFFFFF">
+
+<tr align="left">
+<th><code>Vector</code> Method</th>
+<th>Description</th>
+</tr>
+
+<tr bgcolor="#EBEBEB" align="left">
+<td><code>v.__cmp__(v2)</code></td>
+<td>Compare <code>Vector</code> objects <code>v</code> and <code>v2</code>. Return 0 if <code>v</code> equals <code>v2</code>, -1 if <code>v</code> is less than <code>v2</code>, or 1 if <code>v</code> is greater than <code>v2</code>. Use the magnitudes of <code>v</code> and <code>v2</code> to determine the relationship.</td>
+<tr>
+
+</table>
+</blockquote>
+
+<p>Then write a test client that takes <code>k</code> and <code>n</code> as command-line arguments, reads <code>n</code> <code>k</code>-dimensional vectors from standard input, sorts them in ascending order, and writes the sorted result on standard output.</p>
+
+<p>Some hints:</p>
+
+<ul>
+<li>Python provides a built-in function named <code>sorted()</code>. The function call <code>sorted(someList)</code> returns a new list which is the same as <code>someList</code>, but with its items in sorted order. </li>
+
+<li><code>sorted(someList)</code> works by calling <code>someList.sort()</code>, that is, the <code>sort()</code> method of the <code>list</code> class.</li>
+
+<li><code>someList.sort()</code> works by calling the built-in <code>cmp()</code> function repeatedly, each time passing to <code>cmp()</code> a pair of items of <code>someList</code>.</li>
+
+<li><code>cmp(item1, item2)</code> works by calling <code>item1.__cmp__(item2)</code>.</li>
+</ul>
+</li>
+-->
+
+<!-- =============================================================== -->
+
+<li>
+<p>Implement a data type <code>Vector2D</code> for two-dimensional vectors that has the same API as <code>Vector</code> (as defined in <a href="vector.py.html">vector.py</a>, except that the constructor takes two floats as arguments. Use two floats (instead of an array) for instance variables.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Implement the <code>Vector2D</code> data type of the previous exercise using one <code>Complex</code> object as the only instance variable.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Prove that the dot product of two two-dimensional unit-vectors is the cosine of the angle between them.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Implement a data type <code>Vector3D</code> for three-dimensional vectors that has the same API as <code>Vector</code>, except that the constructor takes three floats as arguments. Also, add a <em>cross product</em> method: the cross product of two vectors is another vector, defined by the equation</p>
+
+
+<blockquote><table><tr><td>
+<strong>a</strong> &times; <strong>b</strong> = <strong>c</strong> |<strong>a</strong>| |<strong>b</strong>| sin &theta;
+</td></tr></table></blockquote>
+
+<p>where <strong>c</strong> is the unit normal vector perpendicular to both <strong>a</strong> and <strong>b</strong>, and &theta; is the angle between <strong>a</strong> and <strong>b</strong>. In Cartesian coordinates, the following equation defines the cross product:</p>
+
+<blockquote><table><tr><td>
+(<em>a</em><sub>0</sub>, <em>a</em><sub>1</sub>, <em>a</em><sub>2</sub>) &times; (<em>b</em><sub>0</sub>, <em>b</em><sub>1</sub>, <em>b</em><sub>2</sub>) = (<em>a</em><sub>1</sub> <em>b</em><sub>2</sub> - <em>a</em><sub>2</sub> <em>b</em><sub>1</sub>, <em>a</em><sub>2</sub> <em>b</em><sub>0</sub> - <em>a</em><sub>0</sub> <em>b</em><sub>2</sub>, <em>a</em><sub>0</sub> <em>b</em><sub>1</sub> - <em>a</em><sub>1</sub> <em>b</em><sub>0</sub>)
+</td></tr></table></blockquote>
+
+<p>The cross product arises in the definition of torque, angular momentum, and vector operator curl. Also, |<strong>a</strong> &times; <strong>b</strong>| is the area of the parallelogram with sides <strong>a</strong> and <strong>b</strong>.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Which modifications (if any) would you need to make <code>Vector</code> (see <a href="vector.py.html">vector.py</a>) work with <code>Complex</code> components (see <a href="../32class/complex.py.html">complex.py</a> from Section 3.2) or <code>Rational</code> components (see the "rational numbers" exercise in Section 3.2)?</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Add code to <a href="../32class/charge.py.html">charge.py</a> (from Section 3.2) to make <code>Charge</code> objects comparable using the value of the charge to determine the <!--total--> order.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Compose a function <code>fibonacci()</code> that takes an integer argument <code>n</code> and computes the <code>n</code>th Fibonacci number. Use tuple packing and unpacking.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+
+<p>Revise the <code>gcd()</code> function in <a href="../23recursion/euclid.py.html">euclid.py</a> (from Section 2.3) so that it takes two nonnegative integer arguments <code>p</code> and <code>q</code> and returns a tuple of integers (<code>d</code>, <code>a</code>, <code>b</code>) such that <code>d</code> is the greatest common divisor of <code>p</code> and <code>q</code>, and the coefficients <code>a</code> and <code>b</code> satisfy Bezout's identity: <code>d = a*p + b*q</code>. Use tuple packing and unpacking.</p>
+
+<p><em>Solution</em>: This algorithm is known as <em>extended Euclid's algorithm</em>:</p>
+
+<blockquote><table><tr><td><pre>
+def gcd(p, q):
+    if q == 0: return (p, 1, 0)
+    (d, a, b) = gcd(q, p % q)
+    return (d, b, a - (p // q) * b)
+</pre></td></tr></table></blockquote>
+
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Discuss the advantages and disadvantages of Python's design in making the built-in type <code>bool</code> be a subclass of the built-in type <code>int</code>.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Add code to <code>Counter</code> (as defined in <a href="counter.py.html">counter.py</a> to raise a <code>ValueError</code> at run time if the client tries to create a <code>Counter</code> object using a negative value for <code>maxCount</code>.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Use exceptions to develop an implementation of <code>Rational</code> (see the "rational numbers" exercise in Section 3.2) that raises a <code>ValueException</code> at run time if the denominator is zero.</p>
+</li>
+
+</ol>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+<!-- =============================================================== -->
+
+<h4>Data-Type Design Exercises</h4>
+
+<p><em>This group of exercises is intended to give you experience in developing data types. For each problem, design one or more APIs with API implementations, testing your design decisions by implementing typical client code. Some of the exercises require either knowledge of a particular domain or a search for information about it on the web.</em></p>
+
+<!-- =============================================================== -->
+
+<ol>
+
+<li>
+<p><strong>Statistics</strong>. Develop a data type for maintaining statistics of a set of floats. Provide a method to add data points and methods that return the number of points, the mean, the standard deviation, and the variance. Develop two implementations: one whose instance values are the number of points, the sum of the values, and the sum of the squares of the values, and another that keeps an array containing all the points. For simplicity, you may take the maximum number of points in the constructor. Your first implementation is likely to be faster and use substantially less space, but is also likely to be susceptible to roundoff error. <!-- See the booksite for a well-engineered alternative.--></p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p><strong>Genome</strong>. Develop a data type to store the genome of an organism. Biologists often abstract the genome to a sequence of nucleotides (A, C, G, or T). The data type should support the methods <code>addCodon(c)</code> and <code>baseAt(i)</code>, as well as <code>isPotentialGene()</code> (see <a href="../31datatype/potentialgene.py.html">potentialgene.py</a> from Section 3.1). Develop three implementations.</p>
+
+<ul>
+<li>Use a string as the only instance variable; implement <code>addCodon()</code> with string concatenation.</li>
+
+<li>Use an array of single-character strings as the only instance variable; implement <code>addCodon()</code> with the <code>+=</code> operator.</li>
+
+<li>Use a boolean array, encoding each base with two bits.</li>
+</ul>
+
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p><strong>Time</strong>. Develop a data type for the time of day. Provide client methods that return the current hour, minute, and second, as well as a <code>__str__()</code> method. Develop two implementations: one that keeps the time as a single <code>int</code> value (number of seconds since midnight) and another that keeps three <code>int</code> values, one each for seconds, minutes, and hours.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p><strong>Vector fields</strong>. Develop a data type for force vectors in two dimensions. Provide a constructor, a method to add two vectors, and an interesting test client.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p><strong>Dates</strong>. Develop an API for dates (year, month, day). Include methods for comparing two dates chronologically, computing the number of days between two dates, determining the day of the week of a given date, and any other operations that you think a client might want. After you have designed your API, look at the Python's <code>datetime.date</code> data type.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p><strong>Polynomials</strong>. Develop a data type for univariate polynomials with integer coefficients, such as <em>x</em><sup>3</sup> + 5<em>x</em><sup>2</sup> + 3<em>x</em> + 7. Include methods for standard operations on polynomials such as addition, subtraction, multiplication, degree, evaluation, composition, differentiation, definite integration, and testing equality.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p><strong>Rational polynomials</strong>. Repeat the previous exercise, ensuring that the polynomial data type behaves correctly when provided coefficients of type <code>int</code>, <code>float</code>, <code>complex</code>, and <code>Fraction</code> (see the "rational numbers" exercise in Section 3.2).</p>
+</li>
+
+<!-- =============================================================== -->
+
+<!--
+<li
+><p><strong>VIN number</strong>. Develop a data type for VIN numbers that can report back
+all relevant information.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<!--
+<li>
+<p><strong>Generating random numbers</strong>. Develop a data type for random numbers. (Convert <code>stdrandom</code> to a data type). Instead of using <code>math.random()</code>, base your data type on a linear congruential random number generator. This method traces to the earliest days of computing and is also a quintessential example of the value of maintaining state in a computation (implementing a data type). To generate random <code>int</code> values, maintain an <code>int</code> value <code>x</code> (the value of the last "random" number returned). Each time the client asks for a new value, return <code>a*x + b</code> for suitably chosen values of <code>a</code> and <code>b</code> (ignoring overflow). Use arithmetic to convert these values to "random" values of other types of data. As suggested by D. E. Knuth, use the values 3141592621 for <code>a</code> and 2718281829 for <code>b</code>, or check the booksite for other suggestions. Provide a constructor allowing the client to start with an <code>int</code> value known as a <em>seed</em> (the initial value of <code>x</code>). This ability makes it clear that the numbers are not at all random (even though they may have many of the properties of random numbers) but that fact can be used to aid in debugging, since clients can arrange to see the same numbers each time.</p>
+</li>
+-->
+
+</ol>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+<!-- =============================================================== -->
+
+<h4>Creative Exercises</h4>
+
+<ol>
+
+<!-- =============================================================== -->
+
+<li>
+<p><strong>Calendar</strong>. Develop <code>Appointment</code> and <code>Calendar</code> APIs that can be used to keep track of appointments (by day) in a calendar year. Your goal is to enable clients to schedule appointments that do not conflict and to report current appointments to clients. Use Python's <code>datetime</code> module.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p><strong>Vector field</strong>. A vector field associates a vector with every point in a Euclidean space. Compose a version of <a href="../31datatype/potential.py.html">potential.py</a> (from Section 3.1) that takes as input a grid size <em>n</em>, computes the <code>Vector</code> value of the potential due to the point charges at each point in an <em>n</em>-by-<em>n</em> grid of equally spaced points, and draws the unit vector in the direction of the accumulated field at each point.<!-- (Modify <code>Charge</code> to return a <code>Vector</code>.)--></p>
+</li>
+
+<!-- =============================================================== -->
+<!--
+
+(Refers to a table in the text that, it seems, doesn't exist.)
+
+<li>
+<p><strong>Genome sketching</strong>. Compose a function <code>hash()</code> that takes as an argument a <em>k</em>-gram (string of length <em>k</em>) whose characters are all A, C, G, or T and returns an <code>int</code> between 0 and 4<sup><em>k</em></sup> that corresponds to treating the string as base-4 numbers with {A, C, G, T} replaced by {0, 1, 2, 3}, respectively, as suggested by the table in the textbook. Next, compose a function <code>unhash()</code> that reverses the transformation. Use your methods to create a class <code>Genome</code> that is like <code>Sketch</code> (see <a href="sketch.py.html">sketch.py</a>), but is based on exact counting of <em>k</em>-grams in genomes. Finally, compose a version of <a href="comparedocuments.py.html">comparedocuments.py</a> for <code>Genome</code> objects and use it to look for similarities among a set of genome files.</p>
+</li>
+-->
+
+<!-- =============================================================== -->
+
+<li>
+<p><strong>Sketching</strong>. Pick an interesting set of documents from the booksite (or use a collection of your own) and run <a href="comparedocuments.py.html">comparedocuments.py</a> with various command-line arguments, to learn about their effect on the computation.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p><strong>Multimedia search</strong>. Develop sketching strategies for sound and pictures, and use them to discover interesting similarities among songs in the music library and photos in the photo album on your computer.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p><strong>Data mining</strong>. Compose a recursive program that surfs the web, starting at a page given as the first command-line argument, and looks for pages that are similar to the page given as the second command-line argument, as follows. To process a name, open an input stream, do a <code>readAll()</code>, sketch it, and write the name if its distance to the target page is greater than the threshold value given as the third command-line argument. Then scan the page for all strings that contain the substring <code>http://</code> and (recursively) process pages with those names. <em>Note</em>: This program might read a very large number of pages!</p>
+
+</li>
+
+</ol>
+
+</body>
+</html>
+
+   <br><br>
+   <p class = footer>
+   Copyright &copy; 2000&ndash;2015 by Robert Sedgewick, Kevin Wayne, and Robert Dondero.
+   All rights reserved.
+</div>
+
+
+
+
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+ 

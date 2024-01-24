@@ -1,0 +1,1161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="en">
+
+<head>
+
+<link rel="icon"          href="https://introcs.cs.princeton.edu/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="https://introcs.cs.princeton.edu/favicon.ico" type="image/x-icon">
+<link rel="stylesheet"    href="https://introcs.cs.princeton.edu/introcs.css" type="text/css">
+<meta name="google-site-verification" content="nYspbl5bNBQrNZKguiAAFTMVM7sq2P1WQYc8Oi6Okl0" />
+<meta name="msvalidate.01" content="D4B7F6DF793EFF34DE96F611C2A367A5" />
+<!-- IE HACKS -->
+<!--[if IE]>
+<style type="text/css" media="screen">
+ #menu ul li {float: left; width: 100%;}
+</style>
+<![endif]-->
+<!--[if lt IE 7]>
+<style type="text/css" media="screen">
+body {
+behavior: url(/csshover.htc);
+} 
+#menu ul li {float: left; width: 100%;}
+#menu ul li a {height: 1%;} 
+
+#menu a, #menu h2 {
+font: bold 0.9em/1.5em arial, helvetica, sans-serif;
+} 
+
+</style>
+<![endif]-->
+
+
+<title>
+Creating Data Types</title>
+<script type='text/javascript' src='https://algs4.cs.princeton.edu/media/swfobject.js'></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10811519-6', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<META HTTP-EQUIV="Content-Type" content="text/html; charset=iso-8859-1">
+<META NAME="AUTHOR" CONTENT="Robert Sedgewick, Kevin Wayne, and Robert Dondero">
+<META NAME="KEYWORDS" CONTENT="Creating Data Types,Python,Programming,interdisciplinary,Computer science,cs,intro,introduction,sedgewick,dondero,wayne">
+<META NAME="DESCRIPTION" CONTENT="This textbook provides an interdisciplinary approach to the CS 1 curriculum. We teach the classic elements of programming, using an "objects-in-the-middle" approach that emphasizes data abstraction. A key feature of the book is the manner in which we motivate each programming concept by examining its impact on specific applications, taken from science, engineering, and commerce.">
+<META NAME="TITLE" CONTENT="Creating Data Types. Introduction to Programming in Python by Sedgewick, Wayne, and Dondero">
+<META NAME="ROBOTS" CONTENT="INDEX,FOLLOW">
+<META name="verify-v1" content="D4o9ikkHbNKapHncCP8ZmiD9Z2DBbrJyaSV0lyce+3w=">
+
+
+<link rel="stylesheet" href="https://localhost:49822/stylesheet?id=tVuE1YwanCaRM2mU"></head>
+
+
+
+
+
+<body>
+
+<div id = "menu">
+   <div align="center">
+<a class = picture href = "https://introcs.cs.princeton.edu/python">
+<img src="../cover.png" width=190 border=0 alt = "Introduction to Programming in Python">
+</a>
+</div>
+
+
+
+
+
+<ul>
+  <li><a class = title href = "/python/home">Intro to Programming</a>
+    <ul>
+
+      <li> <a href = "https://introcs.cs.princeton.edu/python/10elements">1.&nbsp;&nbsp;Elements of Programming</a>
+        <ul>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/11hello">1.1&nbsp;&nbsp;Your First Program</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/12types">1.2&nbsp;&nbsp;Built-in Types of Data</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/13flow">1.3&nbsp;&nbsp;Conditionals and Loops</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/14array">1.4&nbsp;&nbsp;Arrays</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/15inout">1.5&nbsp;&nbsp;Input and Output</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/16pagerank">1.6&nbsp;&nbsp;Case Study: PageRank</a>
+        </ul>
+
+      <li> <a href = "https://introcs.cs.princeton.edu/python/20functions">2.&nbsp;&nbsp;Functions</a>
+        <ul>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/21function">2.1&nbsp;&nbsp;Defining Functions</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/22module">2.2&nbsp;&nbsp;Modules and Clients</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/23recursion">2.3&nbsp;&nbsp;Recursion</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/24percolation">2.4&nbsp;&nbsp;Case Study: Percolation</a>
+        </ul>
+
+      <li> <a href = "https://introcs.cs.princeton.edu/python/30oop">3.&nbsp;&nbsp;OOP</a>
+        <ul>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/31datatype">3.1&nbsp;&nbsp;Using Data Types</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/32class">3.2&nbsp;&nbsp;Creating Data Types</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/33design">3.3&nbsp;&nbsp;Designing Data Types</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/34nbody">3.4&nbsp;&nbsp;Case Study: N-Body</a>
+        </ul>
+
+      <li> <a href = "https://introcs.cs.princeton.edu/python/40algorithms">4.&nbsp;&nbsp;Data Structures</a>
+        <ul>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/41analysis">4.1&nbsp;&nbsp;Performance</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/42sort">4.2&nbsp;&nbsp;Sorting and Searching</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/43stack">4.3&nbsp;&nbsp;Stacks and Queues</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/44st">4.4&nbsp;&nbsp;Symbol Tables</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/45graph">4.5&nbsp;&nbsp;Case Study: Small World</a>
+        </ul>
+    </ul>
+</ul>
+
+
+
+
+<!--
+<ul>
+  <li><a class = title href = "/python/cs">Intro to CS</a>
+    <ul>
+        </ul>
+    </ul>
+</ul>
+
+-->
+
+
+
+
+
+<ul>
+
+<li><a class = title> Related Booksites</a>
+<table width = 100% border = 0 cellspacing = 0 cellpadding = 0>
+<tr>
+<td align = center>
+<a class = booksite href = "https://introcs.cs.princeton.edu">
+   <img src = "https://introcs.cs.princeton.edu/java/cover.png"
+        width = 73 height = 91 border=0
+        alt = "Introduction to Programming in Java
+               by Robert Sedgewick and Kevin Wayne">
+</a>
+<td align = center>
+<a class = booksite href = "https://algs4.cs.princeton.edu">
+   <img src = "https://algs4.cs.princeton.edu/cover.png"
+        width = 73 height = 91 border=0
+        alt = "Algorihtms, 4th Edition by Robert Sedgewick and Kevin Wayne">
+</a>
+</tr>
+</table>
+
+
+
+  <li><a class = title href = "/home">Web Resources</a>
+    <ul>
+
+      <li> <a href = "/python/faq">FAQ</a>
+      <!-- <li> <a href = "/python/data">Data</a> -->
+      <li> <a href = "/python/code">Code</a>
+      <li> <a href = "/python/errata">Errata</a>
+      <li> <a href = "/python/appendix">Appendices</a>
+        <ul>
+          <li> <a href = "/python/appendix_precedence">A. &nbsp; Python Operator Precedence</a>
+          <li> <a href = "/python/appendix_style">B. &nbsp; Writing Clear Code</a>
+          <li> <a href = "/python/appendix_gaussian">C. &nbsp; Gaussian Distribution</a>
+          <li> <a href = "/python/appendix_cheatsheet">D. &nbsp; Python Cheatsheet</a>
+          <li> <a href = "/python/appendix_numpy">E. &nbsp; NumPy</a>
+        </ul>
+      <!-- <li> <a href="/python/lectures">Lecture Slides</a> -->
+      <!-- <li> <a href="/python/assignments">Programming Assignments</a> -->
+   </ul>
+
+
+</ul>
+
+<p><br>
+<script>
+  (function() {
+    var cx = '005649317310637734940:_d158dlngnk';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:searchbox-only></gcse:searchbox-only>
+
+<p><br>
+</div>
+
+<div id = "content">
+   <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>
+</title>
+</head>
+<body>
+
+<h1>3.2 Creating Data Types</h1>
+
+<br>
+
+<p>In the last section we explained how to <em>use</em> our own data types in Python. In this section we explain how to <em>implement</em> them.</p>
+
+<p>In Python, we implement a data type using a <em>class</em>. Implementing a data type as a Python class is not very different from implementing a function module as a set of functions. The primary differences are that we associate values (in the form of instance variables) with methods and that each method call is associated with the object used to invoke it.</p>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+
+<h2>Basic Elements of a Data Type</h2>
+
+<p>To illustrate the process of implementing a data type as a Python class, we now consider an implementation of the <code>Charge</code> data type of Section 3.1.</p>
+
+<p><h3>API.</h3> We repeat below the Charge API. We have already looked at APIs as specifications of how to use data types in client code; now look at them as specifications of how to implement data types.</p>
+
+<blockquote>
+<img src="images/ChargeApi.png" alt="Charge API">
+</blockquote>
+
+<p><h3>Class.</h3> In Python, we implement a data type as a <em>class</em>. We define the <code>Charge</code> class in a file named <a href="charge.py.html">charge.py</a>. To define a class, we use the keyword <code>class</code>, followed by the class name, followed by a colon, and then a list of method definitions. Our class defines a constructor, instance variables, and methods, which we will address in detail next.</p>
+
+<p><h3>Constructor.</h3> A constructor creates an object of the specified type and returns a reference to that object. For our example, the client code</p>
+
+<blockquote><table><tr><td><pre>
+c = Charge(x0, y0, q0)
+</pre></td></tr></table></blockquote>
+
+<p>returns a new <code>Charge</code> object, suitably initialized. Python provides a flexible and general mechanism for object creation, but we adopt a simple subset that well serves our style of programming. Specifically, in this booksite, each data type defines a special method <code>__init__()</code> whose purpose is to define and initialize the instance variables, as described below. The double underscores before and after the name are your clue that it is "special" &mdash; we will be encountering other special methods soon.</p>
+
+<p>When a client calls a constructor, Python's default construction process creates a new object of the specified type, calls the <code>__init__()</code> method to define and initialize the instance variables, and returns a reference to the new object. In this booksite, we refer to <code>__init__()</code> as the <em>constructor</em> for the data type, even though it is technically only the pertinent part of the object-creation process.</p>
+
+<img src="images/AnatomyConstructor.png" align="right" hspace="25" alt="Anatomy of a constructor">
+
+<p>The code at right is the <code>__init__()</code> implementation for <code>Charge</code>. It is a method, so its first line is a signature consisting of the keyword <code>def</code>, its name (<code>__init__</code>), a list of parameter variables, and a colon. By convention, the first parameter variable is named <code>self</code>. <em>As part of Python's default object creation process, the value of the self parameter variable when <code>__init()__</code> is invoked is a reference to the newly created object.</em> The ordinary parameter variables from the client follow the special parameter variable <code>self</code>. The remaining lines make up the body of the constructor. Our convention throughout this book is for <code>__init()__</code> to consist of code that initializes the newly created object by defining and initializing the instance variables.</p>
+
+<p><h3>Instance variables.</h3> A data type is a set of values and a set of operations defined on those values. In Python, <em>instance variables</em> implement the values. An instance variable belongs to a particular instance of a class &mdash; that is, to a particular object.
+In this booksite, our convention is to define and initialize each instance variable of the newly created object in the constructor and only in the constructor. The standard convention in Python programs is that instance variable names begin with an underscore. In our implementations, you can inspect the constructor to see the entire set of instance variables. For example, the <code>__init__()</code> implementation on the previous page tells us that <code>Charge</code> has three instance variables <code>_rx</code>, <code>_ry</code>, and <code>_q</code>. When an object is created, the value of the <code>self</code> parameter variable of the <code>__init__()</code> method is a reference to that object. Just as we can call a method for a charge <code>c</code> with the syntax <code>c.potentialAt()</code>, so we can refer to an instance variable for a charge <code>self</code> with the syntax <code>self._rx</code>. Therefore the three lines within the <code>__init__()</code> constructor for <code>Charge</code> define and initialize <code>_rx</code>, <code>_ry</code>, and <code>_q</code> for the new object.</p>
+
+<img src="images/TraceFormalChargeCreate.png" align="right" hspace="25" alt="Creating and initializing an object">
+
+<p><h3>Details of object creation.</h3> The memory diagrams at the right detail the precise sequence of events when a client creates a new <code>Charge</code> object with the code</p>
+
+<blockquote><table><tr><td><pre>
+c1 = Charge(0.51, 0.63, 21.3)
+</pre></td></tr></table></blockquote>
+
+<ul>
+<li>Python creates the object and calls the <code>__init__()</code> constructor, initializing the constructor's <code>self</code> parameter variable to reference the newly created object, its <code>x0</code> parameter variable to reference 0.51, its <code>y0</code> parameter variable to reference 0.63, and its <code>q0</code> parameter variable to reference 21.3.</li>
+
+<li>The constructor defines and initializes the <code>_rx</code>, <code>_ry</code>, and <code>_q</code> instance variables within the newly created object referenced by self.</li>
+
+<li>After the constructor finishes, Python automatically returns to the client the self reference to the newly created object.</li>
+
+<li>The client assigns that reference to <code>c1</code>.</li> 
+</ul>
+
+<p>The parameter variables <code>x0</code>, <code>y0</code>, and <code>q0</code> go out of scope when <code>__init__()</code> is finished, but the objects they reference are still accessible via the new object's instance variables.</p>
+
+<p><h3>Methods.</h3> To define methods, we compose code that is precisely like the code that we learned in Chapter 2 to define functions, with the (significant) exception that methods can also access instance variables. For example, the code of the <code>potentialAt()</code> method for our <code>Charge</code> data type is shown here:</p>
+
+<blockquote>
+<img src="images/AnatomyMethod.png" alt="Anatomy of a method">
+</blockquote>
+
+<p>The first line is the method's signature: the keyword <code>def</code>, the name of the method, parameter variables names in parentheses, and a colon. The first parameter variable of every method is named <code>self</code>. When a client calls a method, Python automatically sets that <code>self</code> parameter variable to reference the object to be manipulated &mdash; the object that was used to invoke the method. For example, when a client calls our method with <code>c.potentialAt(x, y)</code>, the value of the <code>self</code> parameter variable of the <code>potentialAt()</code> method is set to <code>c</code>. The ordinary parameter variables from the client (<code>x</code> and <code>y</code>, in this case) follow the special parameter variable <code>self</code>. The remaining lines make up the body of the <code>potentialAt()</code> method.</p>
+
+<p><h3>Variables within methods.</h3> To understand method implementations, it is very important to know that a method typically uses three kinds of variables:</p> 
+
+<ul>
+<li>The <code>self</code> object's instance variables</li>
+<li>The method's parameter variables</li>
+<li>Local variables</li>
+</ul>
+
+<p>The differences between the three kinds of variables are a key to object-oriented programming and are summarized in this table:</p>
+
+<blockquote>
+<img src="images/VariablesWithinMethods.png" alt="Variables within methods">
+</blockquote>
+
+<p>In our example, <code>potentialAt()</code> uses the <code>_rx</code>, <code>_ry</code>, and <code>_q</code> instance variables of the object referenced by <code>self</code>, the parameter variables <code>x</code> and <code>y</code>, and the local variables <code>COULOMB</code>, <code>dx</code>, <code>dy</code>, and <code>r</code> to compute and return a value.</p>
+
+<p><h3>Methods are functions.</h3> A method is a special kind of function that is defined in a class and associated with an object. The key difference between functions and methods is that a method is associated with a specified object, with direct access to its instance variables.</p>
+
+<p><h3>Built-in functions.</h3> The third operation in the <code>Charge</code> API is a built-in function <code>str(c)</code>. Python's convention is to automatically translate this function call to a standard method call <code>c.__str()__</code>. Thus, to support this operation, we implement the special method <code>__str__()</code>, which uses the instance variables associated with the invoking object to string together the desired result.</p>
+
+<p><h3>Privacy.</h3> A client should access a data type only through the methods in its API. Sometimes it is convenient to define helper methods in the implementation that are not intended to be called directly by the client. The special method <code>__str__()</code> is a prototypical example. As we saw in Section 2.2 with private functions, the standard Python convention is to name such methods with a leading underscore. The leading underscore is a strong signal to the client not to call that private method directly. Similarly, naming instance variables with a leading underscore signals to the client not to access such private instance variables directly. Even though Python has no language support for enforcing these conventions, most Python programmers treat them as sacrosanct.</p>
+
+<p>The implementation of the <code>Charge</code> data type in <a href="charge.py.html">charge.py</a> illustrates all of the features that we have described, and also defines a test client. This diagram relates the code in <a href="charge.py.html">charge.py</a> to its features:</p>
+
+<blockquote>
+<img src="images/AnatomyClass.png" alt="Anatomy of a class definition">
+</blockquote>
+
+<p>For the rest of this section, we apply these basic steps to create a number of interesting data types and clients.</p>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+
+<h2>Stopwatch</h2>
+
+<p>The program <a href="stopwatch.py.html">stopwatch.py</a> defines a <code>Stopwatch</code> class which implements this API:</p>
+
+<blockquote>
+<img src="images/StopwatchApi.png" alt="Stopwatch API">
+</blockquote>
+
+<p>A <code>Stopwatch</code> object is a stripped-down version of an old-fashioned stopwatch. When you create one, it starts running, and you can ask it how long it has been running by invoking the method <code>elapsedTime()</code>.</p>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+
+<h2>Histogram</h2>
+
+<p>The program <a href="histogram.py.html">histogram.py</a> defines a  <code>Histogram</code> class for graphically representing the distribution of data using bars of different heights in a chart known as a <em>histogram</em>.  This is its API:</p>
+
+<blockquote>
+<img src="images/HistogramApi.png" alt="Histogram API">
+</blockquote>
+
+<p>A <code>Histogram</code> object maintains an array of the frequency of occurrence of integer values in a given interval. Its <code>draw()</code> method scales the drawing so that the tallest bar fits snugly in the canvas, and then calls <code>stdstats.plotBars()</code> to display a histogram of the values.</p>
+
+<blockquote>
+<table cellpadding="10">
+<tr>
+<td><code>% python histogram.py 50 .5 100000</code></td>
+<td><img src="images/Histogram.png" width="200"></td>
+</tr>
+</table>
+</blockquote>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+
+<h2>Turtle Graphics</h2>
+
+<p>Imagine a turtle that lives in the unit square and draws lines as it moves. It can move a specified distance in a straight line, or it can rotate left (counterclockwise) a specified number of degrees. According to this API:</p>
+
+<blockquote>
+<img src="images/TurtleApi.png" alt="Turtle API">
+</blockquote>
+
+<p>when we create a turtle, we place it at a specified point, facing a specified direction. Then, we create drawings by giving the turtle a sequence of <code>goForward()</code> and <code>turnLeft()</code> commands.</p>
+
+<p>For example, to draw a triangle we create a turtle at (0, 0.5) facing at an angle of 60 degrees counterclockwise from the <em>x</em>-axis, then direct it to take a step forward, then rotate 120 degrees counterclockwise, then take another step forward, then rotate another 120 degrees counterclockwise, and then take a third step forward to complete the triangle.</p>
+
+<p>The <code>Turtle</code> class defined in <a href="turtle.py.html">turtle.py</a> is an implementation of this API that uses <code>stddraw</code>. It maintains three instance variables: the coordinates of the turtle's position and the current direction it is facing, measured in degrees counterclockwise from the <em>x</em>-axis (<em>polar angle</em>). Implementing the two methods requires <em>updating</em> the values of these variables, so <code>Turtle</code> objects are mutable. The necessary updates are straightforward: <code>turnLeft(delta)</code> adds delta to the current angle, and <code>goForward(step)</code> adds the step size times the cosine of its argument to the current <em>x</em>-coordinate and the step size times the sine of its argument to the current <em>y</em>-coordinate. The test client in <code>Turtle</code> takes an integer <code>n</code> as a command-line argument and draws a regular polygon with <code>n</code> sides.</p>
+
+<blockquote>
+<table cellpadding="10">
+<tr>
+<td><code>% python turtle.py 3</code></td>
+<td><code>% python turtle.py 7</code></td>
+<td><code>% python turtle.py 1000</code></td>
+</tr>
+<tr>
+<td><img src="images/Turtle3.png" width="100"></td>
+<td><img src="images/Turtle7.png" width="100"></td>
+<td><img src="images/Turtle1000.png" width="100"></td>
+</tr>
+</table>
+</blockquote>
+
+<p><h3>Koch curves.</h3> A <em>Koch curve</em> of order 0 is a straight line. To form a Koch curve of order <em>n</em>, draw a Koch curve of order <em>n</em> - 1, turn left 60 degrees, draw a second Koch curve of order <em>n</em> - 1, turn right 120 degrees (left -120 degrees), draw a third Koch curve of order <em>n</em> - 1, turn left 60 degrees, and draw a fourth Koch curve of order <em>n</em> - 1. These recursive instructions lead immediately to the turtle client code shown in <a href="koch.py.html">koch.py</a>. With appropriate modifications, recursive schemes like this have proved useful in modeling self-similar patterns found in nature, such as snowflakes.</p>
+
+<blockquote>
+<table cellpadding="10">
+<tr>
+<td><code>% python koch.py 0</code></td>
+<td><code>% python koch.py 1</code></td>
+</tr>
+<td><img src="images/Koch0.png" width="200"></td>
+<td><img src="images/Koch1.png" width="200"></td>
+</tr>
+<tr>
+<td><code>% python koch.py 2</code></td>
+<td><code>% python koch.py 3</code></td>
+</tr>
+<tr>
+<td><img src="images/Koch2.png" width="200"></td>
+<td><img src="images/Koch3.png" width="200"></td>
+</tr>
+<tr>
+<td><code>% python koch.py 4</code></td>
+</tr>
+<tr>
+<td><img src="images/Koch4.png" width="200"></td>
+</tr>
+</table>
+</blockquote>
+
+<p><h3>Spira mirabilis.</h3> Imagine that the turtle's step size decays by a tiny constant factor (close to 1) each time it takes a step. What happens to our drawings? Remarkably, modifying the polygon-drawing test client in <a href="turtle.py.html">turtle.py</a> to answer this question leads to an image known as a <a href="https://en.wikipedia.org/wiki/Logarithmic_spiral">logarithmic spiral</a>, a curve that is found in many contexts in nature. The program <a href="spiral.py.html">spiral.py</a> is an implementation of this curve. The script takes three command-line arguments, which control the shape and nature of the spiral.</p>
+
+<blockquote>
+<table cellpadding="10">
+<tr>
+<td><code>% python spiral.py 3 1 1.0</code></td>
+<td><code>% python spiral.py 3 10 1.2</code></td>
+</tr>
+<td><img src="images/Spiral1.png" width="200"></td>
+<td><img src="images/Spiral2.png" width="200"></td>
+</tr>
+<tr>
+<td><code>% python spiral.py 1440 10 1.00004</code></td>
+<td><code>% python spiral.py 1440 10 1.0004</code></td>
+</tr>
+<tr>
+<td><img src="images/Spiral3.png" width="200"></td>
+<td><img src="images/Spiral4.png" width="200"></td>
+</tr>
+</table>
+</blockquote>
+
+<p>The logarithmic spiral was first described by Rene Descartes in 1638. Jacob Bernoulli was so amazed by its mathematical properties that he named it the <em>spira mirabilis</em> (miraculous spiral). Many people also consider it to be "miraculous" that this precise curve is clearly present in a broad variety of natural phenomena:</p>
+
+
+<blockquote>
+<table cellpadding="10">
+<tr>
+<td><strong>Nautilus Shell</strong></td>
+<td><strong>Spiral Galaxy</strong></td>
+<td><strong>Storm Clouds</strong></td>
+</tr>
+<tr>
+<td><img src="images/NautilusShell.jpg" width="150"></td>
+<td><img src="images/WhirlpoolGalaxy.jpg" width="150"></td>
+<td><img src="images/Low_pressure_system_over_Iceland.jpg" width="150"></td>
+</tr>
+</table>
+</blockquote>
+
+<p><h3>Brownian motion.</h3> Imagine a disoriented turtle (again following its standard alternating turn and step regimen) turns in a random direction before each step. The program <a href="drunk.py.html">drunk.py</a> plots the path followed by such a turtle. In 1827, the botanist Robert Brown observed through a microscope that pollen grains immersed in water seemed to move about in just such a random fashion, which later became known as <a href="https://en.wikipedia.org/wiki/Brownian_motion">Brownian motion</a> and led to Albert Einstein's insights into the atomic nature of matter.</p>
+
+<blockquote>
+<table cellpadding="10">
+<tr>
+<td><code>% python drunk.py 10000 .01</code></td>
+</tr>
+<tr>
+<td><img src="images/Drunk.png" width="150"></td>
+</tr>
+</table>
+</blockquote>
+
+<p>The program <a href="drunks.py.html">drunks.py</a> plots many such turtles, all of whom wander around.</p> 
+
+<blockquote>
+<table cellpadding="10">
+<tr>
+<td><code>% python drunks.py 20 500 .005</code></td>
+<td><code>% python drunks.py 20 1000 .005</code></td>
+</tr>
+<td><img src="images/Drunks1.png" width="150"></td>
+<td><img src="images/Drunks2.png" width="150"></td>
+</tr>
+<tr>
+<td><code>% python drunks.py 20 5000 .005</code></td>
+</tr>
+<td><img src="images/Drunks3.png" width="150"></td>
+</tr>
+</table>
+</blockquote>
+
+<p>Turtle graphics was originally developed by Seymour Papert at MIT in the 1960s as part of an educational programming language, <a href="https://en.wikipedia.org/wiki/Logo_%28programming_language%29">Logo</a>. But turtle graphics is no toy, as we have just seen in numerous scientific examples. Turtle graphics also has numerous commercial applications. For example, it is the basis for <a href="https://en.wikipedia.org/wiki/PostScript">PostScript</a>, a programming language for creating printed pages that is used for most newspapers, magazines, and books.</p> 
+
+<br>
+<hr>
+<!-- =============================================================== -->
+
+<h2>Complex Numbers</h2>
+
+<p>A complex number is a number of the form <em>x</em> + <em>yi</em>, where <em>x</em> and <em>y</em> are real numbers and <em>i</em> is the square root of -1. The number <em>x</em> is known as the <em>real</em> part of the complex number, and the number <em>y</em> is known as the <em>imaginary</em> part. This terminology stems from the idea that the square root of -1 has to be an imaginary number, because no real number can have this value. Complex numbers are a quintessential mathematical abstraction: whether or not one believes that it makes sense physically to take the square root of -1, complex numbers help us understand the natural world.</p>
+
+<p>The Python language provides a <code>complex</code> (with a lowercase <code>c</code>) data type. In real applications you certainly should take advantage of <code>complex</code> unless you find yourself wanting more operations than it provides. However, since developing a data type for complex numbers is a prototypical exercise in object-oriented programming, we now consider our own <code>Complex</code> (with an uppercase <code>C</code>) data type. Doing so will allow us to consider a number of interesting issues surrounding data types for mathematical abstractions, in a nontrivial setting.</p>
+
+<p>The operations on complex numbers that are needed for basic computations are to add and multiply them by applying the commutative, associative, and distributive laws of algebra (along with the identity i<sup>2</sup> = -1); to compute the magnitude; and to extract the real and imaginary parts, according to the following equations:</p>
+
+<ul>
+<li><em>Addition</em>:  (<em>x</em>+<em>yi</em>) + (<em>v</em>+<em>wi</em>) = (<em>x</em>+<em>v</em>) + (<em>y</em>+<em>w</em>)<em>i</em></li>
+<li><em>Multiplication</em>:  (<em>x</em> + <em>yi</em>) * (<em>v</em> + <em>wi</em>) = (<em>xv</em> - <em>yw</em>) + (<em>yv</em> + <em>xw</em>)<em>i</em></li>
+<li><em>Magnitude</em>:  |<em>x</em> + <em>yi</em>| = (<em>x</em><sup>2</sup> + <em>y</em><sup>2</sup>)<sup>1/2</sup></li>
+<li><em>Real part</em>:  Re(<em>x</em> + <em>yi</em>) = <em>x</em></li>
+<li><em>Imaginary part</em>:  Im(<em>x</em> + <em>yi</em>) = <em>y</em></li>
+</ul>
+
+<!--
+<p>For example, if <em>a</em> = 3 + 4<em>i</em> and b = -2 + 3<em>i</em>, then <em>a</em> + <em>b</em> = 1 + 7<em>i</em>, <em>a</em> * <em>b</em> = -18 + <em>i</em>, Re(<em>a</em>) = 3, Im(<em>a</em>) = 4, and |<em>a</em>| = 5.</p>
+-->
+
+<p>As usual, we start with an API that specifies the data-type operations.</p>
+
+<blockquote>
+<img src="images/ComplexApi.png" alt="Complex API">
+</blockquote>
+
+<p>The <code>Complex</code> class defined in <a href="complex.py.html">complex.py</a> implements that API.</p>
+
+<p><h3>Special methods.</h3> When Python sees the expression <code>a + b</code> in client code, it replaces it with the method call <code>a.__add__(b)</code>. Similarly, Python replaces <code>a * b</code> with the method call <code>a.__mul__(b)</code>. Therefore, we need only to implement the special methods <code>__add__()</code> and <code>__mul__()</code> for addition and multiplication to operate as expected. The mechanism is the same one that we used to support Python's built-in <code>str()</code> function for <code>Charge</code>, by implementing the  <code>__str__()</code> special method, except that the special methods for arithmetic operators take two arguments. The above API includes an extra column that maps the client operations to the special methods. We generally omit this column in our APIs because these names are standard, and irrelevant to clients. The list of Python special methods is extensive &mdash; we will discuss them further in Section 3.3.</p>
+
+<p><h3>Accessing instance variables in objects of this type.</h3> The implementations of both  <code>__add__()</code> and  <code>__mul__()</code> need to access values in two objects: the object passed as an argument and the object used to call the method (that is, the object referenced by <code>self</code>). When the client calls <code>a.__add__(b)</code>, the parameter variable <code>self</code> is set to reference the same object as argument <code>a</code> does, and the parameter variable <code>other</code> is set to reference the same object as argument <code>b</code> does. We can access the instance variables of a using <code>self._re</code> and <code>self._im</code>, as usual. To access the instance variables of <code>b</code>, we use the code <code>other._re</code> and <code>other._im</code>. Since our convention is to keep the instance variables private, we do not access directly instance variables in another class. Accessing instance variables within another object in the same class does not violate this privacy policy.</p>
+
+<p><h3>Immutability.</h3> The two instance variables in <code>Complex</code> are set for each <code>Complex</code> object when it is created and do not change during the lifetime of an object. That is, <code>Complex</code> objects are immutable.</p>
+
+<p><h3>Mandelbrot Set.</h3> The <em>Mandelbrot set</em> is a specific set of complex numbers discovered by Benoit Mandelbrot that has many fascinating properties. It is a fractal pattern that is related to the Barnsley fern, the Sierpinski triangle, the Brownian bridge, the Koch curve, the drunken turtle, and other recursive (self-similar) patterns and programs that we have seen in this book. The set of points in the Mandelbrot set cannot be described by a single mathematical equation. Instead, it is defined by an algorithm and, therefore, a perfect candidate for a complex client: we study the set by composing a program to plot it.</p>
+
+<p><Consider the sequence of complex numbers <em>z</em><sub>0</sub>, <em>z</em><sub>1</sub>, <em>z</em><sub>2</sub>, ... , <em>z</em><sub>t</sub>, ... , where <em>z</em><sub><em>t</em></sub>+1 = (<em>z</em><sub><em>t</em></sub>)<sup>2</sup> + <em>z</em><sub>0</sub>. For example, this table shows the first few entries in the sequence corresponding to <em>z</em><sub>0</sub> = 1 + <em>i</em>:</p>
+
+<blockquote>
+<img src="images/MandelbrotComp.png" alt="Mandelbrot sequence computation">
+</blockquote>
+
+<p>Now, if the sequence |<em>z<sub>t</sub></em>| diverges to infinity, then <em>z</em><sub>0</sub> is not in the Mandelbrot set; if the sequence is bounded, then <em>z</em><sub>0</sub> is in the Mandelbrot set.</p>
+
+<img src="images/mandel.png" align="right" hspace="25" alt="Mandelbrot set">
+
+<p>To visualize the Mandelbrot set, we sample <em>complex</em> points, just as we sample real-valued points to plot a real-valued function. Each complex number <em>x</em> + <em>yi</em> corresponds to a point (<em>x</em>, <em>y</em>) in the plane, so we can plot the results as follows: for a specified resolution <em>n</em>, we define a regularly spaced <em>n</em>-by-<em>n</em> pixel grid within a specified square and draw a black pixel if the corresponding point is in the Mandelbrot set and a white pixel if it is not.</p>
+
+<p>There is no simple test that enables us to conclude that a point is surely in the set. But there is a simple mathematical test that tells us for sure that a point is <em>not</em> in the set: if the magnitude of any number in the sequence ever exceeds 2 (such as 1 + 3<em>i</em>), then the sequence surely will diverge. The program <a href="mandelbrot.py.html">mandelbrot.py</a> uses this test to plot a visual representation of the Mandelbrot set. Since our knowledge of the set is not quite black-and-white, we use grayscale in our visual representation. The basis of the computation is the function <code>mandel()</code>, which takes a complex argument <code>z0</code> and an integer argument <code>limit</code> and computes the Mandelbrot iteration sequence starting at <code>z0</code>, returning the number of iterations for which the magnitude stays less than (or equal to) 2, up to the given limit. The complexity of the images that this simple program produces is remarkable, even when we zoom in on a tiny portion of the plane.</p>
+
+<blockquote>
+<table cellpadding="10">
+<tr>
+<td><code>% python mandelbrot.py 512 -.5 0 2</code></td>
+<td><code>% python mandelbrot.py 512 .1015 -.633 .01</code></td>
+</tr>
+<td><img src="images/Mandelbrot1.png" width="150"></td>
+<td><img src="images/Mandelbrot2.png" width="150"></td>
+</tr>
+</table>
+</blockquote>
+
+<p>Producing an image with <a href="mandelbrot.py.html">mandelbrot.py</a> requires hundreds of millions of operations on complex values. Accordingly, we use Python's <code>complex</code> data type, which is certain to be more efficient than the <code>Complex</code> data type that we just considered.</p>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+
+<h2>Commercial Data Processing</h2>
+
+<p>Suppose that a stock broker needs to maintain customer accounts containing shares of various stocks. That is, the set of values the broker needs to process includes the customer's name, number of different stocks held, number of shares and ticker symbol for each stock, and cash on hand. To process an account, the broker needs at least the operations defined in this API:</p>
+
+<blockquote>
+<img src="images/StockAccountApi.png" alt="StockAccount API">
+</blockquote>
+
+<p>The customer information has a long lifetime and needs to be saved in a file or database. To process an account, a client program needs to read information from the corresponding file; process the information as appropriate; and, if the information changes, write it back to the file, saving it for later. To enable this kind of processing, we need a file format and an internal representation, or a data structure, for the account information.</p>
+
+<p><h3>File format.</h3> Modern systems often use text files, even for data, to minimize dependence on formats defined by any one program. For simplicity, we use a direct representation where we list the account holder's name (a string), cash balance (a float), and number of stocks held (an integer), followed by a line for each stock giving the number of shares and the ticker symbol. For example the file <a href="turing.txt">turing.txt</a> contains these data:</p>
+
+<blockquote><table><tr><td><pre>
+% more turing.txt
+Turing, Alan
+10.24
+4
+100 ADBE
+ 25 GOOG
+ 97 IBM
+250 MSFT
+</pre></td></tr></table></blockquote>
+
+<p><h3>Data structure.</h3> To implement a <code>StockAccount</code>, we use the following instance variables:</p>
+
+<ul>
+<li>A string for the account name</li>
+<li>A float for the cash on hand</li>
+<li>An integer for the number of stocks</li>
+<li>An array of strings for stock symbols</li>
+<li>An array of integers for numbers of shares</li>
+</ul>
+
+<p>The <code>StockAccount</code> class defined in <a href="stockaccount.py.html">stockaccount.py</a> implements those design decisions. The arrays <code>_stocks[]</code> and <code>_shares[]</code> are known as <em>parallel arrays</em>. Given an index <code>i</code>, <code>_stocks[i]</code> gives a stock symbol and <code>_shares[i]</code> gives the number of shares of that stock in the account. The <code>valueOf()</code> method uses <a href="../31datatype/stockquote.py.html">stockquote.py</a> (from Section 3.1) to get each stock's price from the web. The implementations of <code>buy()</code> and <code>sell()</code> require the use of basic mechanisms introduced in Section 4.4, so we defer them to an exercise in that section. The test client accepts a the name of a file (such as the aforementioned <a href="turing.txt">turing.txt</a>) as a command-line argument, and writes an appropriate report.</p>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+<!-- =============================================================== -->
+
+<h4>Q &amp; A</h4>
+
+<p><strong>Q.</strong> Can I define a class in a file whose name is unrelated to the class name? Can I define more than one class in a single .py file?</p>
+
+<p><strong>A.</strong> Yes and yes, but we do not do so in this chapter as a matter of style. In Chapter 4, we will encounter a few situations where these features are appropriate.</p>
+
+<p><strong>Q.</strong> If <code>__init__()</code> is technically not a constructor, what is?</p>
+
+<p><strong>A.</strong> Another special function, <code>__new__()</code>. To create a object, Python first calls <code>__new__()</code> and then <code>__init__()</code>. For the programs in this book, the default implementation of <code>__new__()</code> serves our purposes, so we do not discuss it.</p>
+
+<p><strong>Q.</strong> Must every class have a constructor?</p>
+
+<p><strong>A.</strong> Yes, but if you do not define a constructor, Python provides a default (no-argument) constructor automatically. With our conventions, such a data type would be useless, as it would have no instance variables.</p>
+
+<p><strong>Q.</strong> Why do I need to use <code>self</code> explicitly when referring to instance variables?</p>
+
+<p><strong>A.</strong> Syntactically, Python needs some way to know whether you are assigning to a local variable or to an instance variable. In many other programming languages (such as C++ and Java), you declare explicitly the data type's instance variables, so there is no ambiguity. The <code>self</code> variable also makes it easy for programmers to know whether code is referring to a local variable or an instance variable.</p>
+
+<p><strong>Q.</strong> Suppose I do not include a <code>__str__()</code> method in my data type. What happens if I call <code>str()</code> or <code>stdio.writeln()</code> with an object of that type?</p>
+
+<p><strong>A.</strong> Python provides a default implementation that returns a string containing the object's type and its identity (memory address). This is unlikely to be of much use, so you usually want to define your own.</p>
+
+<p><strong>Q.</strong> Are there other kinds of variables besides parameter, local, and instance variables in a class?</p>
+
+<p><strong>A.</strong> Yes. Recall from Chapter 1 that you can define <em>global variables</em> in global code, outside of the definition of any function, class, or method. The scope of global variables is the entire <code>.py</code> file. In modern programming, we focus on limiting scope and therefore rarely use global variables (except in tiny scripts not intended for reuse). Python also supports <em>class variables</em>, which are defined inside a class but outside any method. Each class variable is shared among all of the objects in a class; this contrasts with instance variables, where there is one per object. Class variables have some specialized uses, but we do not use them in this book.</p>
+
+<p><strong>Q.</strong> Is it just me, or are Python's conventions for naming things complicated?</p>
+
+<p><strong>A.</strong> Yes, but this is also true of many other programming languages. Here is a quick summary of the naming conventions we have encountered in the book:</p>
+
+<ul>
+<li>A variable name starts with lowercase letter.</li>
+<li>A constant variable name consists of uppercase letters.</li>
+<li>An instance variable name starts with an underscore and a lowercase letter.</li>
+<li>A method name starts with a lowercase letter.</li>
+<li>A special method name starts with a double underscore and a lowercase letter and ends with a double underscore.</li>
+<li>A user-defined class name starts with an uppercase letter.</li>
+<li>A built-in class name starts with a lowercase letter.</li>
+<li>A script or module is stored in a file whose name consists of lowercase letters and ends with <code>.py</code>.</li>
+</ul>
+
+<p>Most of those conventions are not part of the language, though many Python programmers treat them as if they are. You might wonder: If they are so important, why not make them part of the language? Good question. Still, some programmers are passionate about such conventions, and you are likely to someday encounter a teacher, supervisor, or colleague who insists that you follow a certain style, so you may as well go with the flow. Indeed, many Python programmers separate multi-word variable names with underscores instead of capital letters, preferring <code>is_prime</code> and <code>hurst_exponent</code> to <code>isPrime</code> and <code>hurstExponent</code>.</p>
+
+<p><strong>Q.</strong> How can I specify a literal for the <code>complex</code> data type?</p>
+
+<p><strong>A.</strong> Appending the character <code>j</code> to a numeric literal produces an imaginary number (whose real part is zero). You can add this character to a numeric literal to produce a complex number, as in <code>3 + 7j</code>. The choice of <code>j</code> instead of <code>i</code> is common in some engineering disciplines. Note that <code>j</code> is not a complex literal &mdash; instead, you must use <code>1j</code>.</p>
+
+<p><strong>Q.</strong> The <a href="mandelbrot.py.html">mandelbrot.py</a> program creates a huge number of <code>complex</code> objects. Doesn't all that object-creation overhead slow things down?</p>
+
+<p><strong>A.</strong> Yes, but not so much that we cannot generate our plots. Our goal is to make our programs readable and easy to compose and maintain. Limiting scope via the complex number abstraction helps us achieve that goal. If you need to speed up <a href="mandelbrot.py.html">mandelbrot.py</a> significantly for some reason, you might consider bypassing the complex number abstraction and using a lower-level language where numbers are not objects. Generally, Python is not optimized for performance. We will revisit this issue in Chapter 4.</p>
+
+<p><strong>Q.</strong> Why is it okay for the <code>__add__(self, other)</code> method in <a href="complex.py.html">complex.py</a> to refer to the instance variables of the parameter variable <code>other</code>? Aren't these instance variables supposed to be private?</p>
+
+<p><strong>A.</strong> Python programmers view privacy as relative to a particular class, not to a particular object. So, a method can refer to the instance variables of any object in the same class. Python has no "superprivate" naming conventions in which you can refer only to the instance variables of the invoking object. Accessing the instance variables of other can be a bit risky, however, because a careless client might pass an argument that is not of type <code>Complex</code>, in which case we would be (unknowingly) accessing an instance variable in another class! With a mutable type, we might even (unknowingly) modify or create instance variables in another class!</p>
+
+<p><strong>Q.</strong> If methods are really functions, can I call a method using function-call syntax?</p>
+
+<p><strong>A.</strong> Yes, you can call a function defined in a class as either a method or an ordinary function. For example, if <code>c</code> is an object of type <code>Charge</code>, then the function call <code>Charge.potentialAt(c, x, y)</code> is equivalent to the method call <code>c.potentialAt(x, y)</code>. In object-oriented programming, we prefer the method-call syntax to highlight the role of the featured object and to avoid hardwiring the name of the class into the function call.</p>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+<!-- =============================================================== -->
+
+<h4>Exercises</h4>
+
+<ol>
+
+<img src="images/Rectangle.png" align="right" hspace="25" alt="Rectangle examples">
+
+<li>
+<p>Consider the data-type implementation for (axis-aligned) rectangles shown below, which represents each rectangle with the coordinates of its center point and its width and height. Compose an API for this data type, and fill in the code for <code>perimeter()</code>, <code>intersects()</code>, <code>contains()</code>, and <code>draw()</code>. <em>Note</em>: Treat coincident lines as intersecting, so that, for example, <code>a.intersects(a)</code> is True and <code>a.contains(a)</code> is True.</p>
+
+<blockquote><table><tr><td><pre>
+class Rectangle:
+
+    # Construct self with center (x, y), width w, and height h.
+    def __init__(self, x, y, w, h):
+        self._x = x
+        self._y = y
+        self._width = w;
+        self._height = h;
+
+    # Return the area of self.
+    def area(self):
+        return self._width * self._height
+
+    # Return the perimeter of self.
+    def perimeter(self):
+        ...
+
+    # Return True if self intersects other, and False otherwise.
+    def intersects(self, other):
+        ...
+
+    # Return True if other is completely inside of self, and False
+    # otherwise.
+    def contains(self, other):
+        ...
+
+    # Draw self on stddraw.
+    def draw(self):
+        ...
+</pre></td></tr></table></blockquote>
+
+</li>
+
+<!-- ==============================================================+ -->
+
+<li>
+<p>Compose a test client for <code>Rectangle</code> that takes three command-line arguments <code>n</code>, <code>lo</code>, and <code>hi</code>; generates <code>n</code> random rectangles whose width and height are uniformly distributed between <code>lo</code> and <code>hi</code> in the unit square; draws those rectangles to standard drawing; and writes their average area and average perimeter to standard output.</p>
+</li>
+
+<!-- ==============================================================+ -->
+
+<li>
+<p>Add code to your test client from the previous exercise code to compute the average number of pairs of rectangles that intersect and are contained in one another.</p>
+</li>
+
+<!-- ==============================================================+ -->
+
+<li>
+<p>Develop an implementation of your <code>Rectangle</code> API from the previous exercises that represents rectangles with the coordinates of their lower left and upper right corners. Do not change the API.</p>
+</li>
+
+<!-- ==============================================================+ -->
+
+<p>What is wrong with the following code?</p>
+
+<blockquote><table><tr><td><pre>
+class Charge:
+    def __init__(self, x0, y0, q0):
+        _rx = x0  # Position
+        _ry = y0  # Position
+        _q = q0   # Charge
+...
+</pre></td></tr></table></blockquote>
+
+<p><em>Solution</em>. The assignment statements in the constructor create <em>local</em> variables <code>_rx</code>, <code>_ry</code>, and <code>_q</code>, which are assigned values from the parameter variables but are never used. They disappear when the constructor is finished executing. Instead, the constructor should create <em>instance</em> variables by prefixing each variable with <code>self</code> followed by the dot operator, like this:</p>
+
+<blockquote><table><tr><td><pre>
+class Charge:
+    def __init__(self, x0, y0, q0):
+        self._rx = x0  # Position
+        self._ry = y0  # Position
+        self._q = q0   # Charge
+...
+</pre></td></tr></table></blockquote>
+
+<p>The underscore is not strictly required in Python, but we follow this standard Python convention throughout this book to indicate that our intent is for instance variables to be private.</p>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Create a data type <code>Location</code> that represents a location on Earth using latitudes and longitudes. Include a method <code>distanceTo()</code> that computes distances using the great-circle distance (see the <em>Great circle</em> exercise in Section 1.2).</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Python provides a data type <code>Fraction</code>, defined in the standard module <code>fractions.py</code>, that implements rational numbers. Implement your own version of that data type. Specifically, develop an implementation of the following API for a data type for rational numbers:</p>
+
+<blockquote>
+<img src="images/RationalApi.png" alt="Rational API">
+</blockquote>
+
+<p>Use <code>euclid.gcd()</code> defined in <a href="../23recursion/euclid.py.html">euclid.py</a> (from Section 2.3) to ensure that the numerator and denominator never have any common factors. Include a test client that exercises all of your methods.</p>
+
+<!-- <p>Solution: See rational.py. TODO</p> -->
+
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>An <em>interval</em> is defined to be the set of all points on a line greater than or equal to <code>left</code> and less than or equal to <code>right</code>. In particular, an interval with <code>right</code> less than <code>left</code> is empty. Compose a data type <code>Interval</code> that implements the API shown below. Include a test client that is a filter and takes a float <code>x</code> from the command line and writes to standard output (1) all of the intervals from standard input (each defined by a pair of floats) that contain <code>x</code> and (2) all pairs of intervals from standard input that intersect one another.</p>
+
+<blockquote>
+<img src="images/IntervalApi.png" alt="Interval API">
+</blockquote>
+
+<!-- <p><em>Solution</em>: See interval.py.  TODO</p> -->
+
+<!-- =============================================================== -->
+
+<!--
+<li>
+<p>Write a client for your <code>Interval</code> class from the previous exercise that takes an integer <code>n</code> as command-line argument, reads <code>n</code> intervals (each defined by a pair of doubles) from standard input, and prints to standard output all pairs that intersect.</p>
+</li>
+-->
+
+<!-- =============================================================== -->
+
+<li>
+<p>Develop an implementation of your <code>Rectangle</code> API (from a previous exercise in this section) that takes advantage of <code>Interval</code> (from the previous exercise in this section) to simplify and clarify the code.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Compose a data type <code>Point</code> that implements the following API. Include a client of your own design.</p>
+
+<blockquote>
+<img src="images/PointApi.png" alt="Point API">
+</blockquote>
+
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Add methods to <code>Stopwatch</code>, as defined in <a href="stopwatch.py.html">stopwatch.py</a> that allow clients to stop and restart the stopwatch.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Use a <code>Stopwatch</code> to compare the cost of computing harmonic numbers with a <code>for</code> loop (as shown in Section 1.3) as opposed to using the recursive method given in Section 2.3.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<!--
+<li>
+<p>Develop a version of <code>Histogram</code> that uses <code>Draw</code>, so that a client can create multiple histograms. Add to the display a red vertical line showing the sample mean and blue vertical lines at a distance of two standard deviations from the mean. Use a test client that creates histograms for flipping coins (Bernoulli trials) with a biased coin that is heads with probability <code>p</code>, for <code>p</code> = .2, .4, .6. and .8, taking the number of flips and the number of trials from the command line, as in the program shown earlier in this section.</p>
+</li>
+-->
+
+<!-- =============================================================== -->
+
+<li>
+<p>Modify the test client in <a href="turtle.py.html">turtle.py</a> to produce stars with <code>n</code> points for odd <code>n</code>.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Compose a version of <a href="mandelbrot.py.html">mandelbrot.py</a> that uses <code>Complex</code> instead of Python's <code>complex</code>. Then use <code>Stopwatch</code> (as defined in <a href="stopwatch.py.html">stopwatch.py</a>) to compute the ratio of the running times of the two programs.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Modify the <code>__str__()</code> method in class <code>Complex</code>, as defined in <a href="complex.py.html">complex.py</a>, so that it writes complex numbers in the traditional format. For example, it should write the value 3 - <em>i</em> as <code>3 - i</code> instead of <code>3.0 + -1.0i</code>, the value 3 as <code>3</code> instead of <code>3.0 + 0.0i</code>, and the value 3<em>i</em> as <code>3i</code> instead of <code>0.0 + 3.0i</code>.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Compose a <code>Complex</code> client that takes three floats <em>a</em>, <em>b</em>, and <em>c</em> as command-line arguments and writes the complex roots of <em>ax</em><sup>2</sup> + <em>bx</em> + <em>c</em>.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Write a <code>Complex</code> client <code>Roots</code> that takes two floats <em>a</em> and <em>b</em> and an integer <em>n</em> from the command line and writes the <em>n</em>th roots of <em>a</em> + <em>bi</em></em>. <em>Note</em>: skip this exercise if you are not familiar with the operation of taking roots of complex numbers.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Implement the following additions to the <code>Complex</code> API:</p>
+
+<blockquote>
+<img src="images/ComplexApiEnhanced.png" alt="API for Complex (continued)">
+</blockquote>
+
+<p>Include a test client that exercises all of your methods.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Find a <code>complex</code> number for which <code>mandel()</code> (from <a href="mandelbrot.py.html">mandelbrot.py</a>) returns a number greater than 100, and then zoom in on that number.</p>
+</li>
+
+<!-- =============================================================== -->
+<!--
+<li>
+<p>Implement the method <code>write()</code> in <a href="stockaccount.py.html">stockaccount.py</a>, which takes an <code>OutStream</code> object as an argument and writes the contents of the account to that stream, using the file format specified in previously in this page.</p>
+
+<p><em>Solution</em>: See <a href="stockaccount.py.html">stockaccount.py</a>.</p>
+</li>
+-->
+
+</ol>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+<!-- =============================================================== -->
+
+<h4>Creative Exercises</h4>
+
+<ol>
+
+<li>
+<p><strong>Mutable charges</strong>. Modify the <code>Charge</code> class as defined in <a href="charge.py.html">charge.py</a> so that the charge value <code>q0</code> can change, by adding a method <code>increaseCharge()</code> that takes a float argument and adds the given value to <code>q0</code>. Then, compose a client that initializes an array with:</p>
+
+<blockquote><table><tr><td><pre>
+a = stdarray.create1D(3)
+a[0] = Charge(.4, .6, 50)
+a[1] = Charge(.5, .5, -5)
+a[2] = Charge(.6, .6, 50)
+</pre></td></tr></table></blockquote>
+
+<p>and then displays the result of slowly decreasing the charge value of <code>a[1]</code> by wrapping the code that computes the picture in a loop like the following:</p>
+
+<blockquote><table><tr><td><pre>
+for t in range(100):
+    # Compute the picture p.
+    stddraw.clear()
+    stddraw.picture(p)
+    stddraw.show(0)
+    a[1].increaseCharge(-2.0)
+</pre></td></tr></table></blockquote>
+
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p><strong>Complex timing</strong>. Compose a <code>Stopwatch</code> client (see <a href="stopwatch.py.html">stopwatch.py</a>) that compares the cost of using <code>complex</code> to the cost of composing code that directly manipulates two float values, for the task of doing the calculations in <a href="mandelbrot.py.html">mandelbrot.py</a>. Specifically, create a version of <a href="mandelbrot.py.html">mandelbrot.py</a> that just does the calculations (remove the code that refers to <code>Picture</code>), then create a version of that program that does not use <code>complex</code>, and then compute the ratio of the running times.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p><strong>Quaternions</strong>. In 1843, Sir William Hamilton discovered an extension to complex numbers called quaternions. A quaternion is a vector <em>a</em> = (<em>a</em><sub>0</sub>, <em>a</em><sub>1</sub>, <em>a</em><sub>2</sub>, <em>a</em><sub>3</sub>) with the following operations:</p>
+
+<ul>
+
+<li><em>Magnitude</em>: |<em>a</em>| = (<em>a</em><sub>0</sub><sup>2</sup> + <em>a</em><sub>1</sub><sup>2</sup>  + <em>a</em><sub>2</sub><sup>2</sup>  + <em>a</em><sub>3</sub><sup>2</sup>)<sup>1/2</sup>.</li>
+
+<li><em>Conjugate</em>: the conjugate of <em>a</em> is (<em>a</em><sub>0</sub>, -<em>a</em><sub>1</sub>, -<em>a</em><sub>2</sub>, -<em>a</em><sub>3</sub>).</li>
+
+<li><em>Inverse</em>: <em>a</em><sup>-1</sup> = (<em>a</em><sub>0</sub> /|<em>a</em>|, -<em>a</em><sub>1</sub> /|<em>a</em>|, -<em>a</em><sub>2</sub> /|<em>a</em>|, -<em>a</em><sub>3</sub> /|<em>a</em>|).</li>
+
+<li><em>Sum</em>: <em>a</em> + <em>b</em> = (<em>a</em><sub>0</sub> + <em>b</em><sub>0</sub>, <em>a</em><sub>1</sub> + <em>b</em><sub>1</sub>, <em>a</em><sub>2</sub> + <em>b</em><sub>2</sub>, <em>a</em><sub>3</sub> + <em>b</em><sub>3</sub>).</li>
+
+<li><em>Product</em>: <em>a</em> * <em>b</em> = (<em>a</em><sub>0</sub> <em>b</em><sub>0</sub> - <em>a</em><sub>1</sub> <em>b</em><sub>1</sub> - <em>a</em><sub>2</sub> <em>b</em><sub>2</sub> - <em>a</em><sub>3</sub> <em>b</em><sub>3</sub>, <em>a</em><sub>0</sub> <em>b</em><sub>1</sub> - <em>a</em><sub>1</sub> <em>b</em><sub>0</sub> + <em>a</em><sub>2</sub> <em>b</em><sub>3</sub> - <em>a</em><sub>3</sub> <em>b</em><sub>2</sub>, <em>a</em><sub>0</sub> <em>b</em><sub>2</sub> - <em>a</em><sub>1</sub> <em>b</em><sub>3</sub> + <em>a</em><sub>2</sub> <em>b</em><sub>0</sub> + <em>a</em><sub>3</sub> <em>b</em><sub>1</sub>, <em>a</em><sub>0</sub> <em>b</em><sub>3</sub> + <em>a</em><sub>1</sub> <em>b</em><sub>2</sub> - <em>a</em><sub>2</sub> <em>b</em><sub>1</sub> + <em>a</em><sub>3</sub> <em>b</em><sub>0</sub>).</li>
+
+<li><em>Quotient</em>: <em>a</em> / <em>b</em> = <em>ab</em><sup>-1</sup>.</li>
+</ul>
+
+<p>Create a data type for quaternions and a test client that exercises all of your code. Quaternions extend the concept of rotation in three dimensions to four dimensions. They are used in computer graphics, control theory, signal processing, and orbital mechanics.</p>
+
+<!-- <p><em>Solution</em>: See quaternion.py. TODO</p> -->
+
+</li>
+
+<!-- =============================================================== -->
+
+<li><p><strong>Dragon curves</strong>. Compose a recursive client of <code>Turtle</code> (as defined in <a href="turtle.py.html">turtle.py</a>) named <code>dragon.py</code> that draws dragon curves (see the exercises in Sections 1.2 and 1.5). These curves, originally discovered by three NASA physicists, were popularized in the 1960s by Martin Gardner and later used by Michael Crichton in the book and movie <em>Jurassic Park</em>. This exercise can be solved with remarkably compact code, based on a pair of mutually interacting recursive functions derived directly from the definition in the exercise in Section 1.2. One of them, <code>dragon()</code>, should draw the curve as you expect; the other, <code>nogard()</code>, should draw the curve in <em>reverse</em> order.</p>
+
+<blockquote>
+<table border="0" cellpadding="2" cellspacing="0" width="95%">
+<tr>
+<td><img src="images/dragon0.png" alt="">
+</td>
+<td><img src="images/dragon1.png" alt="">
+</td>
+<td><img src="images/dragon2.png" alt="">
+</td>
+<td><img src="images/dragon3.png" alt="">
+</td>
+<td><img src="images/dragon4.png" alt="">
+</td>
+</tr>
+
+<tr>
+<td><img src="images/dragon5.png" alt="">
+</td>
+<td><img src="images/dragon6.png" alt="">
+</td>
+<td><img src="images/dragon7.png" alt="">
+</td>
+<td><img src="images/dragon8.png" alt="">
+</td>
+<td><img src="images/dragon9.png" alt="">
+</td>
+</tr>
+</table>
+</blockquote>
+
+<!-- <p><em>Solution</em>: See dragon.py. Program <a href="sequentialdragon.py.html">sequentialdragon.py</a> is an iterative version of the dragon curve. It is a hacker's paradise. TODO</p> -->
+
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p><strong>Hilbert curves</strong>. A <em>space-filling</em> curve is a continuous curve in the unit square that passes through every point. Compose a recursive client of <code>Turtle</code> (as defined in <a href="turtle.py.html">turtle.py</a>) that produces these recursive patterns, which approach a space-filling curve that was defined by the mathematician David Hilbert at the end of the 19th century. See the previous exercise. You need a pair of methods: <code>hilbert()</code>, which traverses a Hilbert curve, and <code>treblih()</code>, which traverses a Hilbert curve in reverse order.</p>
+
+<table border="0" cellpadding="2" cellspacing="0" width="95%">
+<tr>
+<td><img src="images/hilbert1.png" alt="Hilbert curve of order 1">
+</td>
+<td><img src="images/hilbert2.png" alt="Hilbert curve of order 2">
+</td>
+<td><img src="images/hilbert3.png" alt="Hilbert curve of order 3">
+</td>
+<td><img src="images/hilbert4.png" alt="Hilbert curve of order 4">
+</td>
+<td><img src="images/hilbert5.png" alt="Hilbert curve of order 5">
+</td>
+</tr>
+</table>
+
+<!-- <p><em>Solution</em>: See hilbert.py. TODO</p> -->
+
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p><strong>Gosper island</strong>. Compose a recursive client of <code>Turtle</code> (as defined in <a href="turtle.py.html">turtle.py</a>) that produces these recursive patterns.</p>
+
+<table border="0" cellpadding="2" cellspacing="0" width="95%">
+<tr>
+<td><img src="images/gosper0.png" alt="">
+</td>
+<td><img src="images/gosper1.png" alt="">
+</td>
+<td><img src="images/gosper2.png" alt="">
+</td>
+<td><img src="images/gosper3.png" alt="">
+</td>
+<td><img src="images/gosper4.png" alt="">
+</td>
+</tr>
+</table>
+
+<!-- <p><em>Solution</em>: See gosperisland.py. TODO</p> -->
+
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p><strong>Data analysis</strong>. Compose a data type for use in running experiments where the control variable is an integer in the range [0, <em>n</em>) and the dependent variable is a float. For example, studying the running time of a program that takes an integer argument would involve such experiments. A Tukey plot is a way to visualize the statistics of such data (see the <em>Tukey plot</em> exercise in Section 2.2). Implement the following API:</p>
+
+<blockquote>
+<img src="images/DataApi.png" alt="Data API">
+</blockquote>
+
+<p>You can use the functions in <code>stdstats</code> to do the statistical calculations and draw the plots. Use <code>stddraw</code> so clients can use different colors for <code>plot()</code> and <code>tukeyPlot()</code> (for example, light gray for all the points and black for the Tukey plot). Compose a test client that plots the results (percolation probability) of running experiments with <a href="../24percolation/percolation.py.html">percolation.py</a> (from Section 2.4) as the grid size increases.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p><strong>Elements</strong>. Compose a data type <code>Element</code> for entries in the periodic table of elements. Include data type values for element, atomic number, symbol, and atomic weight and accessor methods for each of these values. Then, create a data type <code>PeriodicTable</code> that reads values from a file to create an array of <code>Element</code> objects and responds to queries on standard input so that a user can type a molecular equation like <code>H2O</code> and the program responds by printing the molecular weight. Develop APIs and implementations for each data type.</p>
+
+<p>The file <a href="elements.csv">elements.csv</a> contains the data that the program should read. Include fields for element, atomic number, symbol, and atomic weight. (Ignore fields for boiling point, melting point, density (kg/m3), heat vapour (<code>kJ/mol</code>), heat fusion (kJ/mol), thermal conductivity (W/m/K), and specific heat capacity (J/kg/K) since it's not known for all elements). The file is in CSV format (fields separated by commas).</p>
+
+<!-- <p><em>Solution</em>: See element.py. TODO</p> -->
+
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p><strong>Stock prices</strong>. The file <a href="djia.csv">djia.csv</a> contains all closing stock prices in the history of the Dow Jones Industrial Average, in the comma-separated value format. Compose a data type <code>Entry</code> that can hold one entry in the table, with values for date, opening price, daily high, daily low, closing price, and so forth. Then, compose a data type <code>Table</code> that reads the file to build an array of <code>Entry</code> objects and supports methods for computing averages over various periods of time. Finally, create interesting <code>Table</code> clients to produce plots of the data. Be creative: this path is well-trodden.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p><strong>Chaos with Newton's method</strong>. The polynomial <em>f</em>(<em>z</em>) = <em>z</em><sup>4</sup> - 1 has four roots: at 1, -1, <em>i</em>, and -<em>i</em>. We can find the roots using Newton's method in the complex plane: <em>z</em><sub><em>k</em>+1</sub> = <em>z</em><sub><em>k</em></sub> - <em>f</em>(<em>z</em><sub><em>k</em></sub>)/<em>f</em>'(<em>z</em><sub><em>k</em></sub>). Here, <em>f</em>(<em>z</em>) = <em>z</em><sup>4</sup> - 1 and <em>f</em>'(<em>z</em>) = 4<em>z</em><sup>3</sup>. The method converges to one of the four roots, depending on the starting point <em>z</em><sub>0</sub>. Compose a client of <code>Complex</code> (as defined in <a href="complex.py.html">complex.py</a>) named <code>Newton</code> that takes a command-line argument <em>n</em> and colors pixels in an <em>n</em>-by-<em>n</em> <code>Picture</code> white, red, green, or blue by mapping the pixels complex points in a regularly spaced grid in the square of size 2 centered at the origin and coloring each pixel according to which of the four roots the corresponding point converges (black if no convergence after 100 iterations).</p>
+
+<blockquote>
+<img src="images/newton200.png" border="0" alt="Newton's method">
+</blockquote>
+
+<!-- <p>Solution: See newtonchaos.py. TODO</p> -->
+
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p><strong>Equipotential surfaces</strong>. An <em>equipotential surface</em> is the set of all points that have the same electric potential V. Given a group of point charges, it is useful to visualize the electric potential by plotting equipotential surfaces (also known as a <em>contour plot</em>). Compose a program <code>equipotential.py</code> that draws a line every 5V by computing the potential at each pixel and checking whether the potential at the corresponding point is within 1 pixel of a multiple of 5V. <em>Note</em>: A very easy approximate solution to this exercise is obtained from <a href="../31datatype/potential.py.html">potential.py</a>  (from Section 3.1) by scrambling the color values assigned to each pixel, rather than having them be proportional to the grayscale value. For example, the accompanying figures are created by inserting the code above it before creating the <code>Color</code>. Explain why it works, and experiment with your own version.</p>
+
+<blockquote>
+<table border="0" cellpadding="2" cellspacing="10" width="580">
+<tr>
+<td><img src="images/equipotential1.png" alt="Electric equipotential"></td>
+<td><img src="images/equipotential2.png" alt="Electric equipotential"></td>
+</tr>
+</table>
+</blockquote>
+
+<!-- <p><em>Solution</em>: See equipotential.py. TODO</p> -->
+
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p><strong>Color Mandelbrot plot</strong>. Create a file of 256 integer triples that represent interesting <code>Color</code> values, and then use those colors instead of grayscale values to plot each pixel in <a href="mandelbrot.py.html">mandelbrot.py</a>. Read the values to create an array of 256 <code>Color</code> values, then index into that array with the return value of <code>mandel()</code>. By experimenting with various color choices at various places in the set, you can produce astonishing images. <a href="mandel.txt">mandel.txt</a> is an example.</p>
+
+<blockquote>
+<table border="0" cellpadding="2" cellspacing="10" width="400">
+<tr>
+<td><code>% python mandelbrot.py -1.5 -1.0 2.0 2.0</code></td>
+<td><code>% python mandelbrot.py 0.10259 -0.641 0.0086 0.0086</code>
+</td>
+</tr>
+<tr>
+<td><img src="images/mandelbrot1-color.png" alt="Mandelbrot set"></td>
+<td><img src="images/mandelbrot2-color.png" alt="Mandelbrot set"></td>
+</tr>
+</table>
+</blockquote>
+
+<!-- <p><em>Solution</em>: See colormandelbrot.py. TODO</p> -->
+
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p><strong>Julia sets</strong>. The <em>Julia set</em> for a given complex number <em>c</em> is a set of points related to the Mandelbrot function. Instead of fixing <em>z</em> and varying <em>c</em>, we fix <em>c</em> and vary <em>z</em>. Those points <em>z</em> for which the modified Mandelbrot function stays bounded are in the Julia set; those for which the sequence diverges to infinity are not in the set. All points <em>z</em> of interest lie in the 4-by-4 box centered at the origin. The Julia set for <em>c</em> is connected if and only if <em>c</em> is in the Mandelbrot set! Compose a program <code>colorjulia.py</code> that takes two command line arguments <em>a</em> and <em>b</em>, and plots a color version of the Julia set for <em>c</em> = <em>a</em> + <em>bi</em>, using the color-table method described in the previous exercise.</p>
+
+<blockquote>
+<table border="0" cellpadding="2" cellspacing="10" width="400">
+<tr>
+<td><code>python colorjulia.py -1.25 0.00</code></td>
+<td><code>python colorjulia.py-0.75 0.10</code></td>
+</tr>
+<tr>
+<td><img src="images/julia1.png" alt="Julia set"></td>
+<td><img src="images/julia2.png" alt="Julia set"></td>
+</tr>
+</table>
+</blockquote>
+
+<!-- <p><em>Solution</em>: See colorjulia.py.  TODO</p> -->
+
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p><strong>Biggest winner and biggest loser</strong>. Compose a client of <code>StockAccount</code> (as defined in <a href="stockaccount.py.html">stockaccount.py</a>) that builds an array of <code>StockAccount</code> objects, computes the total value of each account, and writes a report for the account with the largest value and the account with the smallest value. Assume that the information in the accounts are kept in a single file that contains the information for each of the accounts, one after the other, in the format given described earlier in this page.</p>
+</li>
+
+</ol>
+
+</body>
+</html>
+
+   <br><br>
+   <p class = footer>
+   Copyright &copy; 2000&ndash;2015 by Robert Sedgewick, Kevin Wayne, and Robert Dondero.
+   All rights reserved.
+</div>
+
+
+
+
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+ 

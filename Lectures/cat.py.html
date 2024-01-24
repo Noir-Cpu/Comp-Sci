@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang = "en">
+
+<head>
+
+<link rel="icon"          href="https://introcs.cs.princeton.edu/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="https://introcs.cs.princeton.edu/favicon.ico" type="image/x-icon">
+<link rel="stylesheet"    href="https://introcs.cs.princeton.edu/java.css" type="text/css">
+
+<title>cat.py</title>
+
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta NAME="AUTHOR" CONTENT="Robert Sedgewick, Kevin Wayne, and Robert Dondero">
+<meta NAME="DESCRIPTION" CONTENT="cat code in Python">
+<meta NAME="TITLE" CONTENT="cat code in Python">
+<meta NAME="KEYWORDS" CONTENT="cat,python,programming,computer science,algorithm,program,code">
+<meta NAME="ROBOTS" CONTENT="INDEX,FOLLOW">
+
+</head>
+
+
+<body>
+<center><h1>cat.py</h1></center><p><br>
+
+Below is the syntax highlighted version of <a href = "cat.py">cat.py</a>
+from <a href = "https://introcs.cs.princeton.edu/python/31datatype">&#167;3.1 Using Data Types</a>.
+<p><br>
+
+<!-- Generator: GNU source-highlight 3.1.8
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span class="comment">#-----------------------------------------------------------------------</span>
+<span class="comment"># cat.py</span>
+<span class="comment">#-----------------------------------------------------------------------</span>
+
+<span class="preproc">import</span><span class="normal"> sys</span>
+<span class="preproc">from</span><span class="normal"> instream </span><span class="preproc">import</span><span class="normal"> InStream</span>
+<span class="preproc">from</span><span class="normal"> outstream </span><span class="preproc">import</span><span class="normal"> OutStream</span>
+
+<span class="comment"># Copy files or web pages whose names are given by sys.argv[1:n-2]</span>
+<span class="comment"># to the file whose name is given by sys.argv[n-1].</span>
+
+<span class="normal">inFilenames </span><span class="symbol">=</span><span class="normal"> sys</span><span class="symbol">.</span><span class="normal">argv</span><span class="symbol">[</span><span class="number">1</span><span class="symbol">:</span><span class="function">len</span><span class="symbol">(</span><span class="normal">sys</span><span class="symbol">.</span><span class="normal">argv</span><span class="symbol">)-</span><span class="number">1</span><span class="symbol">]</span>
+<span class="normal">outFilename </span><span class="symbol">=</span><span class="normal"> sys</span><span class="symbol">.</span><span class="normal">argv</span><span class="symbol">[</span><span class="function">len</span><span class="symbol">(</span><span class="normal">sys</span><span class="symbol">.</span><span class="normal">argv</span><span class="symbol">)-</span><span class="number">1</span><span class="symbol">]</span>
+<span class="normal">outstream </span><span class="symbol">=</span><span class="normal"> </span><span class="function">OutStream</span><span class="symbol">(</span><span class="normal">outFilename</span><span class="symbol">)</span>
+<span class="keyword">for</span><span class="normal"> filename </span><span class="keyword">in</span><span class="normal"> inFilenames</span><span class="symbol">:</span>
+<span class="normal">    instream </span><span class="symbol">=</span><span class="normal"> </span><span class="function">InStream</span><span class="symbol">(</span><span class="normal">filename</span><span class="symbol">)</span>
+<span class="normal">    s </span><span class="symbol">=</span><span class="normal"> instream</span><span class="symbol">.</span><span class="function">readAll</span><span class="symbol">()</span>
+<span class="normal">    outstream</span><span class="symbol">.</span><span class="function">write</span><span class="symbol">(</span><span class="normal">s</span><span class="symbol">)</span>
+
+<span class="comment">#-----------------------------------------------------------------------</span>
+
+<span class="comment"># more in1.txt</span>
+<span class="comment"># This is</span>
+
+<span class="comment"># more in2.txt</span>
+<span class="comment"># a tiny</span>
+<span class="comment"># test.</span>
+
+<span class="comment"># python cat.py in1.txt in2.txt out.txt</span>
+
+<span class="comment"># more out.txt</span>
+<span class="comment"># This is</span>
+<span class="comment"># a tiny</span>
+<span class="comment"># test.</span>
+
+</tt></pre>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-10811519-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+
+<p><br><address><small>
+Copyright &copy; 2000&ndash;2015, Robert Sedgewick, Kevin Wayne, and Robert Dondero.
+<br>Last updated: Fri Oct 20 20:45:16 EDT 2017.
+</small></address>
+
+</html>

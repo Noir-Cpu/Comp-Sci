@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang = "en">
+
+<head>
+
+<link rel="icon"          href="https://introcs.cs.princeton.edu/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="https://introcs.cs.princeton.edu/favicon.ico" type="image/x-icon">
+<link rel="stylesheet"    href="https://introcs.cs.princeton.edu/java.css" type="text/css">
+
+<title>binarysearch.py</title>
+
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta NAME="AUTHOR" CONTENT="Robert Sedgewick, Kevin Wayne, and Robert Dondero">
+<meta NAME="DESCRIPTION" CONTENT="binarysearch code in Python">
+<meta NAME="TITLE" CONTENT="binarysearch code in Python">
+<meta NAME="KEYWORDS" CONTENT="binarysearch,python,programming,computer science,algorithm,program,code">
+<meta NAME="ROBOTS" CONTENT="INDEX,FOLLOW">
+
+</head>
+
+
+<body>
+<center><h1>binarysearch.py</h1></center><p><br>
+
+Below is the syntax highlighted version of <a href = "binarysearch.py">binarysearch.py</a>
+from <a href = "https://introcs.cs.princeton.edu/python/42sort">&#167;4.2 Sorting and Searching</a>.
+<p><br>
+
+<!-- Generator: GNU source-highlight 3.1.8
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span class="comment">#-----------------------------------------------------------------------</span>
+<span class="comment"># binarysearch.py</span>
+<span class="comment">#-----------------------------------------------------------------------</span>
+
+<span class="preproc">import</span><span class="normal"> sys</span>
+<span class="preproc">import</span><span class="normal"> stdio</span>
+<span class="preproc">import</span><span class="normal"> instream</span>
+
+<span class="comment">#-----------------------------------------------------------------------</span>
+
+<span class="comment"># Return the index of key in array a[lo:hi], or -1 if key is not</span>
+<span class="comment"># present.</span>
+
+<span class="keyword">def</span><span class="normal"> </span><span class="function">_search</span><span class="symbol">(</span><span class="normal">key</span><span class="symbol">,</span><span class="normal"> a</span><span class="symbol">,</span><span class="normal"> lo</span><span class="symbol">,</span><span class="normal"> hi</span><span class="symbol">):</span>
+<span class="normal">    </span><span class="keyword">if</span><span class="normal"> hi </span><span class="symbol">&lt;=</span><span class="normal"> lo</span><span class="symbol">:</span>
+<span class="normal">        </span><span class="keyword">return</span><span class="normal"> </span><span class="symbol">-</span><span class="number">1</span>
+<span class="normal">    mid </span><span class="symbol">=</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">lo </span><span class="symbol">+</span><span class="normal"> hi</span><span class="symbol">)</span><span class="normal"> </span><span class="symbol">//</span><span class="normal"> </span><span class="number">2</span>
+
+<span class="normal">    </span><span class="comment"># Python 2.6 implements a cmp() function which calls a __cmp__()</span>
+<span class="normal">    </span><span class="comment"># method.  But Python 3.x does not.  So must use &lt; instead.</span>
+
+<span class="normal">    </span><span class="keyword">if</span><span class="normal"> key </span><span class="symbol">&lt;</span><span class="normal"> a</span><span class="symbol">[</span><span class="normal">mid</span><span class="symbol">]:</span>
+<span class="normal">        </span><span class="keyword">return</span><span class="normal"> </span><span class="function">_search</span><span class="symbol">(</span><span class="normal">key</span><span class="symbol">,</span><span class="normal"> a</span><span class="symbol">,</span><span class="normal"> lo</span><span class="symbol">,</span><span class="normal"> mid</span><span class="symbol">)</span>
+<span class="normal">    </span><span class="keyword">elif</span><span class="normal"> a</span><span class="symbol">[</span><span class="normal">mid</span><span class="symbol">]</span><span class="normal"> </span><span class="symbol">&lt;</span><span class="normal"> key</span><span class="symbol">:</span>
+<span class="normal">        </span><span class="keyword">return</span><span class="normal"> </span><span class="function">_search</span><span class="symbol">(</span><span class="normal">key</span><span class="symbol">,</span><span class="normal"> a</span><span class="symbol">,</span><span class="normal"> mid</span><span class="symbol">+</span><span class="number">1</span><span class="symbol">,</span><span class="normal"> hi</span><span class="symbol">)</span>
+<span class="normal">    </span><span class="keyword">else</span><span class="symbol">:</span>
+<span class="normal">        </span><span class="keyword">return</span><span class="normal"> mid</span>
+
+<span class="comment">#-----------------------------------------------------------------------</span>
+
+<span class="comment"># Return the index of key in array a, or -1 if key is not present.</span>
+
+<span class="keyword">def</span><span class="normal"> </span><span class="function">search</span><span class="symbol">(</span><span class="normal">key</span><span class="symbol">,</span><span class="normal"> a</span><span class="symbol">):</span>
+<span class="normal">    </span><span class="keyword">return</span><span class="normal"> </span><span class="function">_search</span><span class="symbol">(</span><span class="normal">key</span><span class="symbol">,</span><span class="normal"> a</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">,</span><span class="normal"> </span><span class="function">len</span><span class="symbol">(</span><span class="normal">a</span><span class="symbol">))</span>
+
+<span class="comment">#-----------------------------------------------------------------------</span>
+
+<span class="comment"># Accept as a command-line argument a string which is the name of a</span>
+<span class="comment"># whitelist file. Write to standard output the keys in standard input</span>
+<span class="comment"># that are not in the whitelist file.</span>
+
+<span class="keyword">def</span><span class="normal"> </span><span class="function">main</span><span class="symbol">():</span>
+<span class="normal">    inStream </span><span class="symbol">=</span><span class="normal"> instream</span><span class="symbol">.</span><span class="function">InStream</span><span class="symbol">(</span><span class="normal">sys</span><span class="symbol">.</span><span class="normal">argv</span><span class="symbol">[</span><span class="number">1</span><span class="symbol">])</span>
+<span class="normal">    a </span><span class="symbol">=</span><span class="normal"> inStream</span><span class="symbol">.</span><span class="function">readAllStrings</span><span class="symbol">()</span>
+
+<span class="normal">    </span><span class="keyword">while</span><span class="normal"> </span><span class="keyword">not</span><span class="normal"> stdio</span><span class="symbol">.</span><span class="function">isEmpty</span><span class="symbol">():</span>
+<span class="normal">        key </span><span class="symbol">=</span><span class="normal"> stdio</span><span class="symbol">.</span><span class="function">readString</span><span class="symbol">()</span>
+<span class="normal">        </span><span class="keyword">if</span><span class="normal"> </span><span class="function">search</span><span class="symbol">(</span><span class="normal">key</span><span class="symbol">,</span><span class="normal"> a</span><span class="symbol">)</span><span class="normal"> </span><span class="symbol">&lt;</span><span class="normal"> </span><span class="number">0</span><span class="symbol">:</span>
+<span class="normal">            stdio</span><span class="symbol">.</span><span class="function">writeln</span><span class="symbol">(</span><span class="normal">key</span><span class="symbol">)</span>
+
+<span class="keyword">if</span><span class="normal"> __name__ </span><span class="symbol">==</span><span class="normal"> </span><span class="string">'__main__'</span><span class="symbol">:</span>
+<span class="normal">    </span><span class="function">main</span><span class="symbol">()</span>
+
+<span class="comment">#-----------------------------------------------------------------------</span>
+
+<span class="comment"># more emails.txt </span>
+<span class="comment"># bob@office</span>
+<span class="comment"># carl@beach</span>
+<span class="comment"># marvin@spam</span>
+<span class="comment"># bob@office</span>
+<span class="comment"># bob@office</span>
+<span class="comment"># mallory@spam</span>
+<span class="comment"># dave@boat</span>
+<span class="comment"># eve@airport</span>
+<span class="comment"># alice@home</span>
+
+<span class="comment"># more white.txt</span>
+<span class="comment"># alice@home</span>
+<span class="comment"># bob@office</span>
+<span class="comment"># carl@beach</span>
+<span class="comment"># dave@boat</span>
+
+<span class="comment"># python binarysearch.py white.txt &lt; emails.txt </span>
+<span class="comment"># marvin@spam</span>
+<span class="comment"># mallory@spam</span>
+<span class="comment"># eve@airport</span>
+
+</tt></pre>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-10811519-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+
+<p><br><address><small>
+Copyright &copy; 2000&ndash;2015, Robert Sedgewick, Kevin Wayne, and Robert Dondero.
+<br>Last updated: Fri Oct 20 20:45:16 EDT 2017.
+</small></address>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang = "en">
+
+<head>
+
+<link rel="icon"          href="https://introcs.cs.princeton.edu/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="https://introcs.cs.princeton.edu/favicon.ico" type="image/x-icon">
+<link rel="stylesheet"    href="https://introcs.cs.princeton.edu/java.css" type="text/css">
+
+<title>chargeclient.py</title>
+
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta NAME="AUTHOR" CONTENT="Robert Sedgewick, Kevin Wayne, and Robert Dondero">
+<meta NAME="DESCRIPTION" CONTENT="chargeclient code in Python">
+<meta NAME="TITLE" CONTENT="chargeclient code in Python">
+<meta NAME="KEYWORDS" CONTENT="chargeclient,python,programming,computer science,algorithm,program,code">
+<meta NAME="ROBOTS" CONTENT="INDEX,FOLLOW">
+
+</head>
+
+
+<body>
+<center><h1>chargeclient.py</h1></center><p><br>
+
+Below is the syntax highlighted version of <a href = "chargeclient.py">chargeclient.py</a>
+from <a href = "https://introcs.cs.princeton.edu/python/31datatype">&#167;3.1 Using Data Types</a>.
+<p><br>
+
+<!-- Generator: GNU source-highlight 3.1.8
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span class="comment">#-----------------------------------------------------------------------</span>
+<span class="comment"># chargeclient.py</span>
+<span class="comment">#-----------------------------------------------------------------------</span>
+
+<span class="preproc">import</span><span class="normal"> sys</span>
+<span class="preproc">import</span><span class="normal"> stdio</span>
+<span class="preproc">from</span><span class="normal"> charge </span><span class="preproc">import</span><span class="normal"> Charge</span>
+
+<span class="comment"># Accept floats x and y as command-line arguments. Create two Charge</span>
+<span class="comment"># objects with fixed position and electrical charge, and write to</span>
+<span class="comment"># standard output the potential at (x, y) due to the two charges.</span>
+
+<span class="normal">x </span><span class="symbol">=</span><span class="normal"> </span><span class="function">float</span><span class="symbol">(</span><span class="normal">sys</span><span class="symbol">.</span><span class="normal">argv</span><span class="symbol">[</span><span class="number">1</span><span class="symbol">])</span>
+<span class="normal">y </span><span class="symbol">=</span><span class="normal"> </span><span class="function">float</span><span class="symbol">(</span><span class="normal">sys</span><span class="symbol">.</span><span class="normal">argv</span><span class="symbol">[</span><span class="number">2</span><span class="symbol">])</span>
+<span class="normal">c1 </span><span class="symbol">=</span><span class="normal"> </span><span class="function">Charge</span><span class="symbol">(.</span><span class="number">51</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">.</span><span class="number">63</span><span class="symbol">,</span><span class="normal"> </span><span class="number">21.3</span><span class="symbol">)</span>
+<span class="normal">c2 </span><span class="symbol">=</span><span class="normal"> </span><span class="function">Charge</span><span class="symbol">(.</span><span class="number">13</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">.</span><span class="number">94</span><span class="symbol">,</span><span class="normal"> </span><span class="number">81.9</span><span class="symbol">)</span>
+<span class="normal">v1 </span><span class="symbol">=</span><span class="normal"> c1</span><span class="symbol">.</span><span class="function">potentialAt</span><span class="symbol">(</span><span class="normal">x</span><span class="symbol">,</span><span class="normal"> y</span><span class="symbol">)</span>
+<span class="normal">v2 </span><span class="symbol">=</span><span class="normal"> c2</span><span class="symbol">.</span><span class="function">potentialAt</span><span class="symbol">(</span><span class="normal">x</span><span class="symbol">,</span><span class="normal"> y</span><span class="symbol">)</span>
+<span class="normal">stdio</span><span class="symbol">.</span><span class="function">writef</span><span class="symbol">(</span><span class="string">'potential at (%.2f, %.2f) due to\n'</span><span class="symbol">,</span><span class="normal"> x</span><span class="symbol">,</span><span class="normal"> y</span><span class="symbol">)</span>
+<span class="normal">stdio</span><span class="symbol">.</span><span class="function">writeln</span><span class="symbol">(</span><span class="string">'  '</span><span class="normal"> </span><span class="symbol">+</span><span class="normal"> </span><span class="function">str</span><span class="symbol">(</span><span class="normal">c1</span><span class="symbol">)</span><span class="normal"> </span><span class="symbol">+</span><span class="normal"> </span><span class="string">' and'</span><span class="symbol">)</span>
+<span class="normal">stdio</span><span class="symbol">.</span><span class="function">writeln</span><span class="symbol">(</span><span class="string">'  '</span><span class="normal"> </span><span class="symbol">+</span><span class="normal"> </span><span class="function">str</span><span class="symbol">(</span><span class="normal">c2</span><span class="symbol">))</span>
+<span class="normal">stdio</span><span class="symbol">.</span><span class="function">writef</span><span class="symbol">(</span><span class="string">'is %.2e\n'</span><span class="symbol">,</span><span class="normal"> v1</span><span class="symbol">+</span><span class="normal">v2</span><span class="symbol">)</span>
+
+<span class="comment">#-----------------------------------------------------------------------</span>
+
+<span class="comment"># python chargeclient.py .2 .5</span>
+<span class="comment"># potential at (0.20, 0.50) due to</span>
+<span class="comment">#   21.3 at (0.51, 0.63) and</span>
+<span class="comment">#   81.9 at (0.13, 0.94)</span>
+<span class="comment"># is 2.22e+12</span>
+
+<span class="comment"># python chargeclient.py .51 .94</span>
+<span class="comment"># potential at (0.51, 0.94) due to</span>
+<span class="comment">#   21.3 at (0.51, 0.63) and</span>
+<span class="comment">#   81.9 at (0.13, 0.94)</span>
+<span class="comment"># is 2.56e+12</span>
+
+</tt></pre>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-10811519-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+
+<p><br><address><small>
+Copyright &copy; 2000&ndash;2015, Robert Sedgewick, Kevin Wayne, and Robert Dondero.
+<br>Last updated: Fri Oct 20 20:45:16 EDT 2017.
+</small></address>
+
+</html>

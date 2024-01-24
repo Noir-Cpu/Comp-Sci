@@ -1,0 +1,1108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="en">
+
+<head>
+
+<link rel="icon"          href="https://introcs.cs.princeton.edu/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="https://introcs.cs.princeton.edu/favicon.ico" type="image/x-icon">
+<link rel="stylesheet"    href="https://introcs.cs.princeton.edu/introcs.css" type="text/css">
+<meta name="google-site-verification" content="nYspbl5bNBQrNZKguiAAFTMVM7sq2P1WQYc8Oi6Okl0" />
+<meta name="msvalidate.01" content="D4B7F6DF793EFF34DE96F611C2A367A5" />
+<!-- IE HACKS -->
+<!--[if IE]>
+<style type="text/css" media="screen">
+ #menu ul li {float: left; width: 100%;}
+</style>
+<![endif]-->
+<!--[if lt IE 7]>
+<style type="text/css" media="screen">
+body {
+behavior: url(/csshover.htc);
+} 
+#menu ul li {float: left; width: 100%;}
+#menu ul li a {height: 1%;} 
+
+#menu a, #menu h2 {
+font: bold 0.9em/1.5em arial, helvetica, sans-serif;
+} 
+
+</style>
+<![endif]-->
+
+
+<title>
+Data Types</title>
+<script type='text/javascript' src='https://algs4.cs.princeton.edu/media/swfobject.js'></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10811519-6', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<META HTTP-EQUIV="Content-Type" content="text/html; charset=iso-8859-1">
+<META NAME="AUTHOR" CONTENT="Robert Sedgewick, Kevin Wayne, and Robert Dondero">
+<META NAME="KEYWORDS" CONTENT="Data Types,Python,Programming,interdisciplinary,Computer science,cs,intro,introduction,sedgewick,dondero,wayne">
+<META NAME="DESCRIPTION" CONTENT="This textbook provides an interdisciplinary approach to the CS 1 curriculum. We teach the classic elements of programming, using an "objects-in-the-middle" approach that emphasizes data abstraction. A key feature of the book is the manner in which we motivate each programming concept by examining its impact on specific applications, taken from science, engineering, and commerce.">
+<META NAME="TITLE" CONTENT="Data Types. Introduction to Programming in Python by Sedgewick, Wayne, and Dondero">
+<META NAME="ROBOTS" CONTENT="INDEX,FOLLOW">
+<META name="verify-v1" content="D4o9ikkHbNKapHncCP8ZmiD9Z2DBbrJyaSV0lyce+3w=">
+
+
+<link rel="stylesheet" href="https://localhost:49822/stylesheet?id=TIrXquAhPGmX8XnI"></head>
+
+
+
+
+
+<body>
+
+<div id = "menu">
+   <div align="center">
+<a class = picture href = "https://introcs.cs.princeton.edu/python">
+<img src="../cover.png" width=190 border=0 alt = "Introduction to Programming in Python">
+</a>
+</div>
+
+
+
+
+
+<ul>
+  <li><a class = title href = "/python/home">Intro to Programming</a>
+    <ul>
+
+      <li> <a href = "https://introcs.cs.princeton.edu/python/10elements">1.&nbsp;&nbsp;Elements of Programming</a>
+        <ul>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/11hello">1.1&nbsp;&nbsp;Your First Program</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/12types">1.2&nbsp;&nbsp;Built-in Types of Data</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/13flow">1.3&nbsp;&nbsp;Conditionals and Loops</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/14array">1.4&nbsp;&nbsp;Arrays</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/15inout">1.5&nbsp;&nbsp;Input and Output</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/16pagerank">1.6&nbsp;&nbsp;Case Study: PageRank</a>
+        </ul>
+
+      <li> <a href = "https://introcs.cs.princeton.edu/python/20functions">2.&nbsp;&nbsp;Functions</a>
+        <ul>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/21function">2.1&nbsp;&nbsp;Defining Functions</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/22module">2.2&nbsp;&nbsp;Modules and Clients</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/23recursion">2.3&nbsp;&nbsp;Recursion</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/24percolation">2.4&nbsp;&nbsp;Case Study: Percolation</a>
+        </ul>
+
+      <li> <a href = "https://introcs.cs.princeton.edu/python/30oop">3.&nbsp;&nbsp;OOP</a>
+        <ul>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/31datatype">3.1&nbsp;&nbsp;Using Data Types</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/32class">3.2&nbsp;&nbsp;Creating Data Types</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/33design">3.3&nbsp;&nbsp;Designing Data Types</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/34nbody">3.4&nbsp;&nbsp;Case Study: N-Body</a>
+        </ul>
+
+      <li> <a href = "https://introcs.cs.princeton.edu/python/40algorithms">4.&nbsp;&nbsp;Data Structures</a>
+        <ul>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/41analysis">4.1&nbsp;&nbsp;Performance</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/42sort">4.2&nbsp;&nbsp;Sorting and Searching</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/43stack">4.3&nbsp;&nbsp;Stacks and Queues</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/44st">4.4&nbsp;&nbsp;Symbol Tables</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/45graph">4.5&nbsp;&nbsp;Case Study: Small World</a>
+        </ul>
+    </ul>
+</ul>
+
+
+
+
+<!--
+<ul>
+  <li><a class = title href = "/python/cs">Intro to CS</a>
+    <ul>
+        </ul>
+    </ul>
+</ul>
+
+-->
+
+
+
+
+
+<ul>
+
+<li><a class = title> Related Booksites</a>
+<table width = 100% border = 0 cellspacing = 0 cellpadding = 0>
+<tr>
+<td align = center>
+<a class = booksite href = "https://introcs.cs.princeton.edu">
+   <img src = "https://introcs.cs.princeton.edu/java/cover.png"
+        width = 73 height = 91 border=0
+        alt = "Introduction to Programming in Java
+               by Robert Sedgewick and Kevin Wayne">
+</a>
+<td align = center>
+<a class = booksite href = "https://algs4.cs.princeton.edu">
+   <img src = "https://algs4.cs.princeton.edu/cover.png"
+        width = 73 height = 91 border=0
+        alt = "Algorihtms, 4th Edition by Robert Sedgewick and Kevin Wayne">
+</a>
+</tr>
+</table>
+
+
+
+  <li><a class = title href = "/home">Web Resources</a>
+    <ul>
+
+      <li> <a href = "/python/faq">FAQ</a>
+      <!-- <li> <a href = "/python/data">Data</a> -->
+      <li> <a href = "/python/code">Code</a>
+      <li> <a href = "/python/errata">Errata</a>
+      <li> <a href = "/python/appendix">Appendices</a>
+        <ul>
+          <li> <a href = "/python/appendix_precedence">A. &nbsp; Python Operator Precedence</a>
+          <li> <a href = "/python/appendix_style">B. &nbsp; Writing Clear Code</a>
+          <li> <a href = "/python/appendix_gaussian">C. &nbsp; Gaussian Distribution</a>
+          <li> <a href = "/python/appendix_cheatsheet">D. &nbsp; Python Cheatsheet</a>
+          <li> <a href = "/python/appendix_numpy">E. &nbsp; NumPy</a>
+        </ul>
+      <!-- <li> <a href="/python/lectures">Lecture Slides</a> -->
+      <!-- <li> <a href="/python/assignments">Programming Assignments</a> -->
+   </ul>
+
+
+</ul>
+
+<p><br>
+<script>
+  (function() {
+    var cx = '005649317310637734940:_d158dlngnk';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:searchbox-only></gcse:searchbox-only>
+
+<p><br>
+</div>
+
+<div id = "content">
+   <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>
+</title>
+</head>
+<body>
+
+<h1>3.1 Using Data Types</h1>
+
+<br>
+
+<p>In the first two chapters of this booksite our programs were confined to operations on numbers, booleans, and strings. Of course, the reason is that the Python data types that we've encountered so far &mdash; <code>int</code>, <code>float</code>, <code>bool</code>, and <code>str</code> &mdash; manipulate numbers, booleans, and strings, using familiar operations. In this chapter, we begin to consider other data types.</p>
+
+<p>In this section, we focus on client programs that use existing data types, to give you some concrete reference points for understanding these new concepts and to illustrate their broad reach. We introduce constructors to create objects from a data type and methods to operate on their values. We consider programs that manipulate electrical charges, colors, images, files, and web pages &mdash; quite a leap from the built-in data types that we used in previous chapters.</p>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+
+<h2>Methods</h2>
+
+<p>A <em>method</em> is a function associated with a specified object (and, by extension, with the type of that object). That is, a method corresponds to a data-type operation.</p>
+
+<img src="images/AnatomyMethodUse.png" align="right" hspace="25" alt="Calling a method and then a function">
+
+<p>We can <em>call</em> (or <em>invoke</em>) a method by using a variable name, followed by the <em>dot operator</em> (.), followed by the method name, followed by a list of arguments delimited by commas and enclosed in parentheses. As a simple example, Python's built-in <code>int</code> type has a method named <code>bit_length()</code>, so you can determine the number of bits in the binary representation of an <code>int</code> value as follows:</p>
+
+<blockquote><table><tr><td><pre>
+x = 3 ** 100
+bits = x.bit_length()
+stdio.writeln(bits)
+</pre></td></tr></table></blockquote>
+
+<p>This code writes 159 to standard output, telling you that 3<sup>100</sup> (a huge integer) has 159 bits when expressed in binary.</p>
+
+<p>The syntax and behavior of method calls is nearly the same as the syntax and behavior of function calls. For example, a method can take any number of arguments, those arguments are passed by object reference, and the method returns a value to its caller. Similarly, like a function call, a method call is an expression. The main difference is syntactic: you invoke a method using a specified object and the dot operator. In object-oriented programming we usually prefer method-call syntax to function-call syntax because it emphasizes the role of the object.</p>
+
+<p>The key difference between a function and a method is that a method is associated with a specified object. You can think of this specified object as an extra argument that gets passed to a function, in addition to the ordinary methods argument.</p>
+
+<blockquote>
+<img src="images/MethodsVsFunctions.png" alt="Methods vs. functions">
+</blockquote>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+
+<h2>String Processing</h2>
+
+<p>Your experience with using <code>str</code> demonstrates that you do not need to know how a data type is implemented to be able to use it<!-- (one of several mantras we repeat in this book because of its importance)-->. You know that <code>str</code> values are sequences of characters and that you can perform the operation of concatenating two <code>str</code> values to produce a <code>str</code> result.</p>
+
+<p>Python's <code>str</code> data type includes many other operations, as documented in the API shown below.</p>
+
+<blockquote>
+<img src="images/StrApi.png" alt="Str API">
+</blockquote>
+
+<p>The operations in the <code>str</code> API can be divided into three categories:</p>
+
+<ul>
+<li><em>Built-in operators</em> <code>+</code>, <code>+=</code>, <code>[]</code>, <code>[:]</code>, <code>in</code>, <code>not in</code>, and the comparison operators, which are characterized by special symbols and syntax</li>
+
+<li>A <em>built-in function</em> <code>len()</code> with standard function-call syntax</li>
+
+<li><em>Methods</em> <code>upper()</code>, <code>startswith()</code>, <code>find()</code>, and so forth, which are distinguished in the API with a variable name followed by the dot operator</li>
+</ul>
+
+<p>From this point forward, any API that we might consider will have these kinds of operations. Next, we consider each of them in turn.</p>
+
+<p><h3>Built-in operators.</h3> An operator (or function) that you can apply to more than one type of data is said to be <em>polymorphic</em>. You have already been using the <code>+</code> operator, familiar for numbers, for string concatenation. The API tells you that you can use the <code>[]</code> operator, familiar for arrays, to extract a single character from a string and the <code>[:]</code> operator to extract a substring from a string.</p>
+
+<p><h3>Built-in functions.</h3> Python also builds in a number of polymorphic functions, such as the <code>len()</code> function. Polymorphic functions are like polymorphic operators, but without the special syntax.</p>
+
+<p><h3>Methods.</h3> We include built-in operators and built-in functions for convenience (and to conform to Python norms), but most of our effort in creating data types goes into developing methods that operate on object values, such as <code>upper()</code>, <code>startswith()</code>, <code>find()</code>, and the other methods in the <code>str</code> API.</p>
+
+<!--
+<p>In point of fact, these three kinds of operations end up being the same in implementations, as you will see in Section 3.2. Python automatically maps built-in operators and functions to special methods, using the convention that such special methods have double underscores before and after their names. For example, <code>s�+�t</code> is equivalent to the method call <code>s.__add__(t)</code> and <code>len(s)</code> is equivalent to the method call  <code>s.__len__()</code>. We never use the double underscore form in client code, but we do use it to implement special methods, as you will see in Section 3.2.</p>
+-->
+
+<p>The table below gives several examples of simple string-processing applications that illustrate the utility of the various operations in Python's <code>str</code> data type.</p>
+
+<blockquote>
+<img src="images/StringProcessingCode.png" alt="String processing code">
+</blockquote>
+
+<p>The program <a href="potentialgene.py.html">potentialgene.py</a> is a more substantial example of string processing. The program accepts a DNA sequence as a command-line argument, and determines whether it corresponds to a potential gene. The textbook provides details.</p>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+
+<h2>A User-Defined Data Type</h2>
+
+<p>As a running example of a user-defined data type, we will consider a data type <code>Charge</code> for charged particles. In particular, we are interested in a two-dimensional model that uses <em>Coulomb's law</em>, which tells us that the electric potential at a point due to a given charged particle is represented by <em>V</em> = <em>kq</em>/<em>r</em>, where <em>q</em> is the charge value, <em>r</em> is the distance from the point to the charge, and <em>k</em> = 8.99 &times; 10<sup>9</sup> N m<sup>2</sup>/C<sup>2</sup> is a constant known as the electrostatic constant, or <em>Coulomb's constant</em>. For consistency, we use SI (Systeme International d'Unites): in this formula, N designates newtons (force), m designates meters (distance), and C represent coulombs (electric charge). When there are multiple charged particles, the electric potential at any point is the sum of the potentials due to each charge.</p>
+
+<p><h3>Application programming interface.</h3> <!--To fulfill our mantra promise that you do not need to know how a data type is implemented to use it, w-->We specify the behavior of the <code>Charge</code> data type by listing its operations in an API, deferring the discussion of the implementation until Section 3.2.</p>
+
+<blockquote>
+<img src="images/ChargeApi.png" alt="Charge API">
+</blockquote>
+
+<p>The first entry in the API, which has the same name as the data type, is known as a <code>constructor</code>. Each call to the <code>Charge</code> constructor creates exactly one new <code>Charge</code> object. The other two entries define the data-type operations. The first is a method <code>potentialAt()</code>, which computes and returns the potential due to the charge at the given point (<code>x</code>, <code>y</code>). The second is the built-in function <code>str()</code>, which returns a string representation of the charged particle.</p>
+
+<p><h3>File conventions.</h3> The code that defines a user-defined data type resides in a <code>.py</code> file. By convention, we define each data type in a distinct <code>.py</code> file, with the same name as the data type (but not capitalized). Thus, the <code>Charge</code> data type is found in a file named <code>charge.py</code>. To compose a client program that uses the <code>Charge</code> data type, we put the following <code>import</code> statement at the top of the client .py file:</p>
+
+<blockquote><table><tr><td><pre>
+from charge import Charge
+</pre></td></tr></table></blockquote>
+
+<p>Note that the format of the <code>import</code> statement that we use with user-defined data types differs from the format we use with functions.</p>
+
+<p><h3>Creating objects.</h3> 
+
+<img src="images/TraceFormalCharge.png" align="right" hspace="25" alt="Creating a Charge object">
+
+To create an object from a user-defined data type, you call its constructor, which directs Python to create a new individual object. You call a constructor just as if it were a function, using the name of the data type, followed by the constructor's arguments enclosed in parentheses and separated by commas. For example, <code>Charge(x0, y0, q0)</code> creates a new <code>Charge</code> object with position (<code>x0</code>, <code>y0</code>) and charge value <code>q0</code> and returns a reference to the new object.</p>
+
+<img src="images/TraceFormalChargeFour.png" align="right" hspace="25" alt="Four variables referring to three Charge objects">
+
+<p>You can create any number of objects of the same data type. Recall from Section 1.2 that each object has its own identity, type, and value. So, while any two objects reside at distinct places in computer memory, they may be of the same type and store the same value.</p>
+
+<p><h3>Calling a method.</h3> As discussed at the beginning of this section, we typically use a variable name to identify the object to be associated with the method we intend to call. For our example, the method call <code>c1.potentialAt(.20, .50)</code> returns a float that represents the potential at the query point (0.20, 0.50) due to the <code>Charge</code> object referenced by <code>c1</code>. The distance between the query point and the charge location is 0.34, so this potential is 8.99 &times; 10<sup>9</sup> &times; 21.3 / 0.34 = 5.63 &times; 10<sup>11</sup>.</p>
+
+<p><h3>String representation.</h3> In any data-type implementation, it is typically worthwhile to include an operation that converts an object's value to a string. Python has a built-in function <code>str()</code> for this purpose, which you have been using from the beginning to convert integers and floats to strings for output. Since our <code>Charge</code> API has a <code>str()</code> implementation, any client can call <code>str()</code> to get a string representation of a <code>Charge</code> object. For our example, the call <code>str(c1)</code> returns the string <code>'21.3 at (0.51, 0.63)'</code>.</p>
+
+<p>These mechanisms are summarized in the client <a href="chargeclient.py.html">chargeclient.py</a>, which creates two <code>Charge</code> objects and computes the total potential due to the two charges at a query point taken from the command line.</p>
+
+<!--
+<p>In most ways, user-defined data types (that is, the standard, extension, and booksite data types, as well as data types that you might define) are no different from built-in data types such as <code>int</code>, <code>float</code>, <code>bool</code>, and <code>str</code>. However, the built-in types do have special status in Python, notably evidenced by the following considerations:</p>
+
+<ul>
+
+<li>You do not need an <code>import</code> statement to use the built-in data types.</li>
+
+<li>Python provides special syntax for creating objects of built-in data types. For example, the literal <code>123</code> creates an <code>int</code> object and the expression <code>['Hello', 'World']</code> creates an array whose elements are <code>str</code> objects. In contrast, to create an object of a user-defined data type, we must call a constructor.</li>
+
+<li>By convention, built-in types begin with lowercase letters while user-defined types begin with uppercase letters.</li>
+
+<li>Python provides automatic type promotion for built-in arithmetic types, such as from <code>int</code> to <code>float</code>.</li>
+
+<li>Python provides built-in functions for type conversion to built-in types, including <code>int()</code>, <code>float()</code>, <code>bool()</code>, and <code>str()</code>.</li>
+
+</ul>
+-->
+
+<p>Next we consider several more examples of user-defined data types.</p>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+
+<h2>Color</h2>
+
+<p>Color is a sensation in the eye attributable to electromagnetic radiation. Since we often want to view and manipulate color images on our computers, color is a widely used abstraction in computer graphics. <!--In professional publishing, in print, and on the web, working with color is a complex task. For example, the appearance of a color image depends in a significant way on the medium used to present it. Our Color data type, defined in the module color.py, separates the creative designer's problem of specifying a desired color from the system's problem of faithfully reproducing it. Its API is shown at the bottom of this page.--></p>
+
+To represent color values, we define a <code>Color</code> data type.</p>
+
+<blockquote>
+<img src="images/ColorApi.png" alt="Color API">
+</blockquote>
+
+<p><code>Color</code> uses the RGB color model, in which a color is defined by three integers, each between 0 and 255, that represent the intensity of the red, green, and blue (respectively) components of the color. Other color values are obtained by mixing the red, green, and blue components. <!-- Using this model, we can represent 2563 (that is, approximately 16.7 million) distinct colors. Scientists estimate that the human eye can distinguish only about 10 million distinct colors.-->
+<code>Color</code> has a constructor that takes three integer arguments, so that you can compose the code</p>
+
+<blockquote><table><tr><td><pre>
+red  = Color(255,   0,   0) 
+blue = Color(  0,   0, 255)
+</pre></td></tr></table></blockquote>
+
+<p>to create objects whose values represent pure red and pure blue, respectively. We have been using colors in <code>stddraw</code> since Section 1.5, but have been limited to a set of predefined colors, such as <code>stddraw.BLACK</code>, <code>stddraw.RED</code>, and <code>stddraw.PINK</code>. Now you have millions of colors available for your use.</p>
+
+<p>The program <a href="alberssquares.py.html">alberssquares.py</a> is a <code>Color</code> and <code>stddraw</code> client that allows you to experiment with colors. The program accepts two colors from the command line, and displays the colors in the format developed in the 1960s by the color theorist Josef Albers, who revolutionized the way that people think about color.</p>
+
+<blockquote>
+<table cellpadding="10">
+<tr>
+<td><code>% python alberssquares.py 9 90 166 100 100 100</code></td>
+<td><img src="images/AlbersSquares1.png" width="200"></td>
+</tr>
+<tr>
+<td><code>% python alberssquares.py 0 174 239 147 149 252</code></td>
+<td><img src="images/AlbersSquares2.png" width="200"></td>
+</tr>
+</table>
+</blockquote>
+
+<!--
+<blockquote>
+<img src="images/AlbersSquares.png" alt="Albers squares">
+</blockquote>
+-->
+
+<p><h3>Luminance.</h3> The quality of the images on modern displays such as LCD monitors, LED TVs, and cellphone screens depends on an understanding of a color property known as <em>monochrome luminance</em>, or effective brightness. A standard formula for luminance is derived from the eye's sensitivity to red, green, and blue. It is a linear combination of the three intensities: if a color's red, green, and blue values are <em>r</em>, <em>g</em>, and <em>b</em>, respectively, then its luminance is defined by this formula:</p>
+
+<blockquote><table><tr><td>
+<em>Y</em> = 0.299<em>r</em> + 0.587<em>g</em> + 0.114<em>b</em>
+</td></tr></table></blockquote>
+
+<p><h3>Grayscale.</h3> The RGB color model has the property that when all three color intensities are the same, the resulting color is on a grayscale that ranges from black (all 0s) to white (all 255s). To print a color photograph in a black-and-white newspaper (or a book), we need a function to convert from color to grayscale. A simple way to convert a color to grayscale is to replace the color with a new one whose red, green, and blue values equal its monochrome luminance.</p>
+
+<p><h3>Color compatibility.</h3> The luminance value is also crucial in determining whether two colors are compatible, in the sense that printing text in one of the colors on a background in the other color will be readable. A widely used rule of thumb is that the difference between the luminance of the foreground and background colors should be at least 128. For example, black text on a white background has a luminance difference of 255, but black text on a (book) blue background has a luminance difference of only 74.</p>
+
+<p>Program <a href="luminance.py.html">luminance.py</a> is a module that we can use to convert a color to grayscale and to test whether two colors are compatible, for example, when we use colors in <code>stddraw</code> applications. The functions in <a href="luminance.py.html">luminance.py</a> illustrate the utility of using data types to organize information. Using the <code>Color</code> data type and passing objects as arguments makes these implementations substantially simpler than the alternative of having to pass around the three intensity values. Returning multiple values from a function also would be awkward and more error prone without the <code>Color</code> data type.</p>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+
+<h2>Digital Image Processing</h2>
+
+<p>We have been using <code>stddraw</code> to plot geometric objects (points, lines, circles, squares) in a window on the computer screen. The basic abstraction for computer displays is the same one that is used for digital photographs and is very simple: A <em>digital image</em> is a rectangular grid of <em>pixels</em> (picture elements), where the color of each pixel is individually defined. Digital images are sometimes referred to as <em>raster</em> or <em>bitmapped</em> images.</p>
+
+<p>Our <code>Picture</code> data type, defined in the module <code>picture.py</code>, implements the digital image abstraction. The set of values is nothing more than a two-dimensional array of <code>Color</code> values, and the operations are described by this API:</p>
+
+<blockquote>
+<img src="images/PictureApi.png" alt="Picture API">
+</blockquote>
+
+<img src="images/AnatomyImage.png" align="right" hspace="25" alt="Anatomy of a digital image">
+
+<p>By convention, (0, 0) is the upper leftmost pixel, so the image is laid out as in the customary order for arrays (by contrast, the convention for <code>stddraw</code> is to have the point (0,0) at the lower-left corner, so that drawings are oriented as in the customary manner for Cartesian coordinates).</p>
+
+<p>Using the <code>Picture</code> constructor you can create a <code>Picture</code> object by reading an image from a <code>.png</code> or <code>.jpg</code> file. Using the <code>save()</code> method, you can save the images that you create in either <code>.png</code> or <code>.jpg</code> format; subsequently can view the images that you create in the same way that you view photographs or other images. In addition, the <code>stddraw</code> module supports a <code>picture()</code> function that allows you to draw a given <code>Picture</code> object in the standard drawing window along with lines, rectangles, circles, and so forth.</p>
+
+<blockquote>
+<img src="images/StddrawPictureApi.png" alt="Stddraw Picture API">
+</blockquote>
+
+<p><h3>Grayscale.</h3> The program <a href="grayscale.py.html">grayscale.py</a> is a filter that takes a file name from the command line and produces a grayscale version of that image. It creates a new <code>Picture</code> object initialized with the color image, then sets the color of each pixel to a new <code>Color</code> having a grayscale value computed by applying the <code>toGray()</code> function in <a href="luminance.py.html">luminance.py</a> to the color of the corresponding pixel in the source. Try running it on the files 
+<a href="mandrill.jpg">mandrill.jpg</a>, 
+<a href="mandrill.png">mandrill.png</a>, 
+<a href="darwin.jpg">darwin.jpg</a>, and 
+<a href="darwin.png">darwin.png</a>.</p>
+
+<blockquote>
+<table cellpadding="10">
+<tr>
+<td><code>% python grayscale.py mandrill.jpg</code></td>
+<td><img src="images/MandrillGray.png" width="150"></td>
+</tr>
+<tr>
+<td><code>% python grayscale.py darwin.jpg</code></td>
+<td><img src="images/DarwinGray.png" width="150"></td>
+</tr>
+</table>
+</blockquote>
+
+<p><h3>Scaling.</h3>
+
+<!--<img src="images/Scaling.png" align="right" hspace="25" alt="Scaling a digital image">
+-->
+
+One of the most common image-processing tasks is to make an image smaller or larger.</p>
+
+<blockquote>
+<table cellpadding="20">
+<tr>
+<td><img src="images/Downscaling.png" alt="Downscaling"></td>
+<td><img src="images/Upscaling.png" alt="Upscaling"></td>
+</tr>
+</table>
+</blockquote>
+
+<p>The program <a href="scale.py.html">scale.py</a> takes a filename and the width and height of the target image as command-line arguments, and rescales the image to the specified size. Try running it on 
+<a href="mandrill.jpg">mandrill.jpg</a>, 
+<a href="mandrill.png">mandrill.png</a>, 
+<a href="darwin.jpg">darwin.jpg</a>, and 
+<a href="darwin.png">darwin.png</a>.</p>
+
+<blockquote>
+<table cellpadding="20">
+<tr>
+<td><code>% python scale.py mandrill.jpg 200 200</code></td>
+<td><img src="images/Mandrill200200.png"></td>
+</tr>
+<tr>
+<td><code>% python scale.py mandrill.jpg 200 100</code></td>
+<td><img src="images/Mandrill200100.png"></td>
+</tr>
+<tr>
+<td><code>% python scale.py mandrill.jpg 100 200</code></td>
+<td><img src="images/Mandrill100200.png"></td>
+</tr>
+</table>
+</blockquote> 
+
+<h3>Fade effect.</h3> The program <a href="fade.py.html">fade.py</a> is a <code>Picture</code>, <code>Color</code>, and <code>stddraw</code> client that uses a linear interpolation strategy to implement a <em>fade effect</em>. It computes <em>n</em> - 1 intermediate images, with each pixel in the <em>t</em>th image being a weighted average of the corresponding pixels in the source and target. The function <code>blend()</code> implements the interpolation: the source color is weighted by a factor of 1-<em>t</em>/<em>n</em> and the target color by a factor of <em>t</em>/<em>n</em> (when <em>t</em> is 0, we have the source color; when <em>t</em> is <em>n</em>, we have the target color). Note that <a href="fade.py.html">fade.py</a> assumes that the images have the same width and height; if you have images for which this is not the case, you can use <a href="scale.py.html">scale.py</a> to create a scaled version of one or both of them for <a href="fade.py.html">fade.py</a>. Try running it on various permutations of 
+<a href="mandrill.jpg">mandrill.jpg</a>, 
+<a href="mandrill.png">mandrill.png</a>, 
+<a href="darwin.jpg">darwin.jpg</a>, and 
+<a href="darwin.png">darwin.png</a>.</p>
+</p>
+
+<blockquote>
+<table cellpadding="5">
+<tr>
+<td><code>% python fade.py mandrill.png darwin.png 5</code></td>
+<td><img src="images/Fade0.png" width="100"></td>
+<td><img src="images/Fade1.png" width="100"></td>
+<td><img src="images/Fade2.png" width="100"></td>
+</tr>
+<tr>
+<td></td>
+<td><img src="images/Fade3.png" width="100"></td>
+<td><img src="images/Fade4.png" width="100"></td>
+<td><img src="images/Fade5.png" width="100"></td>
+</tr>
+</table>
+</blockquote>
+
+<!--
+<blockquote>
+<table cellpadding="5">
+<tr>
+<td><img src="images/Fade0.png" width="100"></td>
+<td><img src="images/Fade1.png" width="100"></td>
+<td><img src="images/Fade2.png" width="100"></td>
+<td><img src="images/Fade3.png" width="100"></td>
+<td><img src="images/Fade4.png" width="100"></td>
+<td><img src="images/Fade5.png" width="100"></td>
+</tr>
+</table>
+</blockquote>
+-->
+
+<p><h3>Potential value visualization.</h3> Image processing is also helpful in scientific visualization. Program <a href="potential.py.html">potential.py</a> visualizes the potential values created by a set of charges. It relies on the data file <a href="charges.txt">charges.txt</a>. The calculation at the heart of the approach is very simple: for each pixel, we compute corresponding (<em>x</em>, <em>y</em>) values in the unit square, then call <code>potentialAt()</code> for each charge to find the potential at that point due to all of the charges, summing the values returned.</p>
+
+<blockquote>
+<table cellpadding="20">
+<tr>
+<td><code>% python potential.py &lt; charges.txt</code></td>
+<td><img src="images/Potential.png" width="150"></td>
+</tr>
+</table>
+</blockquote> 
+
+<!--
+<blockquote>
+<img src="images/Potential.png" width="150" alt="Potential value visualization">
+</blockquote>
+-->
+
+<br>
+<hr>
+<!-- =============================================================== -->
+
+<h2>Input and Output Revisited</h2>
+
+<img src="images/BirdsEyeRevisitedAgain.png" align="right" hspace="25" alt="A bird's eye view of a Python program (revisited again)">
+
+<p>In Section 1.5, you learned how to read and write numbers and text using our <code>stdio</code> module. When using <code>stdio</code>, we are dependent upon the operating system's piping and redirection mechanism for access to files, and any one program can work with just one input file and one output file.</p>
+
+<p>In this section we define the data types <code>InStream</code> and <code>OutStream</code> for input streams and output streams, respectively. Rather than being restricted to just one input stream and one output stream, we can readily create multiple objects of each data type, connecting the streams to various sources and destinations. We also get the flexibility to set variables to reference such objects, pass them as arguments to or return values from functions or methods, and create arrays of them, manipulating them just as we manipulate objects of any data type.</p>
+
+<p><h3>Input stream data type.</h3> Our data type <code>InStream</code>, defined in the module <code>instream.py</code>, is a more general version of the reading aspects of <code>stdio</code> that supports reading numbers and text from files and websites as well as the standard input stream. This is its API:</p>
+
+<blockquote>
+<img src="images/InStreamApi.png" alt="InStream API">
+</blockquote>
+
+<p>When you call the <code>InStream</code> constructor with a string argument, the constructor first tries to find a file on your local computer with that name. If it cannot do so, it assumes the argument is a website name and tries to connect to that website. (If no such website exists, it raises an <code>IOError</code> at run time.) In either case, the specified file or website becomes the source of the input for the <code>InStream</code> object thus created, and the <code>read*()</code> methods will read input from that stream.</p>
+
+<p><h3>Output stream data type.</h3> Similarly, our data type <code>OutStream</code>, defined in the module <code>outstream.py</code>, is a more general version of the writing aspect of <code>stdio</code> that supports writing strings to a variety of output streams, including standard output and files. Again, the API specifies the same methods as its <code>stdio</code> counterpart.</p>
+
+<blockquote>
+<img src="images/OutStreamApi.png" alt="OutStream API">
+</blockquote>
+
+<p>You specify the file that you want to use for output by using the one-argument constructor with the file's name as argument. <code>OutStream</code> interprets this string as the name of a new file on your local computer, and sends its output there.</p>
+
+<p><h3>File concatenation and filtering.</h3> The program <a href="cat.py.html">cat.py</a> is a sample client of <code>InStream</code> and <code>OutStream</code> that uses multiple input streams to concatenate several input files into a single output file. For example, this command concatenates files <a href="in1.txt">in1.txt</a> and <a href="in2.txt">in2.txt</a> to create the file <code>out.txt</code>:</p>
+
+<blockquote><table><tr><td><pre>
+python cat.py in1.txt in2.txt out.txt
+</pre></td></tr></table></blockquote>
+
+<p><h3>Screen scraping.</h3> The program <a href="stockquote.py.html">stockquote.py</a> is a client of the <code>str</code> and <code>InStream</code> data types. It queries a web page, extracts some information, and reports the results &mdash; a process known as <em>screen scraping</em>. Specifically, the program accepts as a command-line argument the symbol of a New York Stock Exchange stock and writes its current trading price to standard output. For example, if the command-line argument is <code>goog</code> (the NYSE symbol for Google), the program reads the Web page <code>http://finance.yahoo.com/q?s=goog</code> using the <code>InStream</code> constructor, identifies the stock price of Google using <code>str</code> methods, and writes the stock price to standard output. The program depends on the format of the Yahoo web page; if Yahoo changes their web page format, we would need to change our program. Nevertheless, this is likely more convenient than maintaining the data ourselves.</p>
+
+<p><h3>Extracting data.</h3> The program <a href="split.py.html">split.py</a> uses one <code>InStream</code> object and multiple <code>OutStream</code> objects to split a CSV (comma-separated value) file into separate files, one for each comma-delimited field. For example, the command</p> 
+
+<blockquote><table><tr><td><pre>
+python split.py djia 3
+</pre></td></tr></table></blockquote>
+
+<p>splits the file <a href="djia.csv">djia.csv</a> into files <code>djia1.txt</code>, <code>djia2.txt</code>, and <code>djia3.txt</code>.</p>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+
+<h2>Memory Management</h2>
+
+<p>In Python, we create objects by calling a constructor. Each time we create an object, Python reserves computer memory for that object. But when and how do we destroy objects so that the memory in which they reside can be freed for reuse? We will briefly address this question.</p>
+
+<p><h3>Orphaned objects.</h3>
+
+<img src="images/TraceFormalChargeOrphan.png" align="right" hspace="25" alt="Orphaning an object">
+
+The ability to bind a variable to a different object creates the possibility that a program may have created an object that it can no longer reference. For example, consider the three assignment statements in the figure at right. After the third assignment statement, not only do <code>c1</code> and <code>c2</code> refer to the same <code>Charge</code> object (the one at (.51, .63) with charge value 21.3), but there is also no longer a reference to the <code>Charge</code> object that was created and used to initialize <code>c2</code>. Such an object is said to be an <em>orphan</em>. Objects can also become orphans when variables go out of scope.</p>
+
+<p><h3>Memory management of objects.</h3> Programs tend to create huge numbers of objects but have a need for only a small number of them at any given time. Accordingly, programming languages and systems need mechanisms to create objects (and allocate memory), and mechanisms to destroy objects (and free memory) when the objects become orphans. Most programming systems take care of allocating memory for <em>variables</em> when they come into existence and freeing that memory when they go out of scope. Memory management for <em>objects</em> is more complicated: Python knows to allocate memory for an object when it is created, but cannot know precisely when to free the memory associated with an object, because the dynamics of a program in execution determine when an object becomes an orphan and so should be destroyed. There is no way for the system to predict what a program will do, so it has to monitor what a program is doing and take action accordingly.</p>
+
+<p>In many languages (such as C and C++), the programmer is responsible for both allocating and deallocating memory. Doing so is tedious and notoriously error-prone. One of Python's most significant features is its ability to automatically manage memory. The idea is to free the programmers from the responsibility of managing memory by keeping track of orphaned objects and returning the memory they use to a pool of free memory. Reclaiming memory in this way is known as <em>garbage collection</em>, and Python's type system enables it to perform this operation this efficiently and automatically.</p>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+<!-- =============================================================== -->
+
+<h4>Q &amp; A</h4>
+
+<p><strong>Q.</strong> What happens if I call a method that is not defined for a given object?</p>
+
+<p><strong>A.</strong> Python raises an <code>AttributeError</code> at run time.</p>
+
+<p><strong>Q.</strong>	Why can we use <code>stdio.writeln(x)</code> instead of <code>stdio.writeln(str(x))</code> to write an object <code>x</code> that is not a string?</p>
+
+<p><strong>A.</strong> For convenience, the <code>stdio.writeln()</code> function calls the built-in <code>str()</code> function automatically whenever a string object is needed.</p>
+
+<p><strong>Q.</strong> I noticed that <a href="potential.py.html">potential.py</a> calls <code>stdarray.create1D()</code> to create an array of <code>Charge</code> objects, but provides only one argument (the desired number of elements). Doesn't <code>stdarray.create1D()</code> require that I provide two arguments: the desired number of elements and the initial value of the elements?</p>
+
+<p><strong>A.</strong> If no initial value is specified, both <code>stddarray.create1D()</code> and <code>stdarray.create2D()</code> use the special value <code>None</code>, which refers to no object. Immediately after calling <code>stdarray.create1D()</code>, <a href="potential.py.html">potential.py</a> changes each array element so it refers to a new <code>Charge</code> object.</p>
+
+<p><strong>Q.</strong> Can I call a method with a literal or other expression?</p>
+
+<p><strong>A.</strong> Yes, from the client's point of view, you can use any expression to invoke a method. When Python executes the method call, it evaluates the expression and calls the method on the resulting object. For example, <code>'python'.upper()</code> returns <code>'PYTHON'</code> and <code>(3 ** 100).bit_length()</code> returns 159. However, you need to be careful with  integer literals &mdash; for example, <code>1023.bit_length()</code> raises a <code>SyntaxError</code> because Python interprets <code>1023.</code> as a floating-point literal; instead, you can use <code>(1023).bit_length()</code>.</p>
+
+<p><strong>Q.</strong> Can I chain together several string method calls in one expression?</p>
+
+<p><strong>A.</strong> Yes. For example, the expression <code>s.strip().lower()</code> works as expected. That is, it evaluates to a new string that is a copy of <code>s</code> with leading and trailing whitespace removed, and with all remaining characters converted to lowercase. It works because (1) each of the methods returns its result as a string and (2) the dot operator is left associative, so Python calls the methods from left to right.</p>
+
+<p><strong>Q.</strong> Why red, green, and blue instead of red, yellow, and blue?</p>
+
+<p><strong>A.</strong> In theory, any three colors that contain some amount of each primary color would work, but two different color models have evolved: RGB produces good colors on television screens, computer monitors, and digital cameras, and CMYK is typically used for the printed page (see the "color conversion exercise in Section 1.2). CMYK does include yellow (cyan, magenta, yellow, and black). Two different schemes are appropriate because printed inks absorb color; thus, where there are two different inks, there are more colors absorbed and fewer reflected. In contrast, video displays emit color; thus, where there are two different colored pixels, there are more colors emitted.</p>
+
+<p><strong>Q.</strong> Is there any problem with creating thousands of <code>Color</code> objects, as in <a href="grayscale.py.html">grayscale.py</a>? It seems wasteful.</p>
+
+<p><strong>A.</strong> All programming-language constructs come at some cost. In this case the cost is reasonable, since the time required to create the <code>Color</code> objects is tiny compared to the time required to actually draw the picture.</p>
+
+<p><strong>Q.</strong> Can a data type have two methods (or constructors) with the same name but with a different number of arguments?</p>
+
+<p><strong>A.</strong> No, just as with functions, you cannot have two methods (or constructors) with the same name. As with functions, methods (and constructors) can use optional arguments with default values. This is how the <code>Picture</code> data type creates the illusion of having two constructors.</p>
+
+<p><strong>Q</strong>. When using a linear filter, each pixel becomes a weighted average of its 8 neighbors. What do I do when the pixel has less than 8 neighbors because it is near the border?</p>
+
+<p><strong>A</strong>. You could assume the image is toroidal (periodic boundary conditions) and make the left boundary wrap around to the right boundary, and the top boundary wrap around to the bottom boundary.</p>
+
+<p><strong>Q</strong>. Where can I download some test files for image processing?</p>
+
+<p><strong>A</strong>. <a href="http://sipi.usc.edu/services/database/database.cgi?volume=misc">USC SIPI</a> contains standard test images (including <a href="mandrill.jpg">Mandrill</a>).</p>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+<!-- =============================================================== -->
+
+<h4>Exercises</h4>
+
+<ol>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Compose a program that takes a float command-line argument <code>w</code>, creates four <code>Charge</code> objects (each with charge value 1.0) that are each distance <code>w</code> in each of the four cardinal directions from <code>(.5, .5)</code>, and writes the potential at (0.25, 0.5).</p>
+
+<p><em>Solution</em>: See <a href="fourchargeclient.py.html">fourchargeclient.py</a>.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Compose a program that takes from the command line three integers between 0 and 255 that represent red, green, and blue values of a color and then creates and shows a 256-by-256 <code>Picture</code> of that color.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<p>
+<li>Modify <a href="albersquares.py.html">alberssquares.py</a> to take nine command-line arguments that specify three colors and then draws the six squares showing all the Albers squares with the large square in each color and the small square in each different color.</li>
+</p>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Compose a program that takes the name of a grayscale picture file as a command-line argument and uses <code>stddraw</code> to plot a histogram of the frequency of occurrence of each of the 256 grayscale intensities.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Compose a program that takes the name of a picture file as a command-line argument and flips the image horizontally.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Compose a program that takes the name of an picture file as a command-line input, and creates three images &mdash; on with only the red components, one with only the green components, and one with only the blue components.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Compose a program that takes the name of an picture file as a command-line argument and writes the pixel coordinates of the lower left corner and the upper right corner of the smallest bounding box (rectangle parallel to the <em>x</em>- and <em>y</em>-axes) that contains all of the non-white pixels.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Compose a program that takes as command line arguments the name of a picture file and the pixel coordinates of a rectangle within the image; reads from standard input a list of <code>Color</code> values (represented as triples of integers); and serves as a filter, printing out those <code>Color</code> values for which all pixels in the rectangle are background/foreground compatible. (Such a filter can be used to pick a color for text to label an image.)</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Compose a function <code>isValidDNA()</code> that takes a string as input and returns <code>True</code> if and only if it is comprised entirely of the characters A, C, T, and G.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Compose a function <code>complementWC()</code> that takes a DNA string as its argument and returns its <em>Watson-Crick complement</em>: replace A with T, C with G, and vice versa.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Compose a function <code>palindromeWC()</code> that takes a DNA string as its argument and returns <code>True</code> if the string is a Watson-Crick complemented palindrome, and <code>False</code> otherwise. A <em>Watson-Crick complemented palindrome</em> is a DNA string that is equal to the reverse of its Watson-Crick complement.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Compose a program to check whether an ISBN number is valid (see the "Checksum" exercise in Section 1.3), taking into account that an ISBN number can have hyphens inserted at arbitrary places.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<!--
+<li>
+<p>What does the following code fragment write?</p>
+
+<blockquote>
+<pre>
+string1 = 'hello'
+string2 = string1
+string1 = 'world'
+stdio.writeln(string1)
+stdio.writeln(string2)
+</pre>
+</blockquote>
+</li>
+-->
+
+<!-- =============================================================== -->
+
+<li>
+<p>What does the following code fragment write?</p>
+
+<blockquote><table><tr><td><pre>
+s = 'Hello World'
+s.upper()
+s[6:11]
+stdio.writeln(s)
+</pre></td></tr></table></blockquote>
+
+<p><em>Solution</em>: 'Hello World'. String objects are immutable &mdash; a string method returns a new <code>str</code> object with the appropriate value, but does not change the value of the object that was used to invoke it. This code ignores the objects returned and just writes the original string. To update <code>s</code>, write <code>s = s.upper()</code> and <code>s = s[6:11]</code>.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>A string <code>s</code> is a <em>circular shift</em> of a string <code>t</code> if it matches when the characters are circularly shifted by any number of positions. For example, ACTGACG is a circular shift of TGACGAC, and vice versa. Detecting this condition is important in the study of genomic sequences. Compose a function that checks whether two given strings <code>s</code> and <code>t</code> are circular shifts of one another. <em>Hint</em>: The solution is a one-liner with the <code>in</code> operator and string concatenation.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Given a string site that represents a website URL, compose a code fragment to determine its domain type. For example, the domain type for the string <code>http://introcs.cs.princeton.edu/python</code> is <code>edu</code>.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Compose a function that takes a domain name as argument and returns the reverse domain (reverse the order of the strings between periods). For example, the reverse domain of <code>introcs.cs.princeton.edu</code> is <code>edu.princeton.cs.introcs</code>. This computation is useful for web log analysis (see the "Reverse domain" creative exercise in Section 4.2).</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>What does the following recursive function return?</p>
+
+<blockquote>
+<pre>
+def mystery(s):
+    n = len(s)
+    if n &lt;= 1:
+        return s
+    a = s[0, n//2]
+    b = s[n//2, n]
+    return mystery(b) + mystery(a)
+</pre>
+</blockquote>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Compose a version of <a href="potentialgene.py.html">potentialgene.py</a> that finds all potential genes contained in a long DNA string. Add a command-line argument to allow the user to specify a minimum length of a potential gene.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<!--
+<li>
+<p>Modify <a href="genefind.py.html">genefind.py</a> to handle all three stop codes (instead of handling them one at a time through the command line). Also add command-line arguments to allow the user to specify lower and upper bounds on the length of the gene sought.</p>
+</li>
+
+<li>
+<p>Write a version of <a href="genefind.py.html">genefind.py</a> based on using the find() method in the <code>str</code> class to find patterns.</p>
+</li>
+-->
+
+<li>
+<p>Compose a program that takes a start string and a stop string as command line arguments and writes all substrings of a given string that start with the first, end with the second, and otherwise contain neither. <em>Note</em>: Be especially careful of overlaps!</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Compose a filter that reads text from an input stream and prints it to an output stream, removing any lines that consist only of whitespace.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Modify <a href="potential.py.html">potential.py</a> to take an integer <em>n</em> from the command line and generate <em>n</em> random <code>Charge</code> objects in the unit square, with potential values drawn randomly from a Gaussian distribution with mean 50 and standard deviation 10.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Modify <a href="stockquote.py.html">stockquote.py</a> to take multiple symbols on the command line.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>The example file <code>djia.csv</code> used for <a href="split.py.html">split.py</a> lists the date, high price, volume, and low price of the Dow Jones stock market average for every day since records have been kept. Download this file from the booksite and compose a program that plots the prices and volumes, at a rate taken from the command line.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Compose a program <code>merge.py</code> that takes a delimiter string followed by an arbitrary number of file names as command line arguments, concatenates the corresponding lines of each file, separated by the delimiter, and then writes the result to standard output, thus performing the opposite operation from <a href="split.py.html">split.py</a>.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Find a website that publishes the current temperature in your area, and compose a screen-scraper program <code>weather.py</code> so that typing <code>python weather.py</code> followed by your zip code will give you a weather forecast.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<!--
+<li>
+<p>Suppose that <code>a</code> and <code>b</code> are each integer arrays consisting of millions of integers. What does the following code do, and how long does it take?</p>
+
+<blockquote>
+<pre>
+t = a
+a = b
+b = t
+</pre>
+</blockquote>
+
+<p><em>Solution</em>: It swaps them, but it does so by copying references, so that it is not necessary to copy millions of elements.</p>
+</li>
+-->
+
+</ol>
+
+<br>
+<hr>
+<!-- ================================================================-->
+<!-- ================================================================-->
+
+<h4>Creative Exercises</h4>
+
+<ol>
+
+<li>
+<p><strong>Picture filtering</strong>. Compose a module <code>rawpicture.py</code> with <code>read()</code> and <code>write()</code> functions for use with standard input and standard output. The <code>write()</code> function takes a <code>Picture</code> as argument and writes the picture to standard output, using the following format: if the picture is <em>w</em>-by-<em>h</em>, write <em>w</em>, then <em>h</em>, then <em>w*h</em> triples of integers representing the pixel color values, in row major order. The <code>read()</code> function takes no arguments and returns a <code>Picture</code>, which it creates by reading a picture from standard input, in the format just described. <em>Note</em>: The picture filtering will use up much more disk space than the picture &mdash; the standard formats <em>compress</em> this information so that it will not take up so much space.</p>
+</li>
+
+<!-- ================================================================-->
+
+<!--
+<li>
+<p><strong>Sound visualization</strong>. Write a program that uses <code>stdaudio</code> and <code>Picture</code> to create an interesting two-dimensional color visualization of a sound file while it is playing. Be creative!</p>
+</li>
+-->
+
+<!-- ================================================================-->
+
+<li>
+<p><strong>Kama Sutra cipher</strong>. Compose a filter that takes two strings as command-line arguments (the <em>key</em> strings), then reads standard input, substitutes for each letter as specified by the key strings, and writes the result to standard output. This operation is the basis for one of the earliest known cryptographic systems. The condition on the key strings is that they must be of equal length and that any letter
+in standard input must be in one of them. For example, if input is all capital letters and the keys are THEQUICKBROWN and FXJMPSVRLZYDG, then we make the table.</p>
+
+<blockquote>
+<pre>
+T H E Q U I C K B R O W N
+F X J M P S V L A Z Y D G
+</pre>
+</blockquote>
+
+<p>which tells us that we should substitute F for T, T for F, H for X, X for H, and so forth when copying the input to the output. The message is encoded by replacing each letter with its pair. For example, the message MEET AT ELEVEN is encoded as QJJF BF JKJCJG. Someone receiving the message can use the same keys to get the message back.</p>
+
+<p><em>Solution</em>: See <a href="kamasutra.py.html">kamasutra.py</a>.</p>
+
+</li>
+
+<!-- ================================================================-->
+
+<li>
+<p><strong>Safe password verification</strong>. Compose a function that takes a string as argument and returns <code>True</code> if it meets the following conditions, <code>False</code> otherwise:</p>
+
+<ul>
+<li>At least eight characters long</li>
+<li>Contains at least one digit (0-9)</li>
+<li>Contains at least one uppercase letter</li>
+<li>Contains at least one lowercase letter</li>
+<li>Contains at least one character that is neither a letter nor a number</li>
+</ul>
+
+<p>Such checks are commonly used for passwords on the web.</p>
+</li>
+
+<!-- ================================================================-->
+
+<li>
+<p><strong>Color study</strong>. Compose a program that displays the color study shown below, which gives Albers squares corresponding to each of the 256 levels of blue (blue-to-white in row-major form) and gray (black-to-white in column-major form) that were used to print the textbook.</p>
+
+<blockquote>
+<img src="images/ColorStudy.png" alt="Color study" width="200">
+</blockquote>
+
+<p><em>Solution</em>: See <a href="colorstudy.py.html">colorstudy.py</a>.</p>
+</li>
+
+<!-- ================================================================-->
+
+<li>
+<p><strong>Entropy</strong>. The <em>Shannon entropy</em> measures the information content of an input string and plays a cornerstone role in information theory and data compression. Given a string of <em>n</em> characters, let <em>f<sub>c</sub></em> be the frequency of occurrence of character <em>c</em>. The quantity <em>p<sub>c</sub> = f<sub>c</sub> / n</em> is an estimate of the probability that <em>c</em> would be in the string if it were a random string, and the entropy is defined to be the sum of the quantity -<em>p<sub>c</sub> log<sub>2</sub> p<sub>c</sub></em>, over all characters that appear in the string. The entropy is said to measure the <em>information content</em> of a string: if each character appears the same number times, the entropy is at its minimum value. Compose a program that computes and writes to standard output the entropy of the string from standard input. Run your program on a web page that you read regularly and on a recent paper that you wrote<!--, and on the fruit fly genome found on the website TODO -->.</p>
+</li>
+
+<!-- ================================================================-->
+
+<li>
+<p><strong>Minimize potential</strong>. Compose a function that takes an array of <code>Charge</code> objects with positive potential as its argument and finds a point such that the potential at that point is within 1% of the minimum potential anywhere in the unit square. Use a <code>Charge</code> object to return this information. Compose a test client that callsyour function to write the point coordinates and charge value for the data given in the text and for the random charges described in a previous exercise in this section.</p>
+</li>
+
+<!-- ================================================================-->
+
+<li>
+<p><strong>Slide show</strong>. Compose a program that takes the names of several image files as command-line arguments and displays them in a slide show (one every two seconds), using a fade effect to black and a fade from black between pictures.</p>
+</li>
+
+<!-- ================================================================-->
+
+<li>
+<p><strong>Tile</strong>. Compose a program that takes the name of an image file and two integers <code>m</code> and <code>n</code> as command-line arguments and creates an <code>m</code>-by-<code>n</code> tiling of the picture.</p>
+</li>
+
+<!-- ================================================================-->
+
+<li><p><strong>Rotation filter</strong>. Compose a program that takes two command line arguments (the name of an image file and a real number &theta;) and rotates the image &theta; degrees counterclockwise. To rotate, copy the color of each pixel (<em>s</em><sub><em>i</em></sub>, <em>s</em><sub><em>j</em></sub>) in the source image to a target pixel (<em>t</em><sub><em>i</em></sub>, <em>t</em><sub><em>j</em></sub>) whose coordinates are given by the following formulas:</p>
+
+
+<blockquote><table><tr><td>
+<em>t</em><sub><em>i</em></sub> = (<em>s</em><sub><em>i</em></sub> - <em>c</em><sub><em>i</em></sub>)cos &theta; + (<em>s</em><sub><em>j</em></sub> - <em>c</em><sub><em>j</em></sub>)sin &theta; + <em>c</em><sub><em>i</em></sub> <br>
+<em>t</em><sub><em>j</em></sub> = (<em>s</em><sub><em>i</em></sub> - <em>c</em><sub><em>i</em></sub>)sin &theta; + (<em>s</em><sub><em>j</em></sub> - <em>c</em><sub><em>j</em></sub>)cos &theta; + <em>c</em><sub><em>j</em></sub>
+</td></tr></table></blockquote>
+
+
+<p>where (<em>c</em><sub><em>i</em></sub>, <em>c</em><sub><em>j</em></sub>) is the center of the image. For example, these images show a 30 degree rotation:</p>
+
+<blockquote>
+<table border="0" cellpadding="2" cellspacing="0" width="400">
+<tr>
+<td><img src="images/Mandrill.png" width="150" alt="Mandrill">
+</td>
+<td>    </td>
+<td><img src="images/MandrillRot.png" width="150" alt="Mandrill rotated">
+</td>
+</tr>
+</table>
+</blockquote>
+
+<p><em>Solution</em>: See <a href="rotation.py.html">rotation.py</a>.</p>
+
+</li>
+
+<!-- ================================================================-->
+
+<li>
+<p><strong>Swirl filter</strong>. Creating a swirl effect is similar to rotation, except that the angle changes as a function of distance to the center. Use the same formulas as in the previous exercise, but compute &theta; as a function of (<em>s</em><sub><em>i</em></sub>, <em>s</em><sub><em>j</em></sub>), specifically &pi;/256 times the distance to the center. For example:</p>
+
+<blockquote>
+<table border="0" cellpadding="2" cellspacing="0" width="400">
+<tr>
+<td><img src="images/Mandrill.png" width="150" alt="Mandrill">
+</td>
+<td>    </td>
+<td><img src="images/MandrillSwirl.png" width="150" alt="Mandrill swirled">
+</td>
+</tr>
+</table>
+</blockquote>
+
+<p><em>Solution</em>: See <a href="swirl.py.html">swirl.py</a>.</p>
+
+</li>
+
+<!-- ================================================================-->
+
+<li>
+<p><strong>Wave filter</strong>. Compose a filter like those in the previous two exercises that creates a wave effect, by copying the color of each pixel (<em>s</em><sub><em>i</em></sub>, <em>s</em><sub><em>j</em></sub>) in the source image to a target pixel (<em>t</em><sub><em>i</em></sub>, <em>t</em><sub><em>j</em></sub>), where <em>t</em><sub><em>i</em></sub> = <em>s</em><sub><em>i</em></sub> and <em>t</em><sub><em>j</em></sub> = <em>s</em><sub><em>j</em></sub> + 20 sin(2 &pi; <em>s</em><sub><em>j</em></sub>/64). Add code to take the amplitude (20 in the accompanying figure) and the frequency (64 in the accompanying figure) as command-line arguments. Experiment with various values of these parameters.</p>
+
+<blockquote>
+<table border="0" cellpadding="2" cellspacing="0" width="400">
+<tr>
+<td><img src="images/Mandrill.png" width="150" alt="Mandrill">
+</td>
+<td>    </td>
+<td><img src="images/MandrillWave.png" width="150" alt="Mandrill waved">
+</td>
+</tr>
+</table>
+</blockquote>
+
+<p><em>Solution</em>: See <a href="wave.py.html">wave.py</a>.</p>
+
+</li>
+
+<!-- ================================================================-->
+
+<li>
+<p><strong>Glass filter</strong>. Compose a program that takes the name of an image file as a command-line argument and applies a <em>glass filter</em>: set each pixel <em>p</em> to the color of a random neighboring pixel (whose pixel coordinates are each within 5 pixels of <em>p</em>'s coordinates). For example:</p>
+
+<blockquote>
+<table border="0" cellpadding="2" cellspacing="0" width="400">
+<tr>
+<td><img src="images/Mandrill.png" width="150" alt="Mandrill">
+</td>
+<td>    </td>
+<td><img src="images/MandrillGlass.png" width="150" alt="Mandrill through glass">
+</td>
+</tr>
+</table>
+</blockquote>
+
+<p><em>Solution</em>: See <a href="glass.py.html">glass.py</a>.</p>
+
+</li>
+
+<!-- ================================================================-->
+
+<li>
+<p><strong>Morph</strong>. The example images shown in this section for <a href="fade.py.html">fade.py</a> do not quite line up in the vertical direction (the mandrill's mouth is much lower than Darwin's). Modify <a href="fade.py.html">fade.py</a> to add a transformation in the vertical dimension that makes a smoother transition.</p>
+</li>
+
+<!-- ================================================================-->
+
+<li>
+<p><strong>Clusters</strong>. Compose a program that take the name of a picture file from the command line and produces and displays to stddraw a picture with filled circles that cover compatible areas. First, scan the image to determine the background color (a dominant color that is found in more than half the pixels). Use depth first search, as described in Section 2.4, to find contiguous sets of pixels that are foreground-compatible with the background. A scientist might use this program to study natural scenarios such as birds in flight or particles in motion. Take a photo of balls on a billiards table and try to get your program to identify the balls and positions.</p>
+</li>
+
+<!-- ================================================================-->
+
+<li>
+<p><strong>Digital zoom</strong>. Compose a program <code>zoom.py</code> that takes the name of an image file and three numbers <em>s</em>, <em>x</em>, and <em>y</em> as command-line arguments and displays a picture that zooms in on a portion of the input picture. The numbers are all between 0 and 1, with <em>s</em> to be interpreted as a scale factor and (<em>x</em>, <em>y</em>) as the relative coordinates of the point that is to be at the center of the output image. Use this program to zoom in on your dog or a friend in some digital image on your computer.</p>
+</li>
+
+<!-- ================================================================-->
+
+</ol>
+
+</body>
+</html>
+
+   <br><br>
+   <p class = footer>
+   Copyright &copy; 2000&ndash;2015 by Robert Sedgewick, Kevin Wayne, and Robert Dondero.
+   All rights reserved.
+</div>
+
+
+
+
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+ 

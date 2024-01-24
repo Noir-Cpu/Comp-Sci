@@ -1,0 +1,1148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="en">
+
+<head>
+
+<link rel="icon"          href="https://introcs.cs.princeton.edu/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="https://introcs.cs.princeton.edu/favicon.ico" type="image/x-icon">
+<link rel="stylesheet"    href="https://introcs.cs.princeton.edu/introcs.css" type="text/css">
+<meta name="google-site-verification" content="nYspbl5bNBQrNZKguiAAFTMVM7sq2P1WQYc8Oi6Okl0" />
+<meta name="msvalidate.01" content="D4B7F6DF793EFF34DE96F611C2A367A5" />
+<!-- IE HACKS -->
+<!--[if IE]>
+<style type="text/css" media="screen">
+ #menu ul li {float: left; width: 100%;}
+</style>
+<![endif]-->
+<!--[if lt IE 7]>
+<style type="text/css" media="screen">
+body {
+behavior: url(/csshover.htc);
+} 
+#menu ul li {float: left; width: 100%;}
+#menu ul li a {height: 1%;} 
+
+#menu a, #menu h2 {
+font: bold 0.9em/1.5em arial, helvetica, sans-serif;
+} 
+
+</style>
+<![endif]-->
+
+
+<title>
+Analysis of Algorithms</title>
+<script type='text/javascript' src='https://algs4.cs.princeton.edu/media/swfobject.js'></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10811519-6', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<META HTTP-EQUIV="Content-Type" content="text/html; charset=iso-8859-1">
+<META NAME="AUTHOR" CONTENT="Robert Sedgewick, Kevin Wayne, and Robert Dondero">
+<META NAME="KEYWORDS" CONTENT="Analysis of Algorithms,Python,Programming,interdisciplinary,Computer science,cs,intro,introduction,sedgewick,dondero,wayne">
+<META NAME="DESCRIPTION" CONTENT="This textbook provides an interdisciplinary approach to the CS 1 curriculum. We teach the classic elements of programming, using an "objects-in-the-middle" approach that emphasizes data abstraction. A key feature of the book is the manner in which we motivate each programming concept by examining its impact on specific applications, taken from science, engineering, and commerce.">
+<META NAME="TITLE" CONTENT="Analysis of Algorithms. Introduction to Programming in Python by Sedgewick, Wayne, and Dondero">
+<META NAME="ROBOTS" CONTENT="INDEX,FOLLOW">
+<META name="verify-v1" content="D4o9ikkHbNKapHncCP8ZmiD9Z2DBbrJyaSV0lyce+3w=">
+
+
+<link rel="stylesheet" href="https://localhost:49822/stylesheet?id=0xSUBH-AWZZnUQE0"></head>
+
+
+
+
+
+<body>
+
+<div id = "menu">
+   <div align="center">
+<a class = picture href = "https://introcs.cs.princeton.edu/python">
+<img src="../cover.png" width=190 border=0 alt = "Introduction to Programming in Python">
+</a>
+</div>
+
+
+
+
+
+<ul>
+  <li><a class = title href = "/python/home">Intro to Programming</a>
+    <ul>
+
+      <li> <a href = "https://introcs.cs.princeton.edu/python/10elements">1.&nbsp;&nbsp;Elements of Programming</a>
+        <ul>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/11hello">1.1&nbsp;&nbsp;Your First Program</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/12types">1.2&nbsp;&nbsp;Built-in Types of Data</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/13flow">1.3&nbsp;&nbsp;Conditionals and Loops</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/14array">1.4&nbsp;&nbsp;Arrays</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/15inout">1.5&nbsp;&nbsp;Input and Output</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/16pagerank">1.6&nbsp;&nbsp;Case Study: PageRank</a>
+        </ul>
+
+      <li> <a href = "https://introcs.cs.princeton.edu/python/20functions">2.&nbsp;&nbsp;Functions</a>
+        <ul>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/21function">2.1&nbsp;&nbsp;Defining Functions</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/22module">2.2&nbsp;&nbsp;Modules and Clients</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/23recursion">2.3&nbsp;&nbsp;Recursion</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/24percolation">2.4&nbsp;&nbsp;Case Study: Percolation</a>
+        </ul>
+
+      <li> <a href = "https://introcs.cs.princeton.edu/python/30oop">3.&nbsp;&nbsp;OOP</a>
+        <ul>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/31datatype">3.1&nbsp;&nbsp;Using Data Types</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/32class">3.2&nbsp;&nbsp;Creating Data Types</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/33design">3.3&nbsp;&nbsp;Designing Data Types</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/34nbody">3.4&nbsp;&nbsp;Case Study: N-Body</a>
+        </ul>
+
+      <li> <a href = "https://introcs.cs.princeton.edu/python/40algorithms">4.&nbsp;&nbsp;Data Structures</a>
+        <ul>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/41analysis">4.1&nbsp;&nbsp;Performance</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/42sort">4.2&nbsp;&nbsp;Sorting and Searching</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/43stack">4.3&nbsp;&nbsp;Stacks and Queues</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/44st">4.4&nbsp;&nbsp;Symbol Tables</a>
+          <li> <a href = "https://introcs.cs.princeton.edu/python/45graph">4.5&nbsp;&nbsp;Case Study: Small World</a>
+        </ul>
+    </ul>
+</ul>
+
+
+
+
+<!--
+<ul>
+  <li><a class = title href = "/python/cs">Intro to CS</a>
+    <ul>
+        </ul>
+    </ul>
+</ul>
+
+-->
+
+
+
+
+
+<ul>
+
+<li><a class = title> Related Booksites</a>
+<table width = 100% border = 0 cellspacing = 0 cellpadding = 0>
+<tr>
+<td align = center>
+<a class = booksite href = "https://introcs.cs.princeton.edu">
+   <img src = "https://introcs.cs.princeton.edu/java/cover.png"
+        width = 73 height = 91 border=0
+        alt = "Introduction to Programming in Java
+               by Robert Sedgewick and Kevin Wayne">
+</a>
+<td align = center>
+<a class = booksite href = "https://algs4.cs.princeton.edu">
+   <img src = "https://algs4.cs.princeton.edu/cover.png"
+        width = 73 height = 91 border=0
+        alt = "Algorihtms, 4th Edition by Robert Sedgewick and Kevin Wayne">
+</a>
+</tr>
+</table>
+
+
+
+  <li><a class = title href = "/home">Web Resources</a>
+    <ul>
+
+      <li> <a href = "/python/faq">FAQ</a>
+      <!-- <li> <a href = "/python/data">Data</a> -->
+      <li> <a href = "/python/code">Code</a>
+      <li> <a href = "/python/errata">Errata</a>
+      <li> <a href = "/python/appendix">Appendices</a>
+        <ul>
+          <li> <a href = "/python/appendix_precedence">A. &nbsp; Python Operator Precedence</a>
+          <li> <a href = "/python/appendix_style">B. &nbsp; Writing Clear Code</a>
+          <li> <a href = "/python/appendix_gaussian">C. &nbsp; Gaussian Distribution</a>
+          <li> <a href = "/python/appendix_cheatsheet">D. &nbsp; Python Cheatsheet</a>
+          <li> <a href = "/python/appendix_numpy">E. &nbsp; NumPy</a>
+        </ul>
+      <!-- <li> <a href="/python/lectures">Lecture Slides</a> -->
+      <!-- <li> <a href="/python/assignments">Programming Assignments</a> -->
+   </ul>
+
+
+</ul>
+
+<p><br>
+<script>
+  (function() {
+    var cx = '005649317310637734940:_d158dlngnk';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:searchbox-only></gcse:searchbox-only>
+
+<p><br>
+</div>
+
+<div id = "content">
+   <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>4.1 Analysis of Algorithms
+</title>
+</head>
+<body>
+<h1>4.1 Analysis of Algorithms</h1>
+
+<br>
+
+<p>It is important to pay attention to the cost of the programs that we compose. To study the cost of running our programs, we study them via the <em>scientific method</em>, the commonly accepted body of techniques universally used by scientists to develop knowledge about the natural world. The following five-step approach briefly summarizes the scientific method:</p>
+
+<ul>
+<li><em>Observe</em> some feature of the natural world.</li>
+<li><em>Hypothesize</em> a model that is consistent with the observations.</li>
+<li><em>Predict</em> events using the hypothesis.</li>
+<li><em>Verify</em> the predictions by making further observations.</li>
+<li><em>Validate</em> by repeating until the hypothesis and observations agree.</li>
+</ul>
+
+<p>We also apply <em>mathematical analysis</em> to derive concise models of the cost. In most situations, we are interested in one fundamental characteristic: time.</p>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+
+<h2>Observations</h2>
+
+<p>Our first challenge is to make quantitative measurements of the running time of our programs. There are a number of tools available to help us obtain approximations. Perhaps the simplest is a physical stopwatch or the <code>Stopwatch</code> data type defined in <a href="../32class/stopwatch.py.html">stopwatch.py</a> (from Section 3.2). We can simply run a program on various inputs, measuring the amount of time to process each input.</p>
+
+<p>With most programs there is a problem size that characterizes the difficulty of the computational task. Normally, the problem size is either the size of the input or the value of a command-line argument. Intuitively, the running time should increase with the problem size, but the question of how much it increases naturally arises every time we develop and run a program.</p>
+
+<p>As a concrete example, we start with <a href="threesum.py.html">threesum.py</a>, which counts the number of triples that sum to 0 in an array of <em>n</em> numbers. Try running it on the files
+<a href="8ints.txt">8ints.txt</a>, 
+<a href="1kints.txt">1kints.txt</a>, 
+<a href="2kints.txt">2kints.txt</a>, 
+<a href="4kints.txt">4kints.txt</a>, 
+<a href="8kints.txt">8kints.txt</a>, 
+<a href="16kints.txt">16kints.txt</a>, 
+<a href="32kints.txt">32kints.txt</a>, 
+<a href="64kints.txt">64kints.txt</a>, and 
+<a href="128kints.txt">128kints.txt</a> 
+to get a sense of the running time of the program. What is the relationship between the problem size <em>n</em> and the running time for <a href="threesum.py.html">threesum.py</a>?</p>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+
+<h2>Hypotheses</h2>
+
+<p>Every programmer needs to know how to make back-of-the-envelope performance estimates. Fortunately, we can often acquire such knowledge by using a combination of empirical observations and a small set of mathematical tools.</p>
+
+<p><h3>Doubling hypotheses.</h3> For a great many programs, we can quickly formulate a hypothesis for the following question: What is the effect on the running time of doubling the size of the input? For clarity, we refer to this hypothesis as a <em>doubling hypothesis</em>.</p>
+
+<p><h3>Empirical analysis.</h3> Clearly, we can get a headstart on developing a doubling hypothesis by doubling the size of the input and observing the effect on the running time. For example, <a href="doublingtest.py.html">doublingtest.py</a> generates a sequence of random input arrays for <a href="threesum.py.html">threesum.py</a>, doubling the array length at each step, and writes the ratio of running times of <code>threesum.countTriples()</code> for each input over the previous (which was one-half the size). <code>Stopwatch</code> measurements that the program writes lead immediately to the hypothesis that the running time increases by a factor of 8 when the input size doubles.</p>
+
+<p><h3>Mathematical analysis.</h3> The total running time of a program is determined by two primary factors:</p>
+
+<ul>
+<li>The cost of executing each statement</li>
+
+<li>The frequency of execution of each statement</li>
+</ul>
+
+<p>The former is a property of the system, and the latter is a property of the algorithm. If we know both for all instructions in the program, we can multiply them together and sum for all instructions in the program to get the running time.</p>
+
+<p>The primary challenge is to determine the frequency of execution of the statements. Some statements are easy to analyze; for example, the statement that initializes <code>count</code> to 0 in <code>threesum.countTriples()</code> is executed only once. Others require higher-level reasoning; for example, the <code>if</code> statement in <code>threesum.countTriples()</code> is executed precisely <em>n</em>(<em>n</em>-1)(<em>n</em>-2)/6 times (that is precisely the number of ways to pick three different numbers from the input array.</p>
+
+<p>To substantially simplify matters in the mathematical analysis, we develop simpler approximate expressions in two ways. First, we work with the leading term of mathematical expressions by using a mathematical device known as the <em>tilde notation</em>. We write ~<em>f</em>(<em>n</em>) to represent any quantity that, when divided by <em>f</em>(<em>n</em>), approaches 1 as <em>n</em> grows. We also write <em>g</em>(<em>n</em>) ~ <em>f</em>(<em>n</em>) to indicate that <em>g</em>(<em>n</em>)/<em>f</em>(<em>n</em>) approaches 1 as <em>n</em> grows. With this notation, we can ignore complicated parts of an expression that represent small values. For example, the <code>if</code> statement in <code>countTriples()</code> in <a href="threesum.py.html">threesum.py</a> is executed ~<em>n</em><sup>3</sup>/6 times because <em>n</em>(<em>n</em>-1)(<em>n</em>-2)/6 = <em>n</em><sup>3</sup>/6 - <em>n</em><sup>2</sup>/2 + <em>n</em>/3, which, when divided by <em>n</em><sup>3</sup>/6, approaches 1 as <em>n</em> grows. This notation is useful when the terms after the leading term are relatively insignificant (for example, when <em>n</em> = 1,000, this assumption amounts to saying that -<em>n</em><sup>2</sup>/2 + <em>n</em>/3 &asymp; -499,667 is relatively insignificant by comparison with <em>n</em><sup>3</sup>/6 &asymp; 166,666,667, which it is). Second, we focus on the instructions that are executed most frequently, sometimes referred to as the <em>inner loop</em> of the program. In this program it is reasonable to assume that the time devoted to the instructions outside the inner loop is relatively insignificant.</p>
+
+<p>The key point in analyzing the running time of a program is this: for a great many programs, the running time satisfies the relationship</p>
+
+<blockquote><table><tr><td>
+<em>T</em>(<em>n</em>) ~ <em>cf</em>(<em>n</em>)
+</td></tr></table></blockquote>
+ 
+<p>where <em>c</em> is a constant and <em>f</em>(<em>n</em>) is a function known as the <em>order of growth</em> of the running time. For typical programs, <em>f</em>(<em>n</em>) is a function such as log <em>n</em>, <em>n</em>, <em>n</em> log <em>n</em>, <em>n</em><sup>2</sup>, or <em>n</em><sup>3</sup> <!--, as you will soon see--> (customarily, we express order-of-growth functions without any constant coefficient). When <em>f</em>(<em>n</em>) is a power of <em>n</em>, as is often the case, this assumption is equivalent to saying that the running time satisfies a power law. In the case of <a href="threesum.py.html">threesum.py</a>, it is a hypothesis already verified by our empirical observations: the order of growth of the running time of <a href="threesum.py.html">threesum.py</a> is <em>n</em><sup>3</sup>. The value of the constant <em>c</em> depends both on the cost of executing instructions and on details of the frequency analysis, but we normally do not need to work out the value<!--, as you will now see-->.</p>
+
+<p>The order of growth is a simple but powerful model of running time. For example, knowing the order of growth typically leads immediately to a doubling hypothesis. In the case of <a href="threesum.py.html">threesum.py</a>, knowing that the order of growth is <em>n</em><sup>3</sup> tells us to expect the running time to increase by a factor of 8 when we double the size of the problem because</p>
+
+<blockquote><table><tr><td>
+<em>T</em>(2<em>n</em>) / <em>T</em>(<em>n</em>)  ~  <em>c</em>(2<em>n</em>)<sup>3</sup> / (<em>cn</em><sup>3</sup>) = 8
+</td></tr></table></blockquote>
+
+<p>This matches the value resulting from the empirical analysis, thus validating both the model and the experiments.</p>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+
+<h2>Order of Growth Classifications</h2>
+
+<img src="images/CommonGrowthFunctions.png" align="right" hspace="25" alt="Common growth functions">
+
+<p>We use just a few structural primitives (statements, conditionals, loops, and function calls) to build Python programs, so very often the order of growth of our programs is one of just a few functions of the problem size, summarized in the table at the right.</p>
+
+<p><h3>Constant.</h3> A program whose running time's order of growth is <em>constant</em> executes a fixed number of statements to finish its job; consequently, its running time does not depend on the problem size. Our first several programs in Chapter 1 &mdash; such as <a href="../11hello/helloworld.py.html">helloworld.py</a> (from Section 1.1) and <a href="../12types/leapyear.py.html">leapyear.py</a> (from Section 1.2) &mdash; fall into this category: they each execute several statements just once.</p>
+
+<p>All of Python's operations on standard numeric types take constant time. That is, applying an operation to a large number consumes no more time than does applying it to a small number. (One exception is that operations involving integers with a huge number of digits can consume more than constant time; see the Q &amp; A at the end of this section for details.) The functions in Python's <code>math</code> module also take constant time. <!--Note that we do not specify the size of the constant. For example, the constant for <code>math.atan2()</code> is somewhat larger than the constant for <code>math.hypot()</code>.--></p>
+
+<p><h3>Logarithmic.</h3> A program whose running time's order of growth is <em>logarithmic</em> is barely slower than a constant-time program. The classic example of a program whose running time is logarithmic in the problem size is looking for an element in a sorted array (see <a href="../42sort/binarysearch.py.html">binarysearch.py</a> from Section 4.2). The base of the logarithm is not relevant with respect to the order of growth (since all logarithms with a constant base are related by a constant factor), so we usually use log <em>n</em> when referring to the order of growth.</p>
+
+<p><h3>Linear.</h3> We use the term <em>linear</em> to decribe the order of growth of a program that spends a constant amount of time processing each piece of input data, or that is based on a single <code>for</code> loop. The running time of such a program is directly proportional to the problem size. The program <a href="../15inout/average.py.html">average.py</a> (from Section 1.5), which computes the average of the numbers on standard input, is prototypical.</p>
+
+<p><h3>Linearithmic.</h3> We use the term <em>linearithmic</em> to describe programs whose running time for a problem of size <em>n</em> has order of growth <em>n</em> log <em>n</em>. Again, the base of the logarithm is not relevant. For example, <a href="../14array/couponcollector.py.html">couponcollector.py</a> (from Section 1.4) is linearithmic. The prototypical example is mergesort, as implemented in <a href="../42sort/merge.py.html">merge.py</a> (from Section 4.2).</p>
+
+<p><h3>Quadratic.</h3> A typical program whose running time has order of growth <em>n</em><sup>2</sup> has two nested <code>for</code> loops, used for some calculation involving all pairs of <em>n</em> elements, is said to have <em>quadratic</em> order of growth. The force update double loop in <a href="../34nbody/universe.py.html">universe.py</a> (from Section 3.4) is a prototype of the programs in this classification, as is the elementary sorting algorithm insertion sort, as defined in <a href="../42sort/insertion.py.html">insertion.py</a> (see Section 4.2).</p>
+
+<p><h3>Cubic.</h3> Our example for this section, <a href="threesum.py.html">threesum.py</a>, is <em>cubic</em> &mdash; its running time has order of growth <em>n</em><sup>3</sup> &mdash; because it has three nested <code>for</code> loops, to process all triples of <em>n</em> elements.</p>
+
+<p><h3>Exponential.</h3> As discussed in Section 2.3, both <a href="../23recursion/towersofhanoi.py.html">towersofhanoi.py</a> and <a href="../23recursion//beckett.py.html">beckett.py</a> have running times proportional to 2<sup><em>n</em></sup> because they process all subsets of <em>n</em> elements. Generally, we use the term <em>exponential</em> to refer to algorithms whose order of growth is <em>b<sup>n</sup></em> for any constant <em>b</em> &gt; 1, even though different values of <em>b</em> lead to vastly different running times. Exponential algorithms are extremely slow &mdash; you should never run one of them for a large problem.</p>
+
+<!--
+<br>
+<hr>
+-->
+<!-- =============================================================== -->
+
+<!--
+<h2>Predictions</h3>
+
+<p>Knowing the order of growth of the running time allows us to make decisions about addressing large problems so that we can invest whatever resources we have to deal with the specific problems that we actually need to solve.</p>
+
+<p><h3>Estimating the feasibility of solving large problems.</h3> Knowing the order of growth of the running time of an algorithm provides precisely the information that you need to understand limitations on the size of the problems that you can solve. Developing such understanding is the most important reason to study performance.</p>
+
+<p><h3>Estimating the value of using a faster computer.</h3> It is natural to think that if you buy a new computer that is 10 times faster and has 10 times more memory than your old one, you can solve a problem 10 times the size, but that is unmistakably not the case for quadratic or cubic algorithms. This kind of situation is the primary reason that linear and linearithmic algorithms are so valuable: with such an algorithm and a new computer that is 10 times faster with 10 times more memory than the old computer, you can solve a problem that is 10 times larger than could be solved by the old computer in the same amount of time.</p>
+
+<p><h3>Comparing programs.</h3> With the ability to predict performance, we can make design decisions during development that can guide us toward better, more efficient implementations. The order of growth is extremely useful in this process because it allows us to compare one particular algorithm with whole classes of algorithms. For example, once we have a linearithmic algorithm to solve a problem, we become less interested in quadratic or cubic algorithms to solve the same problem.</p>
+
+-->
+
+<!--
+<br>
+<hr>
+-->
+<!-- =============================================================== -->
+<!--
+<h2>Caveats</h2>
+
+<p>There are many reasons that you might get inconsistent or misleading results when trying to analyze program performance in detail.</p>
+
+<p><h3>Instruction time.</h3> The assumption that each instruction always takes the same amount of time is not always correct. For example, most modern computer systems use a technique known as <em>caching</em> to organize memory, in which case accessing elements in huge arrays can take much longer if they are not close together in the array. You may be able to observe the effect of caching for <a href="threesum.py.html">threesum.py</a> by letting <a href="doublingtest.py.html">doublingtest.py</a> run for a while. After seeming to converge to 8, the ratio of running times may jump to a larger value for large arrays because of caching.</p>
+
+<p><h3>Nondominant inner loop.</h3> The assumption that the inner loop dominates may not always be correct. The problem size <em>n</em> might not be sufficiently large to make the leading term in the mathematical description of the frequency of execution of instructions in the inner loop so much larger than lower-order terms that we can ignore them.</p>
+
+<p><h3>System considerations.</h3> Typically, there are many, many things going on in your computer. Python is just one application of many competing for resources. Whatever else is going on in your system (that is beyond your control) should in principle be negligible.</p>
+
+<p><h3>Strong dependence on input values.</h3> One of the first assumptions that we made to determine the order of growth of the program's running time of a program was that the running time should be relatively insensitive to the input values. When that is not the case, we may get inconsistent results or be unable to validate our hypotheses. Our running example <a href="threesum.py.html">threesum.py</a> does not have this problem, but we will see several examples in this chapter of programs whose running time does depend on the input values.</p>
+
+<p><h3>Multiple problem parameters.</h3> We have been focusing on measuring performance as a function of a single parameter <em>n</em>, generally the value of a command-line argument or the size of the input. However, it is not unusual to measure performance using two (or more) parameters. For example, suppose that <code>a[]</code> is an array of length <code>m</code> and <code>b[]</code> is an array of length <code>n</code>. Consider the following code fragment that counts the number of pairs <code>i</code> and <code>j</code> for which <code>a[i] + b[j]</code> equals 0:</p>
+
+<blockquote><table><tr><td><pre>
+for i in range(m):
+    for j in range(n):
+        if a[i] + b[j] == 0:
+            count += 1
+</pre></td></tr></table></blockquote>
+            
+<p>In such cases, we treat the parameters <code>m</code> and <code>n</code> separately, holding one fixed while analyzing the other. For example, the order of growth of the running time of this code fragment is <em>mn</em>.</p>
+
+<p>Despite all these caveats, understanding the order of growth of the running time of each program is valuable knowledge for any programmer, and the techniques that we have described are powerful and broadly applicable.</p>
+-->
+
+<!--
+<br>
+<hr>
+-->
+
+<!-- =============================================================== -->
+
+<!--
+<h2>Performance Guarantees</h2>
+
+<p>For some programs, we demand that the running time of a program is less than a certain bound for any input of a given size. To provide such performance guarantees, theoreticians take an extremely pessimistic view: what would the running time be in the worst case?</p>
+
+<p>Performance guarantees are difficult to verify with the scientific method, because we cannot test a hypothesis such as <em>mergesort is guaranteed to be linearithmic</em> without trying all possible inputs, which we cannot do because there are far too many of them. We might falsify such a hypothesis by providing inputs for which mergesort is slow, but how can we prove it to be true? We must do so not with experimentation, but rather with mathematical models.</p>
+
+<p>Ideally, we want algorithms that lead to clear and compact code that provides both a good worst-case guarantee and good performance on inputs of interest. Many of the classic algorithms that we consider in this chapter are of importance for a broad variety of applications precisely because they have all of these properties.</p>
+-->
+
+<br>
+<hr>
+<!-- =============================================================== -->
+
+<h2>Python Lists and Arrays</h2>
+
+<!--
+<img src="images/ListOperations.png" align="right" hspace="25" alt="Examples of list operations">
+-->
+
+<p>Python's built-in <code>list</code> data type represents a mutable sequence of objects. We have been using Python lists throughout the book &mdash; recall that we use Python lists as arrays because they support the four core array operations: creation, indexed access, indexed assignment, and iteration. However, Python lists are more general than arrays because you can also insert items into and delete items from Python lists. Even though Python programmers typically do not distinguish between lists and arrays, many other programmers do make such a distinction. For example, in many programming languages, arrays are of fixed length and do not support insertions or deletions. Indeed, all of the array-processing code that we have considered in this book so far could have been done using fixed-length arrays.</p>
+
+<p>The table below gives the most commonly used operations for Python lists.</p>
+
+<blockquote>
+<img src="images/ListApi.png" alt="List API">
+</blockquote>
+
+<p>We have deferred this API to this section because programmers who use Python lists without paying attention to the cost are in for trouble. For example, consider these two code snippets:</p>
+
+<blockquote><table><tr><td><pre>
+# quadratic time            # linear time
+a = []                      a = []
+for i in range(n):          for i in range(n):
+    a.insert(0, 'slow')         a.insert(i, 'fast')
+</pre></td></tr></table></blockquote>
+    
+<p>The one on the left takes quadratic time; the one on the right takes linear time. To understand why Python list operations have the performance characteristics that they do, you need to learn more about Python's resizing array representation of lists, which we discuss next.</p>
+
+<p><h3>Resizing arrays.</h3> A resizing array is a data structure that stores a sequence of items (not necessarily fixed in length), which can be accessed by indexing. To implement a resizing array (at the machine level), Python uses a fixed-length array (allocated as one contiguous block of memory) to store the item references. The array is divided into two logical parts: the first part of the array contains the items in the sequence; the second part of the array is unused and reserved for subsequent insertions. Thus, we can append or remove items from the end in constant time, using the reserved space. We use the term <em>size</em> to refer to the number of items in the data structure and the term <em>capacity</em> to refer to the length of the underlying array.</p>
+
+<p>The main challenge is ensuring that the data structure has sufficient capacity to hold all of the items, but is not so large as to waste an excessive amount of memory. Achieving these two goals turns out to be remarkably easy.</p>
+
+<p>First, if we want to append an item to the end of a resizing array, we check its capacity. If there is room, we simply insert the new item at the end. If not, we <em>double</em> its capacity by creating a new array of twice the length and copying the items from the old array into the new array.</p>
+
+<blockquote>
+<img src="images/ResizingArray.png" alt="Resizing array data struture to represent a Python list">
+</blockquote>
+
+<p>Similarly, if we want to remove an item from the end of the resizing array, we check its capacity. If it is excessively large, we <em>halve</em> its capacity by creating a new array of half the length and copying the items from the old array into the new array. An appropriate test is to check whether the size of the resizing array is less than one-fourth of its capacity. That way, after the capacity is halved, the resizing array is about half full and can accommodate a substantial number of insertions before we have to change its capacity again.</p>
+
+<p>The doubling-and-halving strategy guarantees that the resizing array remains between 25% and 100% full, so that space is linear in the number of items. The specific strategy is not sacrosanct. For example, typical Python implementations expand the capacity by a factor of 9/8 (instead of 2) when the resizing array is full. This wastes less space (but triggers more expansion and shrinking operations).</p>
+
+<p><h3>Amortized analysis.</h3> We can prove that the cost of doubling and halving is always absorbed (to within a constant factor) in the cost of other Python list operations.</p>
+
+<p>Starting from an empty Python list, any sequence of <em>n</em> operations labeled as "constant time" in the list API table shown above takes time linear in <em>n</em>. In other words, the total cost of any such sequence of Python list operations divided by the number of operations is bounded by a constant. This kind of analysis is known as <em>amortized analysis</em>. This guarantee is not as strong as saying that each operation is constant-time, but it has the same implications in many applications (for example, when our primary interest is in total running time).</p>
+
+<p>For the special case where we perform a sequence of <em>n</em> insertions into an empty resizing array, the idea is simple: each insertion takes constant time to add the item; each insertion that triggers a resizing (when the current size is a power of 2) takes additional time proportional to <em>n</em> to copy the elements from the old array of length <em>n</em> to a new array of length 2<em>n</em>. Thus, assuming <em>n</em> is a power of 2 for simplicity, the total cost is proportional to</p>
+
+<blockquote><table><tr><td>
+(1 + 1 + 1 + ... + 1) + (1 + 2 + 4 + 8 + ... + <em>n</em>) ~ 3<em>n</em>
+</td></tr></table></blockquote>
+
+<p>The first term (which sums to <em>n</em>) accounts for the <em>n</em> insertion operations; the second term (which sums to 2<em>n</em> - 1) accounts for the lg <em>n</em> resizing operations.</p>
+
+<p>Understanding resizing arrays is important in Python programming. For example, it explains why creating a Python list of <em>n</em> items by repeatedly appending items to the end takes time proportional to <em>n</em> (and why creating a list of <em>n</em> items by repeatedly prepending items to the front takes time proportional to <em>n</em><sup>2</sup>).</p>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+
+<h2>Strings</h2>
+
+<p>Python's string data type has some similarity to Python lists, with one very important exception: <em>strings are immutable</em>. For example, you might think that you could capitalize a string s having the value <code>'hello'</code> with <code>s[0] = 'H'</code>, but that will result in this run-time error:</p>
+
+<blockquote><table><tr><td><pre>
+TypeError: 'str' object does not support item assignment
+</pre></td></tr></table></blockquote>
+
+<p>If you want <code>'Hello'</code>, you need to create a completely new string. This difference reinforces the idea of immutability and has significant implications with regard to performance, which we now examine.</p>
+
+<p><h3>Internal representation.</h3> 
+
+<img src="images/String.png" align="right" hspace="25" alt="A Python string">
+
+First, Python uses a much simpler internal right for strings than for lists/arrays, as detailed in the diagram at right. Specifically, a string object contains two pieces of information:</p>
+
+<ul>
+<li>A reference to a place in memory where the characters in the string are stored contiguously</li>
+
+<li>The length of the string</li>
+</ul>
+
+<img src="images/ArrayOfStrings.png" align="left" hspace="25" alt="An array of one-character strings">
+
+<p>By contrast, consider the diagram at left, which is an array of one-character strings. We will consider a more detailed analysis later in this section, but you can see that the string representation is certainly significantly simpler. It uses much less space per character and provides faster access to each character. In many applications, these characteristics are very important because strings can be very long. So, it is important both that the memory usage be not much more than is required for the characters themselves and that characters can be quickly accessed by their index, as in an array.</p> 
+
+<p><h3>Performance.</h3> 
+
+<img src="images/StringConcatenate.png" align="right" hspace="25" alt="String concatenation">
+
+As for arrays, indexed access and computing the length of strings are constant-time operations. It is clear from the API at the beginning of Section 3.1 that most other operations take linear time as a function of the length of the input string or strings, because they refer to a <em>copy</em> of the string. In particular, <em>concatenating a character to a string takes linear time</em> and <em>concatenating two strings takes time proportional to the length of the result</em>. An example is shown at right. With respect to performance, this is the most significant difference between strings and lists/arrays: Python does not have resizable strings, because strings are immutable.</p> 
+
+<p><h3>Example.</h3> Not understanding the performance of string concatenation often leads to performance bugs. The most common performance bug is building up a long string one character at a time. For example, consider the following code fragment to create a new string whose characters are in reverse order of the characters in a string <code>s</code>:</p>
+
+<blockquote><table><tr><td><pre>
+n = len(s)
+reverse = ''
+for i in range(n):
+    reverse = s[i] + reverse
+</pre></td></tr></table></blockquote>
+    
+<p>During iteration <em>i</em> of the <code>for</code> loop, the string concatenation operator produces a string of length <em>i</em>+1. Thus, the overall running time is proportional to 1 + 2 + ... + <em>n</em> ~ <em>n</em><sup>2</sup> / 2. That is, the code fragment takes <em>quadratic</em> time as a function of the string length <em>n</em></p>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+
+<h2>Memory</h2>
+
+<p>As with running time, a program's memory usage connects directly to the physical world: a substantial amount of your computer's circuitry enables your program to store values and later retrieve them. The more values you need to store at any given instant, the more circuitry you need. To pay attention to the cost, you need to be aware of memory usage.</p>
+
+<p>Python does not define the sizes of the built-in data types that we have been using (<code>int</code>, <code>float</code>, <code>bool</code>, <code>str</code>, and <code>list</code>); the sizes of objects of those types differ from system to system. Accordingly, the sizes of data types that you create also will differ from system to system because they are based on these built-in data types. The function call <code>sys.getsizeof(x)</code> returns the number of bytes that a built-in object <code>x</code> consumes on your system. The numbers that we give in this section are observations gathered by using this function in interactive Python on one typical system.</p>
+
+<p><h3>Integers.</h3> To represent an <code>int</code> object whose value is in the range (-2<sup>63</sup> to 2<sup>63</sup>-1), Python uses 16 bytes for overhead and 8 bytes (that is, 64 bits) for the numeric value. Python switches to a different internal representation for integers outside this range, which consumes memory proportional to the number of digits in the integer, as in the case with strings (see below).</p>
+
+<p><h3>Floats.</h3> To represent a <code>float</code> object, Python uses 16 bytes for overhead and 8 bytes for the numeric value (that is, the mantissa, exponent, and sign), no matter what value the object has. So a float object always consumes 24 bytes.</p>
+
+<p><h3>Booleans.</h3> In principle, Python could represent a boolean value using a single bit of computer memory. In practice, Python represents boolean values as integers. Specifically, Python uses 24 bytes to represent the <code>bool</code> object <code>True</code> and 24 bytes to represent the <code>bool</code> object <code>False</code>. That is a factor of 192 higher than the minimum amount needed! However, this wastefulness is partially mitigated because Python "caches" the two boolean objects.</p>
+
+<p><h3>Caching.</h3> To save memory, Python creates only one copy of objects with certain values. For example, Python creates only one <code>bool</code> object with value true and only one with value false. That is, every boolean variables holds a reference to one of these two objects. This caching technique is possible because the <code>bool</code> data type is immutable. On typical systems, Python also caches small <code>int</code> values (between -5 and 256), as they are the ones that programmers use most often. Python does not typically cache <code>float</code> objects.</p>
+
+<p><h3>Strings.</h3> To represent a <code>str</code> object, Python uses 40 bytes for overhead (including the string length), plus one byte for each character of the string. So, for example, Python represents the string <code>'abc'</code> using 40 + 3 = 43 bytes and represents the string <code>'abcdefghijklmnopqr'</code> using 40 + 18 = 58 bytes. Python typically caches only string literals and one-character strings.</p>
+
+<img src="images/SizeArray3.png" align="right" hspace="25" alt="Memory usage for [0.3, 0.6, 0.1]">
+
+<p><h3>Arrays (Python lists).</h3> To represent an array, Python uses 72 bytes for overhead (including the array length) plus 8 bytes for each object reference (one for each element in the array). So, for example, the Python representation of the array [0.3, 0.6, 0.1] uses 72 + 8*3 = 96 bytes. This does not include the memory for the objects that the array references, so the total memory consumption for the array [0.3, 0.6, 0.1] is 96 + 3*24 = 168 bytes. In general, the memory consumption for an array of <em>n</em> integers or floats is 72 + 32<em>n</em> bytes. This total is likely to be an underestimate, because the resizing array data structure that Python uses to implement arrays may consume an additional <em>n</em> bytes in reserved space.</p>
+
+<img src="images/SizeArray3by3.png" align="right" hspace="25" alt="Memory usage for a two-dimensional array">
+
+<p><h3>Two-dimensional arrays and arrays of objects.</h3> A two-dimensional array is an array of arrays, so we can calculate the memory consumption of a two-dimensional array with <em>m</em> rows and <em>n</em> columns from the information in the previous paragraph. Each row is an array that consumes 72 + 32<em>n</em> bytes, so the total is 72 (overhead) plus 8<em>m</em> (references to the rows) plus <em>m</em>(72 + 32<em>n</em>) (memory for the <em>m</em> rows) bytes, for a grand total of 72 + 80<em>m</em> + 32<em>mn</em> bytes. The same logic works for an array of any type of object: if an object uses <em>x</em> bytes, an array of <em>m</em> such objects consumes a total of 72 + <em>m</em>(<em>x</em>+8) bytes. Again, this is likely to be a slight underestimate because of the resizing array data structure Python uses to represent arrays. <em>Note</em>: Python's <code>sys.getsizeof(x)</code> is not much help in these calculations because it does not calculate the memory for the objects themselves &mdash; it returns 72 + 8<em>m</em> for any array of length <em>m</em> (or any two-dimensional array with <em>m</em> rows).</p>
+
+<img src="images/SizeCharge.png" align="right" hspace="25" alt="Memory usage for a Charge object">
+
+<p><h3>Objects.</h3> A key question for Python programming is the following: How much memory is required to represent a user-defined object? The answer to this question may surprise you, but is important to know: <em>hundreds of bytes, at least</em>. Specifically, Python uses 72 bytes of overhead <em>plus</em> 280 bytes for a dictionary that binds instance variables to objects (we will discuss dictionaries in Section 4.4) plus 24 bytes for a reference to each instance variable plus memory for the instance variables themselves. For example, to represent a <code>Charge</code> object, Python uses at least 72 + 280 = 352 bytes for overhead, 8 * 3 = 24 bytes to store the object references for the three instance variables, 24 bytes to store the <code>float</code> object referenced by the <code>_rx</code> instance variable, 24 bytes to store the <code>float</code> object referenced by the <code>_ry</code> instance variable, and 24 bytes to store the <code>float</code> object referenced by the <code>_q</code> instance variable, for a grand total of (at least) 448 bytes. The total might be even higher on your system, because some implementations consume even more overhead.</p>
+
+
+<p>It is important for every Python programmer to understand that each object of a user-defined type is likely to consume a large amount of memory. So, a Python program that defines a large number of objects of a user-defined type can use much more space (and time) than you might expect. Numerous object-oriented languages have come and gone since the concept was introduced decades ago, and many of them eventually embraced <em>lightweight</em> objects for user-defined types. Python offers two advanced features for this purpose &mdash; <em>named tuples</em> and <em>slots</em> &mdash; but we will not take advantage of such memory optimizations in this booksite.</p>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+<!-- =============================================================== -->
+
+<h4>Q &amp; A</h4>
+
+<p><strong>Q.</strong> The text notes that operations on very large integers can consume more than constant time. Can you be more precise?</p>
+
+<p><strong>A.</strong> Not really. The definition of "very large" is system dependent. For most practical purposes, you can consider operations applied to 32- or 64-bit integers to work in constant time. Modern applications in cryptography involve huge numbers with hundreds or thousands of digits.</p>
+
+<p><strong>Q.</strong> How do I find out how long it takes to add or multiply two floats on my computer?</p>
+
+<p><strong>A.</strong> Run some experiments! The program <a href="timeops.py.html">timeops.py</a> uses <code>Stopwatch</code>, as defined in <a href="../32class/stopwatch.py.html">stopwatch.py</a> from Section 3.2, to test the execution time of various arithmetic operations on integers and floats. This technique measures the actual elapsed time as would be observed on a wall clock. If your system is not running many other applications, it can produce accurate results. Python also includes the <code>timeit</code> module for measuring the running time of small code fragments.</p>
+
+<p><strong>Q.</strong> Is there any way to measure processor time instead of wall clock time?</p>
+
+<p><strong>A.</strong> On some systems, the function call <code>time.clock()</code> returns the current processor time as a float, expressed in seconds. When available, you should substitute <code>time.time()</code> with <code>time.clock()</code> for benchmarking Python programs.</p>
+
+<p><strong>Q.</strong> How much time do functions such as <code>math.sqrt()</code>, <code>math.log()</code>, and <code>math.sin()</code> take?</p>
+
+<p><strong>A.</strong> Run some experiments! Stopwatch, as defined in <a href="../32class/stopwatch.py.html">stopwatch.py</a> makes it easy to compose programs such as <a href="timeops.py.html">timeops.py</a> to answer questions of this sort for yourself. You will be able to use your computer much more effectively if you get in the habit of doing so. </p>
+
+<p><strong>Q.</strong> Why does allocating an array (Python list) of size <em>n</em> take time proportional to <em>n</em>?</p>
+
+<p><strong>A.</strong> Python initializes all array elements to whatever values the programmer specifies. That is, in Python there is no way to allocate memory for an array without also assigning an object reference to each element of the array. Assigning object references to each element of an array of size <em>n</em> takes time proportional to <em>n</em>.</p>
+
+<p><strong>Q.</strong> How do I find out how much memory is available for my Python programs?</p>
+
+<p><strong>A.</strong> Since Python will raise a <code>MemoryError</code> when it runs out of memory, it is not difficult to run some experiments. For example, use <a href="bigarray.py.html">bigarray.py</a>. Run it like this:</p> 
+
+<blockquote><table><tr><td><pre>
+% python bigarray.py 100000000
+finished
+</pre></td></tr></table></blockquote>
+
+<p>to show that you have room for 100 million integers. But if you type </p>
+
+<blockquote><table><tr><td><pre>
+% python bigarray.py 1000000000
+</pre></td></tr></table></blockquote>
+
+<p>Python will hang, crash, or raise a run-time error; you can conclude that you do not have room for an array of 1 billion integers.</p>
+
+<p><strong>Q.</strong> What does it mean when someone says that the worst-case running time of an algorithm is <em>O</em>(<em>n</em><sup>2</sup>)?</p>
+
+<p><strong>A.</strong> That is an example of a notation known as <em>big-O</em> notation. We write <em>f</em>(<em>n</em>) is <em>O</em>(<em>g</em>(<em>n</em>)) if there exist constants <em>c</em> and <em>n</em><sub>0</sub> such that <em>f</em>(<em>n</em>) &le; <em>c</em> <em>g</em>(<em>n</em>) for all <em>n</em> &gt; <em>n</em><sub>0</sub>. In other words, the function <em>f</em>(<em>n</em>) is bounded above by <em>g</em>(<em>n</em>), up to constant factors and for sufficiently large values of <em>n</em>. For example, the function 30<em>n</em><sup>2</sup> + 10<em>n</em> + 7  is <em>O</em>(<em>n</em><sup>2</sup>).We say that the worst-case running time of an algorithm is <em>O</em>(<em>g</em>(<em>n</em>)) if the running time as a function of the input size <em>n</em> is <em>O</em>(<em>g</em>(<em>n</em>)) for all possible inputs. This notation is widely used by theoretical computer scientists to prove theorems about algorithms, so you are sure to see it if you take a course in algorithms and data structures. It provides a worst-case performance guarantee.</p>
+
+<p><strong>Q.</strong> So can I use the fact that the worst-case running time of an algorithm is <em>O</em>(<em>n</em><sup>3</sup>) or <em>O</em>(<em>n</em><sup>2</sup>) to predict performance?</p>
+
+<p><strong>A.</strong> No, because the actual running time might be much less. For example, the function 30<em>n</em><sup>2</sup> + 10<em>n</em> + 7 is <em>O</em>(<em>n</em><sup>2</sup>), but it is also <em>O</em>(<em>n</em><sup>3</sup>) and <em>O</em>(<em>n</em><sup>10</sup>) because big-O notation provides only an upper bound on the worst-case running time. Moreover, even if there is some family of inputs for which the running time is proportional to the given function, perhaps these inputs are not encountered in practice. Consequently, you cannot use big-O notation to predict performance. The tilde notation and order-of-growth classifications that we use are more precise than big-O notation because they provide matching upper and lower bounds on the growth of the function. Many programmers incorrectly use big-O notation to indicate matching upper and lower bounds.</p>
+
+<p><strong>Q.</strong> How much memory does Python typically use to store a tuple of <em>n</em> items?</p>
+
+<p><strong>A.</strong> 56 + 8<em>n</em> bytes, plus whatever memory is needed for the objects themselves. This is a bit less than for arrays because Python can implement a tuple (at the machine level) using an array instead of a resizing array.</p>
+
+<p><strong>Q.</strong> Why does Python use so much memory (280 bytes) to store a dictionary that maps an object's instance variables to its values?</p>
+
+<p><strong>A.</strong> In principle, different objects from the same data type can have different instance variables. In this case, Python would need some way to manage an arbitrary number of possible instance variables for each object. But most Python code does not call for this (and, as a matter of style, we never need it in this booksite).</p>
+
+<!--
+<p><strong>Q</strong>. How much time do string methods take?</p>
+
+<p><strong>A</strong>. Run some experiments! (Have you gotten the message yet?) The standard implementation is written to allow the methods <code>__len__()</code> and <code>__getAt__()</code> to run in constant time. Methods such as <code>lower()</code> and <code>replace()</code> are linear in the string size. The methods <code>__lt__()</code>, and <code>startswith()</code> take time proportional to the number of characters needed to resolve the answer (constant in the best case and linear in the worst case), but <code>find()</code> can be slow. <code>__add__()</code> takes time proportional to the total number of characters in the result. <!-- TODO check this. -->
+
+
+<!-- =============================================================== -->
+<!-- =============================================================== -->
+
+<br>
+<hr>
+<h4>Exercises</h4>
+
+<ol>
+<!--
+<li>
+<p>Implement the method <code>printAll()</code> for <code>threesum.py</code>, which prints all of the triples that sum to zero.</p>
+
+<p><em>Solution</em>: See <a href="threesumprint.py.html">threesumprint.py</a>.</p>
+</li>
+-->
+
+<!-- =============================================================== -->
+
+<li>
+<p>Modify <a href="threesum.py.html">threesum.py</a> to take a command-line argument <code>x</code> and find a triple of numbers on standard input whose sum is closest to <code>x</code>.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Compose a program <code>foursum.py</code> that takes an integer <code>n</code> from standard input, then reads <code>n</code> integers from standard input, and counts the number of 4-tuples that sum to zero. Use a quadruple loop. What is the order of growth of the running time of your program? Estimate the largest <code>n</code> that your program can handle in an hour. Then, run your program to validate your hypothesis.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Prove that 1 + 2 + ... + <em>n</em> = <em>n</em>(<em>n</em>+1)/2.</p>
+
+<em>Solution</em>: We proved this by induction at the beginning of Section 2.3. Here is the basis for another proof:
+
+<blockquote><table><tr><td><pre>
+   1  +  2  + ... + n-1 +  n
++  n  + n-1 + ... +  2  +  1
+ ----------------------------
+  n+1 + n+1 + ... + n+1 + n+1
+</pre></td></tr></table></blockquote>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Prove by induction that the number of distinct triples of integers between 0 and <em>n</em>-1 is <em>n</em>(<em>n</em>-1)(<em>n</em>-2)/6.</p>
+
+<p><em>Solution</em>: The formula is correct for <em>n</em> = 2. For <em>n</em> &gt; 2, count all the triples that do not include <em>n</em>-1, which is (<em>n</em>-1)(<em>n</em>-2)(<em>n</em>-3)/6 by the inductive hypothesis, and all the triples that do include <em>n</em>-1, which is (<em>n</em>-1)(<em>n</em>-2)/2, to get the total</p>
+
+<blockquote><table><tr><td>
+(<em>n</em>-1)(<em>n</em>-2)(<em>n</em>-3)/6 + (<em>n</em>-1)(<em>n</em>-2)/2 = <em>n</em>(<em>n</em>-1)(<em>n</em>-2)/6
+</td></tr></table></blockquote>
+
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Show by approximating with integrals that the number of distinct triples of integers between 0 and <em>n</em>-1 is about <em>n</em><sup>3</sup>/6.</p>
+
+<img src="images/Integrals.png" alt="Integrals">
+
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>What is the value of <code>x</code> (as a function of <em>n</em>) after running the following code fragment?
+</p>
+
+<blockquote><table><tr><td><pre>
+x = 0
+for i in range(n):
+    for j in range(i+1, n):
+        for k in range(j+1, n):
+            x += 1
+</pre></td></tr></table></blockquote>
+
+<p><em>Solution</em>: <em>n</em>(<em>n</em>-1)(<em>n</em>-2)/6.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Use tilde notation to simplify each of the following formulas, and give the order of growth of each:</p>
+
+<ul type="a">
+<li><em>n</em>(<em>n</em> - 1)(<em>n</em> - 2)(<em>n</em> - 3) / 24</li>
+<li>(<em>n</em> - 2) (lg <em>n</em> - 2) (lg <em>n</em> + 2)</li>
+<li><em>n</em>(<em>n</em> + 1) - <em>n</em><sup>2</sup></li>
+<li><em>n</em>(<em>n</em> + 1)/2 + <em>n</em> lg <em>n</em></li>
+<li>ln((<em>n</em> - 1)(<em>n</em> - 2) (<em>n</em> - 3))<sup>2</sup></li>
+</ul>
+</li>
+
+<!-- =============================================================== -->
+
+<!--
+Determine the order of growth of the running time of the input loop of
+ThreeSum:
+
+int N = Integer.parseInt(args[0]);
+int[] a = new int[N];
+for (int i = 0; i < N; i++)
+a[i] = StdIn.readInt();
+
+Answer : Linear. The bottlenecks are the array initialization and the input loop. Depending
+on your system and the implementation, the readInt() statement might
+lead to inconsistent timings for small values of N. The cost of an input loop like
+this might dominate in a linearithmic or even a quadratic program with N that is
+not too large.
+-->
+
+<!-- =============================================================== -->
+
+<li>
+<p>Is the following code fragment linear, quadratic, or cubic (as a function of <em>n</em>)?</p>
+
+<blockquote><table><tr><td><pre>
+for i in range(n):
+    for j in range(n):
+        if i == j:
+            c[i][j] = 1.0
+        else:
+            c[i][j] = 0.0
+</pre></td></tr></table></blockquote>
+
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Suppose the running time of an algorithm on inputs of size 1000, 2000, 3000, and 4000 is 5 seconds, 20 seconds, 45 seconds, and 80 seconds, respectively. Estimate how long it will take to solve a problem of size 5000. Is the algorithm linear, linearithmic, quadratic, cubic, or exponential?</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Which would you prefer: a quadratic, linearithmic, or linear algorithm?</p>
+
+<p><em>Solution</em>: While it is tempting to make a quick decision based on the order of growth, it is very easy to be misled by doing so. You need to have some idea of the problem size and of the relative value of the leading coefficients of the running time. For example, suppose that the running times are <em>n</em><sup>2</sup> seconds, 100 <em>n</em> log<sub>2</sub> <em>n</em> seconds, and 10,000 <em>n</em> seconds. The quadratic algorithm will be fastest for <em>n</em> up to about 1000, and the linear algorithm will never be faster than the linearithmic one (<em>n</em> would have to be greater than 2<sup>100</sup>, far too large to bother considering).</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Apply the scientific method to develop and validate a hypothesis about order of growth of the running time of the following code fragment, as a function of the input argument <code>n</code>.<p>
+
+<blockquote><table><tr><td><pre>
+def f(n):
+    if (n == 0):
+        return 1
+    return f(n-1) + f(n-1)
+</pre></td></tr></table></blockquote>
+
+</li>
+
+<!-- =============================================================== -->
+
+<!--
+<li
+><p>Apply the scientific method to develop and validate a hypothesis about order of growth of the running time of the <code>collect()</code> method in <a href="../21function/coupon.py.html">coupon.py</a> (from Section 2.1), as a function of the input argument <code>N</code>. <em>Note</em>: Doubling is not effective for distinguishing between the linear and linearithmic hypotheses -- you might try <em>squaring</em> the size of the input.</p>
+</li>
+-->
+
+<!-- =============================================================== -->
+
+<!--
+<li>
+<p>Apply the scientific method to develop and validate a hypothesis about order of growth of the running time of <a href="../16pagerank/markov.py.html">markov.py</a> (from Section 1.6), as a function of the input parameters <code>t</code> and <code>n</code>.</p>
+</li>
+-->
+
+<!-- =============================================================== -->
+
+<li>
+<p>Apply the scientific method to develop and validate a hypothesis about order of growth of the running time of each of the following two code fragments as a function of <code>n</code>.</p>
+
+<blockquote><table><tr><td><pre>
+s = ''
+for i in range(n):
+    if stdrandom.bernoulli(0.5):
+        s += '0'
+    else:
+        s += '1'
+</pre></td></tr></table></blockquote>
+
+<blockquote><table><tr><td><pre>
+s = ''
+for i in range(n):
+    oldS = s
+    if stdrandom.bernoulli(0.5):
+        s += '0'
+    else:
+        s += '1'
+</pre></td></tr></table></blockquote>
+
+<p><em>Solution</em>: On many systems, the first is linear; the second is quadratic. You have no way of knowing why: In the first case, Python detects that <em>s</em> is the only variable that refers to the string, so it appends each character to the string as it would with a list (in amortized constant time) even though the string is immutable! A safer alternative is to create a list containing the characters and concatenate them together with by calling the <code>join()</code> method.</p>
+
+<blockquote><table><tr><td><pre>
+a = []
+for i in range(n):
+    if stdrandom.bernoulli(0.5):
+        a += ['0']
+    else:
+        a += ['1']
+s = ''.join(a)
+</pre></td></tr></table></blockquote>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Each of the four Python functions below returns a string of length <code>n</code> whose characters are all <code>x</code>. Determine the order of growth of the running time of each function. Recall that concatenating two strings in Python takes time proportional to the sum of their lengths.</p>
+
+<blockquote><table><tr><td><pre>
+def f1(n):
+    if (n == 0):
+        return ''
+    temp = f1(n // 2)
+    if (n % 2 == 0):
+        return temp + temp
+    else:
+        return temp + temp + 'x'
+</pre></td></tr></table></blockquote>
+
+<blockquote><table><tr><td><pre>
+def f2(n):
+    s = ''
+    for i in range(n):
+        s += 'x'
+    return s
+</pre></td></tr></table></blockquote>
+
+<blockquote><table><tr><td><pre>
+def f3(n):
+    if (n == 0):
+        return ''
+    if (n == 1):
+        return 'x'
+    return f3(n//2) + f3(n - n//2)
+</pre></td></tr></table></blockquote>
+
+<blockquote><table><tr><td><pre>
+def f4(n):
+    temp = stdarray.create1D(n, 'x')
+    return ''.join(temp)
+</pre></td></tr></table></blockquote>
+
+<blockquote><table><tr><td><pre>
+def f5(n):
+    return 'x' * n
+</pre></td></tr></table></blockquote>
+    
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>The following code fragment (adapted from a Java programming book) creates a random permutation of the integers from 0 to <em>n</em>-1. Determine the order of growth of its running time as a function of <em>n</em>. Compare its order of growth with the shuffling code in Section 1.4.</p>
+
+<blockquote><table><tr><td><pre>
+a = stdarray.create1D(n, 0)
+taken = stdarray.create1D(n, False)
+count = 0
+while (count &lt; n):
+    r = stdrandom.uniformInt(n)
+    if not taken[r]:
+        a[r] = count
+        taken[r] = True
+        count += 1
+</pre></td></tr></table></blockquote>
+
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>How many times does the following code fragment execute the first <code>if</code> statement in the triply nested loop?</p>
+
+<blockquote><table><tr><td><pre>
+for i in range(n):
+    for j in range(n):
+        for k in range(n):
+            if (i &lt; j) and (j &lt; k):
+                if a[i] + a[j] + a[k] == 0:
+                    count += 1
+</pre></td></tr></table></blockquote>
+                    
+<p>Use tilde notation to simply your answer.</p>
+
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Apply the scientific method to develop and validate a hypothesis about order of growth of the running time of the <code>collect()</code> method in <a href="../21function/coupon.py.html">coupon.py</a> (from Section 2.1), as a function of the argument <code>n</code>. <em>Note</em>: Doubling is not effective for distinguishing between the linear and linearithmic hypotheses &mdash; you might try squaring the size of the input.</p> 
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Apply the scientific method to develop and validate a hypothesis about order of growth of the running time of <a href="../16pagerank/markov.py.html">markov.py</a> (from Section 1.6), as a function of the arguments <code>moves</code> and <code>n</code>.</p> 
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Compose a program <code>mooreslaw.py</code> that takes a command-line argument <em>n</em> and writes the increase in processor speed over a decade if processor speed doubles every <em>n</em> months. How much will processor speed increase over the next decade if speeds double every <em>n</em> = 15 months? 24 months? </p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Using the memory model from the text, give the memory requirements for each object of the following data types from Chapter 3:</p>
+
+<ul type="a">
+<li><code>Stopwatch</code></li>
+<li><code>Turtle</code></li>
+<li><code>Vector</code></li>
+<li><code>Body</code></li>
+<li><code>Universe</code></li>
+</ul>
+
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Estimate, as a function of the grid size <em>n</em>, the amount of space used by <a href="../24percolation/visualizev.py.html">visualizev.py</a> (from Section 2.4) with the vertical percolation detection. <em>Extra credit</em>: Answer the same question for the case where the recursive percolation detection method in <a href="../24percolation/percolation.py.html">percolation.py</a> is used.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Estimate the size of the largest <em>n</em>-by-<em>n</em> array of integers that your computer can hold, and then try to allocate such an array.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>Estimate, as a function of the number of documents <em>n</em> and the dimension <em>d</em>, the amount of space used by <a href="../33design/comparedocuments.py.html">comparedocuments.py</a> (from Section 3.3).</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li><p>Compose a version of <a href="../14array/primesieve.py.html">primesieve.py</a> (from Section 1.4) that uses an array of integers instead of an array of booleans and uses 32 bits in each integer, to raise the largest value of <em>n</em> that it can handle by a factor of 32.</p></li>
+
+<!-- =============================================================== -->
+
+<li>
+<p>The following table gives running times for various programs for various values of <em>n</em>. Fill in the blanks with estimates that you think are reasonable on the basis of the information given.</p>
+
+<blockquote>
+<table>
+
+<tr align="left">
+<th>program</th>
+<th>1,000</th>
+<th>10,000</th>
+<th>100,000</th>
+<th>1,000,000</th>
+</tr>
+
+<tr bgcolor="#EBEBEB" align="left">
+<td>A</td>
+<td>0.001 seconds</td>
+<td>0.012 seconds</td>
+<td>0.16 seconds</td>
+<td>? seconds</td>
+</tr>
+
+<tr bgcolor="#EBEBEB" align="left">
+<td>B</td>
+<td>1 minute</td>
+<td>10 minutes</td>
+<td>1.7 hours</td>
+<td>? hours</td>
+</tr>
+
+<tr bgcolor="#EBEBEB" align="left">
+<td>C</td>
+<td>1 second</td>
+<td>1.7 minutes</td>
+<td>2.8 hours</td>
+<td>? days</td>
+</tr>
+</table>
+</blockquote>
+
+<p>Give hypotheses for the order of growth of the running time of each program.</p>
+
+</li>
+
+</ol>
+
+<br>
+<hr>
+<!-- =============================================================== -->
+<!-- =============================================================== -->
+
+<h4>Creative Exercises</h4>
+
+<ol>
+
+<li>
+<p><strong>Three-sum analysis</strong>. Calculate the probability that no triple among <em>n</em> random 32-bit integers sums to 0, and give an approximate estimate for <em>n</em> equal to 1000, 2000, and 4000. <em>Extra credit</em>: Give an approximate formula for the expected number of such triples (as a function of <em>n</em>), and run experiments to validate your estimate.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p><strong>Closest pair</strong>. Design a quadratic algorithm that finds the pair of integers that are closest to each other. (In the next section you will be asked to find a linearithmic algorithm.)</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p><strong>Power law</strong>. Show that a log-log plot of the function <em>cn<sup>b</sup></em> has slope <em>b</em> and <em>x</em>-intercept log <em>c</em>. What are the slope and <em>x</em>-intercept for 4 <em>n</em><sup>3</sup>(log <em>n</em>)<sup>2</sup>?</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p><strong>Sum furthest from zero</strong>. Design an algorithm that finds the pair of integers whose sum is furthest from zero. Can you discover a linear algorithm?</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p><strong>The "beck" exploit</strong>. A popular web server supports a function called <code>no2slash()</code> whose purpose is to collapse multiple <code>/</code> characters. For example, the string <code>/d1///d2////d3/test.html</code> becomes <code>/d1/d2/d3/test.html</code>. The original algorithm was to repeatedly search for a <code>/</code> and copy the remainder of the string:</p>
+
+<blockquote><table><tr><td><pre>
+def no2slash(name):
+    nameList = list(name)
+    x = 1
+    while x &lt; len(nameList):
+        if (nameList[x-1] == '/') and (nameList[x] == '/'):
+            for y in range(x+1, len(nameList)):
+                nameList[y-1] = nameList[y]
+            nameList = nameList[:-1]
+        else:
+            x += 1
+    return ''.join(nameList)
+</pre></td></tr></table></blockquote>
+
+<p>Unfortunately, the running time of this code is quadratic in the number of <code>/</code> characters in the input. By sending multiple simultaneous requests with large numbers of <code>/</code> characters, a hacker can deluge a server and starve other processes for CPU time, thereby creating a denial-of-service attack. Develop a version of <code>no2slash()</code> that runs in linear time and does not allow for the this type of attack.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p><strong>Young tableaux</strong>. Suppose you have in memory an <em>n</em>-by-<em>n</em> grid of integers <code>a[][]</code> such that <code>a[i][j] &lt; a[i+1][j]</code> and <code>a[i][j] &lt; a[i][j+1]</code> for all <code>i</code> and <code>j</code>, like the table below.</p>
+
+<blockquote><table><tr><td><pre>
+ 5 23 54 67 89
+ 6 69 73 74 90
+10 71 83 84 91
+60 73 84 86 92
+90 91 92 93 94
+</pre></td></tr></table></blockquote>
+
+<p>Devise an algorithm whose order of growth is linear in <em>n</em> to determine whether a given integer <em>x</em> is in a given Young tableaux.</p>
+
+<p><em>Solution</em>: Start at the upper-right corner. If the value is <em>x</em>, return <code>True</code>. Otherwise, go left if the value is greater than <em>x</em> and go down if the value is less than <em>x</em>. If you reach bottom left corner, then <em>x</em> is not in table. The algorithm is linear because you can go left at most <em>n</em> times and down at most <em>n</em> times.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p><strong>Subset sum</strong>. Compose a program <code>anysum.py</code> that takes an integer <em>n</em> from standard input, then reads <em>n</em> integers from standard input, and counts the number of subsets that sum to 0. Give the order of growth of the running time of your program.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p><strong>Array rotation</strong>. Given an array of <em>n</em> elements, give a linear time algorithm to rotate the array <em>k</em> positions. That is, if the array contains <em>a</em><sub>0</sub>, <em>a</em><sub>1</sub>, ..., <em>a</em><sub>n-1</sub>, the rotated array is <em>a</em><sub>k</sub>, <em>a</em><sub>k+1</sub>, ..., <em>a</em><sub><em>n</em>-1</sub>, <em>a</em><sub>0</sub>, ..., <em>a</em><sub><em>k</em>-1</sub>. Use at most a constant amount of extra space (array indices and array values). <em>Hint</em>: Reverse three subarrays.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p><strong>Finding a duplicated integer</strong>. (a) Given an array of <em>n</em> integers from 1 to <em>n</em> with one value repeated twice and one missing, give an algorithm that finds the missing integer, in linear time and constant extra space. (b) Given a read-only array of <em>n</em> integers, where each value from 1 to <em>n</em>-1 occurs once and one occurs twice, give an algorithm that finds the duplicated value, in linear time and constant extra space. (c) Given a read-only array of <em>n</em> integers with values between 1 and <em>n</em>-1, give an algorithm that finds a duplicated value, in linear time and constant extra space.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p><strong>Factorial</strong>. Design a fast algorithm to compute <em>n</em>! for large values of <em>n</em>. Use your program to compute the longest run of consecutive 9s in 1000000!. Develop and validate a hypothesis for the order of growth of the running time of your algorithm.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p><strong>Maximum sum</strong>. Design a linear algorithm that finds a contiguous subsequence of at most <em>m</em> in a sequence of <em>n</em> integers that has the highest sum among all such subsequences. Implement your algorithm, and confirm that the order of growth of its running time is linear.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p><strong>Pattern matching</strong>. Given an <em>n</em>-by-<em>n</em> array of black (1) and white (0) pixels, design a linear algorithm that finds the largest square subarray that consists of entirely black pixels. As an example, the following 8-by-8 array contains a 3-by-3 subarray entirely of black pixels.</p>
+
+<blockquote><table><tr><td><pre>
+1 0 1 1 1 0 0 0
+0 0 0 1 0 1 0 0
+0 0 1 1 1 0 0 0
+0 0 1 1 1 0 1 0
+0 0 1 1 1 1 1 1
+0 1 0 1 1 1 1 0
+0 1 0 1 1 0 1 0
+0 0 0 1 1 1 1 0
+</pre></td></tr></table></blockquote>
+
+<p>Implement your algorithm and confirm that the order of growth of its running time is linear in the number of pixels. <em>Extra credit</em>: Design an algorithm to find the largest <em>rectangular</em> black subarray.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p><strong>Maximum average</strong>. Compose a program that finds a contiguous subarray of at most <em>m</em> elements in an array of <em>n</em> integers that has the highest average value among all such subarrays, by trying all subarrays. Use the scientific method to confirm that the order of growth of the running time of your program is <em>mn</em><sup>2</sup>. Next, compose a program that solves the problem by first computing <code>prefix[i] = a[0] + ... + a[i]</code> for each <code>i</code>, then computing the average in the interval from <code>a[i]</code> to <code>a[j]</code> with the expression <code>(prefix[j] - prefix[i]) / (j - i + 1)</code>. Use the scientific method to confirm that this method reduces the order of growth by a factor of <em>n</em>.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<li>
+<p><strong>Sub-exponential function</strong>. Find a function whose order-of-growth is slower than any polynomial function, but faster than any exponential function. <em>Extra credit</em>: Compose a program whose running time has that order of growth.</p>
+</li>
+
+<!-- =============================================================== -->
+
+<p><strong>Resizing arrays</strong>. For each of the following strategies, either show that each resizing array operation takes constant amortized time or find a sequence of <em>n</em> operations (starting from an empty data structure) that takes quadratic time.</p> 
+
+<ol type="a">
+<li>Double the capacity of the resizing array when it is full and halve the capacity when it is half full.</li>
+
+<li>Double the capacity of the resizing array when it is full and halve the capacity when it is one-third full.</li>
+
+<li>Increase the capacity of the resizing array by a factor of 9/8 when it is full and decrease it by a factor of 9/8 when it is 80% full.</li>
+<ol>
+
+</ol>
+
+</body>
+</html>
+
+   <br><br>
+   <p class = footer>
+   Copyright &copy; 2000&ndash;2015 by Robert Sedgewick, Kevin Wayne, and Robert Dondero.
+   All rights reserved.
+</div>
+
+
+
+
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+ 
